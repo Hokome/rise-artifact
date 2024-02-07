@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc5c0jjks14ut"]
+
+[ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
+[ext_resource type="Script" path="res://environment/grid.gd" id="2_wehwx"]
+[ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
+[ext_resource type="Script" path="res://player/player_resources.gd" id="4_tliik"]
+[ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
+[ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
+[ext_resource type="PackedScene" uid="uid://bvekent45pkng" path="res://cards/debug_card.tscn" id="7_km5o8"]
+[ext_resource type="PackedScene" uid="uid://dba7a6yowvp5y" path="res://cards/build_card.tscn" id="8_ufb3e"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_o5uc8")
+
+[node name="grid" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_wehwx")
+
+[node name="player_controller" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_kf0iy")
+
+[node name="player_resources" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_tliik")
+
+[node name="player_stats" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_i2tho")
+
+[node name="main_camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+
+[node name="canvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="main_control" type="Control" parent="canvas"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="hand" type="HBoxContainer" parent="canvas/main_control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_xi7ey")
+
+[node name="draw_pile" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_xi7ey")
+
+[node name="debug_card5" parent="draw_pile" instance=ExtResource("7_km5o8")]
+
+[node name="build_card" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+
+[node name="build_card2" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+
+[node name="build_card3" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+
+[node name="build_card4" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+
+[node name="discard_pile" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_xi7ey")
+
+[node name="delete_pile" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_xi7ey")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dba7a6yowvp5y"]
+
+[ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/card.tscn" id="1_atnlv"]
+[ext_resource type="Script" path="res://cards/build_card.gd" id="2_x7k48"]
+[ext_resource type="PackedScene" uid="uid://y8ac882pycf3" path="res://buildings/building.tscn" id="3_h0ve1"]
+
+[node name="build_card" instance=ExtResource("1_atnlv")]
+script = ExtResource("2_x7k48")
+building_scene = ExtResource("3_h0ve1")
+title = "Build"
+base_cost = 5
