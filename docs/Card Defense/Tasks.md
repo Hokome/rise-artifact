@@ -14,9 +14,9 @@
 
 ## Spawning enemies
 
-- [ ] Enemy path drawn with lines and easily configurable
-- [ ] When space is pressed, spawns an enemy
-- [ ] Enemy travels from beginning to end of the path
+- [x] Enemy path drawn with lines and easily configurable
+- [x] When space is pressed, spawns an enemy
+- [x] Enemy travels from beginning to end of the path
 
 ## Rounds
 

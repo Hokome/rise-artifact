@@ -1,18 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc5c0jjks14ut"]
+[gd_scene load_steps=13 format=3 uid="uid://bc5c0jjks14ut"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
+[ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
 [ext_resource type="Script" path="res://environment/grid.gd" id="2_wehwx"]
+[ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="3_4jgx4"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
 [ext_resource type="Script" path="res://player/player_resources.gd" id="4_tliik"]
+[ext_resource type="Script" path="res://environment/path.gd" id="4_y7vvv"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
 [ext_resource type="PackedScene" uid="uid://bvekent45pkng" path="res://cards/debug_card.tscn" id="7_km5o8"]
 [ext_resource type="PackedScene" uid="uid://dba7a6yowvp5y" path="res://cards/build_card.tscn" id="8_ufb3e"]
 
+[sub_resource type="Curve2D" id="Curve2D_sjmh2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, -256, 192, 0, 0, 0, 0, -256, 320, 0, 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 448)
+}
+point_count = 8
+
 [node name="game" type="Node2D"]
 script = ExtResource("1_o5uc8")
 
-[node name="grid" type="Node2D" parent="."]
+[node name="debug" type="Node2D" parent="."]
+script = ExtResource("2_gy0tc")
+enemy_scene = ExtResource("3_4jgx4")
+
+[node name="spawner" type="Node2D" parent="."]
+
+[node name="terrain" type="Node2D" parent="."]
+
+[node name="path" type="Path2D" parent="terrain"]
+unique_name_in_owner = true
+position = Vector2(0, -320)
+curve = SubResource("Curve2D_sjmh2")
+script = ExtResource("4_y7vvv")
+
+[node name="grid" type="Node2D" parent="terrain"]
 unique_name_in_owner = true
 script = ExtResource("2_wehwx")
 
@@ -56,6 +79,20 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("6_xi7ey")
+
+[node name="hand_background" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(600, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
