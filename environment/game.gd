@@ -1,14 +1,30 @@
 class_name Game extends Node2D
 
-signal PromptComplete
+var in_round := false
+var current_round := 0
 
-func _ready():
+signal round_started
+signal round_ended
+
+func _input(event):
+	if event is InputEventKey:
+		if !event.is_pressed():
+			return
+		
+		if event.keycode == KEY_SPACE and !in_round:
+			start_round()
+
+func start_round():
+	current_round += 1
 	for i in 5:
 		draw_pile().draw_card(self)
+	in_round = true
+	round_started.emit()
 
-func _process(_delta):
-	PromptComplete.emit()
-	pass
+func end_round():
+	in_round = false
+	print("round ended")
+	round_ended.emit()
 
 func hand() -> CardPile:
 	return %hand
@@ -28,3 +44,5 @@ func player_stats() -> PlayerStats:
 
 func grid() -> GameGrid:
 	return %grid
+func spawner() -> Spawner:
+	return %spawner

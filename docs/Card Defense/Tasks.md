@@ -20,11 +20,11 @@
 
 ## Rounds
 
-- [ ] Draws 5 cards at the beginning of the round
-- [ ] Spawns 10 enemies
-- [ ] Waits for enemies to get to the end of the path
-- [ ] If space is pressed again, an enemy dies
-- [ ] If all enemies die, round ends
+- [x] Draws 5 cards at the beginning of the round
+- [x] Spawns 10 enemies
+- [x] Waits for enemies to get to the end of the path
+- [x] If A is pressed, an enemy dies
+- [x] If all enemies die, round ends
 
 ## Building
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc5c0jjks14ut"]
+[gd_scene load_steps=14 format=3 uid="uid://bc5c0jjks14ut"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
 [ext_resource type="Script" path="res://environment/grid.gd" id="2_wehwx"]
-[ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="3_4jgx4"]
+[ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
+[ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="4_3jpdg"]
 [ext_resource type="Script" path="res://player/player_resources.gd" id="4_tliik"]
 [ext_resource type="Script" path="res://environment/path.gd" id="4_y7vvv"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
@@ -23,9 +24,13 @@ script = ExtResource("1_o5uc8")
 
 [node name="debug" type="Node2D" parent="."]
 script = ExtResource("2_gy0tc")
-enemy_scene = ExtResource("3_4jgx4")
 
 [node name="spawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_6ckml")
+enemy_scene = ExtResource("4_3jpdg")
+enemy_count = 10
+enemy_spacing = 0.4
 
 [node name="terrain" type="Node2D" parent="."]
 
@@ -118,3 +123,5 @@ script = ExtResource("6_xi7ey")
 unique_name_in_owner = true
 visible = false
 script = ExtResource("6_xi7ey")
+
+[connection signal="round_started" from="." to="spawner" method="_on_game_round_started"]
