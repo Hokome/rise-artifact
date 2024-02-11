@@ -1,35 +1,45 @@
-class_name GameGrid extends Node2D
+class_name GameGrid extends TileMap
 
-@export var color: Color = Color.WHITE
-@export var cell_size: float = 64
+const TERRAIN_SOURCE_ID: int = 0
+const TERRAIN_LAYER: int = 0
 
-@onready var half_cell: float = cell_size * 0.5
+@export var offset: Vector2i = Vector2i(10, 5)
+@export var size: Vector2i = Vector2i(15, 10)
 
-func snap(raw_position: Vector2) -> Vector2:
-	var xmod := fposmod(raw_position.x, cell_size)
-	var ymod := fposmod(raw_position.y, cell_size)
+var buildings = []
+
+func _ready():
+	buildings.resize(size.x)
+	for i in size.x:
+		var array = []
+		array.resize(size.y)
+		array.fill(null)
+		buildings[i] = array 
+
+func add_building(building: Building, pos: Vector2i):
+	building.reparent(self)
+	building.position = map_to_local(pos)
 	
-	if abs(xmod) > half_cell:
-		raw_position.x += cell_size - xmod
-	else:
-		raw_position.x -= xmod
+	set_building_at(building, pos)
 	
-	if abs(ymod) > half_cell:
-		raw_position.y += cell_size - ymod
-	else:
-		raw_position.y -= ymod
+func in_bounds(pos: Vector2i) -> bool:
+	pos += offset
+	if pos.x < 0 or pos.x >= size.x:
+		return false
+	if pos.y < 0 or pos.y >= size.y:
+		return false
+	return true
+
+func set_building_at(building: Building, pos: Vector2i):
+	if !in_bounds(pos):
+		return
 	
-	return raw_position
+	pos += offset
+	buildings[pos.x][pos.y] = building
 
-func global_to_grid(raw_position: Vector2) -> Vector2i:
-	var snapped_position = snap(raw_position) - position
-	return snapped_position / cell_size
-
-func grid_to_local(grid_position: Vector2i) -> Vector2:
-	return grid_position * cell_size
-
-#func _process(_delta):
-	#var camera : Camera2D = $"../editor_camera"
-	#position = snap(camera.position)
-	#scale = (get_viewport().size as Vector2) / camera.zoom
-	#scale.x = scale.y
+func get_building_at(pos: Vector2i) -> Building:
+	if !in_bounds(pos):
+		return null
+	
+	pos += offset
+	return buildings[pos.x][pos.y]

@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://y8ac882pycf3"]
 
 [ext_resource type="Script" path="res://buildings/building.gd" id="1_0e3iy"]
+[ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="2_egj2w"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ks1cm"]
-size = Vector2(64, 64)
-
-[node name="building" type="Node2D"]
+[node name="building" type="Node2D" groups=["buildings"]]
 script = ExtResource("1_0e3iy")
 
-[node name="sprite" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_ks1cm")
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("2_egj2w")

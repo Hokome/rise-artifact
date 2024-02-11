@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciwjmb3ggvlrh"]
+
+[ext_resource type="PackedScene" uid="uid://y8ac882pycf3" path="res://buildings/building.tscn" id="1_6lxc1"]
+[ext_resource type="Script" path="res://buildings/gun_turret.gd" id="2_rq6j6"]
+[ext_resource type="Texture2D" uid="uid://dyjqaub4w4i1m" path="res://buildings/gun.svg" id="3_8ye0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpmle"]
+radius = 400.0
+
+[node name="gun_turret" instance=ExtResource("1_6lxc1")]
+script = ExtResource("2_rq6j6")
+base_attack_cooldown = 0.4
+base_attack_damage = 30
+base_attack_range = 400.0
+
+[node name="gun" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_8ye0j")
+
+[node name="attack_cooldown" type="Timer" parent="." index="2"]
+one_shot = true
+
+[node name="range" type="Area2D" parent="." index="3"]
+
+[node name="circle" type="CollisionShape2D" parent="range" index="0"]
+shape = SubResource("CircleShape2D_vpmle")
+
+[connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="range" to="." method="_on_range_area_exited"]

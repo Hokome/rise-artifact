@@ -28,34 +28,35 @@
 
 ## Building
 
-- [ ] Preview of building when placing
-- [ ] Buildings positions are saved in the grid
-- [ ] Cannot build on other buildings
-- [ ] Building terrain info
-- [ ] Cannot build on the enemy path
+- [x] Preview of building when placing
+- [x] Buildings positions are saved in the grid
+- [x] Cannot build on other buildings
+- [x] Building terrain info
+- [x] Cannot build on the enemy path
 
 ## Gun turret
 
-- [ ] Enemies have health
-- [ ] When enemy health drops to zero, they die
-- [ ] Gun turret building with set range, damage and attack speed
-- [ ] Gun turret selects the first enemy in range and looks at it
-- [ ] Gun turret deals damage to the targeted enemies
+- [x] Enemies have health
+- [x] When enemy health drops to zero, they die
+- [x] Gun turret building with set range, damage and attack speed
+- [x] Gun turret selects the first enemy in range and looks at it
+- [x] Gun turret deals damage to the targeted enemies
+- [x] Damage feedback
 
 ## Win and lose
 
-- [ ] Player wins after 5 rounds
-- [ ] If enemy reaches the end, it damages the player
-- [ ] When player health reaches zero, they lose
-- [ ] Win and lose screen with restart
+- [x] Player wins after 5 rounds
+- [x] If enemy reaches the end, it damages the player
+- [x] When player health reaches zero, they lose
+- [x] Win and lose screen with restart
 
 ## Card fixes
 
-- [ ] Cards are pulled up if hovered
-- [ ] If player has more than 8 cards, the rightmost card is discarded
-- [ ] If player has no more cards in draw pile when drawing, shuffle discard pile into the draw pile
-- [ ] Cards consume energy when played
-- [ ] Cards can be played by clicking on them
+- [x] Cards are pulled up if hovered
+- [x] If player has more than 6 cards, the rightmost card is discarded
+- [x] If player has no more cards in draw pile when drawing, shuffle discard pile into the draw pile
+- [x] Cards consume energy when played
+- [x] Cards can be played by clicking on them
 
 ## Building UI
 

@@ -12,10 +12,13 @@ signal prompt_ended
 var control_state: ControlState
 
 var prompt_canceled: bool = false
-var selected_tile: Vector2i
+var selected_pos: Vector2i
+var previewed_building: Building
+var validate_placement: Callable
 
 func _process(_delta):
-	pass
+	if control_state == ControlState.Placing:
+		previewed_building.global_position = game.grid().map_to_local(game.grid().local_to_map(get_local_mouse_position()))
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -24,9 +27,11 @@ func _input(event):
 		if control_state == ControlState.Placing:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				var mouse_pos := get_global_mouse_position()
-				var grid: GameGrid = %grid
-				selected_tile = grid.global_to_grid(mouse_pos)
-				end_prompt(false)
+				var grid: TileMap = %grid
+				selected_pos = grid.local_to_map(mouse_pos)
+				
+				end_prompt(!validate_placement.call(grid, selected_pos))
+				
 			if event.button_index == MOUSE_BUTTON_RIGHT:
 				end_prompt(true)
 	
@@ -64,13 +69,17 @@ func try_play(card_id: int):
 	if control_state != ControlState.Default:
 		return
 	var hand := game.hand()
-	hand.try_play(game, card_id)
+	if hand.cards.size() <= card_id:
+		return
+	hand.try_play(game, hand.cards[card_id])
 
-func select_grid_position():
+func place_building(preview: Building, validate: Callable):
 	control_state = ControlState.Placing
+	previewed_building = preview
+	validate_placement = validate
 	
 	await prompt_ended
 	if prompt_canceled:
 		return null
 	
-	return selected_tile
+	return selected_pos

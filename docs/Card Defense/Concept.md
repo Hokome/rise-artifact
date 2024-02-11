@@ -12,4 +12,3 @@ The hand contains all the cards the player can use normally. Each round, the car
 
 ### Rounds
 
-At the beginning

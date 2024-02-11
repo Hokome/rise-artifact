@@ -1,60 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://8321hydj8qfj"]
+[gd_scene load_steps=5 format=3 uid="uid://8321hydj8qfj"]
 
 [ext_resource type="Script" path="res://cards/card.gd" id="1_qxmok"]
+[ext_resource type="Theme" uid="uid://cxecphm8c5rqq" path="res://ui/card_theme.tres" id="2_mdtna"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gun1o"]
 line_spacing = 0.0
-font_size = 24
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mepa"]
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
+font_size = 28
+font_color = Color(0, 0, 0, 1)
 
-[node name="card" type="Control"]
-custom_minimum_size = Vector2(200, 320)
+[node name="card" type="Control" groups=["cards"]]
+custom_minimum_size = Vector2(640, 340)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -952.0
-offset_bottom = -328.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -170.0
+offset_bottom = 170.0
+grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_qxmok")
+title = "default card"
 
-[node name="background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
+[node name="offset" type="Node2D" parent="."]
+position = Vector2(640, 170)
+
+[node name="background" type="ColorRect" parent="offset"]
+custom_minimum_size = Vector2(640, 340)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -170.0
+offset_bottom = 170.0
+grow_horizontal = 0
 grow_vertical = 2
 color = Color(0.858824, 0.909804, 0.972549, 1)
 
-[node name="card_margin" type="MarginContainer" parent="background"]
+[node name="card_margin" type="MarginContainer" parent="offset/background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="card_content" type="VBoxContainer" parent="background/card_margin"]
+[node name="main_container" type="VBoxContainer" parent="offset/background/card_margin"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="header_background" type="ColorRect" parent="background/card_margin/card_content"]
-custom_minimum_size = Vector2(0, 40)
+[node name="header_background" type="ColorRect" parent="offset/background/card_margin/main_container"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.423529, 0.623529, 0.847059, 1)
+mouse_filter = 1
+color = Color(0.662745, 0.788235, 0.933333, 1)
 
-[node name="header_content" type="HBoxContainer" parent="background/card_margin/card_content/header_background"]
+[node name="header_content" type="HBoxContainer" parent="offset/background/card_margin/main_container/header_background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,12 +76,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="cost_background" type="ColorRect" parent="background/card_margin/card_content/header_background/header_content"]
-custom_minimum_size = Vector2(50, 0)
+[node name="cost_background" type="ColorRect" parent="offset/background/card_margin/main_container/header_background/header_content"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+mouse_filter = 1
 color = Color(1, 0.929412, 0.690196, 1)
 
-[node name="cost" type="Label" parent="background/card_margin/card_content/header_background/header_content/cost_background"]
+[node name="cost" type="Label" parent="offset/background/card_margin/main_container/header_background/header_content/cost_background"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,28 +96,36 @@ label_settings = SubResource("LabelSettings_gun1o")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="title_container" type="CenterContainer" parent="background/card_margin/card_content/header_background/header_content"]
+[node name="title_container" type="CenterContainer" parent="offset/background/card_margin/main_container/header_background/header_content"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="title" type="Label" parent="background/card_margin/card_content/header_background/header_content/title_container"]
+[node name="title" type="Label" parent="offset/background/card_margin/main_container/header_background/header_content/title_container"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Placeholder"
 label_settings = SubResource("LabelSettings_3mepa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="illust_placeholder" type="ColorRect" parent="background/card_margin/card_content"]
-custom_minimum_size = Vector2(0, 120)
+[node name="card_content" type="HBoxContainer" parent="offset/background/card_margin/main_container"]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="illust_placeholder" type="ColorRect" parent="offset/background/card_margin/main_container/card_content"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
-[node name="description_background" type="ColorRect" parent="background/card_margin/card_content"]
+[node name="description_background" type="ColorRect" parent="offset/background/card_margin/main_container/card_content"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 color = Color(0.196078, 0.368627, 0.552941, 1)
 
-[node name="description_container" type="CenterContainer" parent="background/card_margin/card_content/description_background"]
+[node name="description_container" type="CenterContainer" parent="offset/background/card_margin/main_container/card_content/description_background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,10 +133,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="description" type="RichTextLabel" parent="background/card_margin/card_content/description_background/description_container"]
+[node name="description" type="RichTextLabel" parent="offset/background/card_margin/main_container/card_content/description_background/description_container"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_mdtna")
+bbcode_enabled = true
 text = "Long placeholder.
 Line placeholder."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[connection signal="mouse_entered" from="offset/background" to="." method="_on_background_mouse_entered"]
+[connection signal="mouse_exited" from="offset/background" to="." method="_on_background_mouse_exited"]

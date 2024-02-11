@@ -1,10 +1,20 @@
 class_name Game extends Node2D
 
+static var paused := false:
+	set(value):
+		paused = value
+		Engine.time_scale = 0 if paused else 1
+
 var in_round := false
 var current_round := 0
 
-signal round_started
-signal round_ended
+signal battle_started(game: Game)
+signal round_started(game: Game)
+signal round_ended(game: Game)
+
+func _ready():
+	paused = false
+	start_battle.call_deferred()
 
 func _input(event):
 	if event is InputEventKey:
@@ -14,17 +24,30 @@ func _input(event):
 		if event.keycode == KEY_SPACE and !in_round:
 			start_round()
 
-func start_round():
-	current_round += 1
-	for i in 5:
+func start_battle():
+	battle_started.emit(self)
+	for i in 4:
 		draw_pile().draw_card(self)
+
+func start_round():
 	in_round = true
-	round_started.emit()
+	round_started.emit(self)
 
 func end_round():
 	in_round = false
-	print("round ended")
-	round_ended.emit()
+	round_ended.emit(self)
+	
+	if current_round == 5:
+		win()
+	
+	current_round += 1
+	for i in 5:
+		draw_pile().draw_card(self)
+
+func win():
+	%win_lose_label.text = "You win!"
+	paused = true
+	$hud/main/pause_panel.visible = true
 
 func hand() -> CardPile:
 	return %hand
@@ -46,3 +69,11 @@ func grid() -> GameGrid:
 	return %grid
 func spawner() -> Spawner:
 	return %spawner
+
+func _on_player_resources_death():
+	%win_lose_label.text = "Game Joever"
+	paused = true
+	$hud/main/pause_panel.visible = true
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()

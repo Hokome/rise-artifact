@@ -7,7 +7,7 @@ class_name Spawner extends Node2D
 var enemy_list: Array[Enemy] = []
 var spawning := false
 
-func _on_game_round_started():
+func _on_game_round_started(game: Game):
 	spawning = true
 	
 	var timer: Timer = Timer.new()
@@ -17,7 +17,7 @@ func _on_game_round_started():
 	add_child(timer)
 	
 	for i in enemy_count:
-		add_enemy(enemy_scene.instantiate())
+		add_enemy(game, enemy_scene.instantiate())
 		
 		if enemy_count > i + 1:
 			timer.start()
@@ -26,10 +26,11 @@ func _on_game_round_started():
 	spawning = false
 	timer.queue_free()
 
-func add_enemy(enemy: Enemy):
+func add_enemy(game: Game, enemy: Enemy):
 	%path.add_child(enemy)
 	enemy_list.append(enemy)
 	enemy.death.connect(remove_enemy)
+	enemy.reached_end.connect(game.player_resources().damage)
 
 func remove_enemy(enemy):
 	enemy_list.erase(enemy)

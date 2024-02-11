@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc5c0jjks14ut"]
+[gd_scene load_steps=19 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
@@ -9,18 +9,31 @@
 [ext_resource type="Script" path="res://player/player_resources.gd" id="4_tliik"]
 [ext_resource type="Script" path="res://environment/path.gd" id="4_y7vvv"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
+[ext_resource type="TileSet" uid="uid://db0qb8om6hhbu" path="res://environment/tile_set.tres" id="5_u72bt"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
-[ext_resource type="PackedScene" uid="uid://bvekent45pkng" path="res://cards/debug_card.tscn" id="7_km5o8"]
 [ext_resource type="PackedScene" uid="uid://dba7a6yowvp5y" path="res://cards/build_card.tscn" id="8_ufb3e"]
+[ext_resource type="LabelSettings" uid="uid://bxwo1meefoi2q" path="res://ui/player_resources.tres" id="10_ep3kf"]
+[ext_resource type="Script" path="res://player/draw_pile.gd" id="12_vj0g1"]
+[ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
 
-[sub_resource type="Curve2D" id="Curve2D_sjmh2"]
+[sub_resource type="Curve2D" id="Curve2D_dcuwh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, -256, 192, 0, 0, 0, 0, -256, 320, 0, 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 448)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 400, 0, 0, 0, 0, -1400, 400, 0, 0, 0, 0, -1400, 800, 0, 0, 0, 0, 400, 800, 0, 0, 0, 0, 400, 1600, 0, 0, 0, 0, -1400, 1600, 0, 0, 0, 0, -1400, 1200, 0, 0, 0, 0, -1000, 1200, 0, 0, 0, 0, -1000, 2200)
 }
-point_count = 8
+point_count = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_wygni"]
+font_size = 50
+font_color = Color(0, 0.882353, 0.835294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_irpsx"]
+font_size = 80
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_o5uc8")
+
+[node name="main_camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 
 [node name="debug" type="Node2D" parent="."]
 script = ExtResource("2_gy0tc")
@@ -34,15 +47,22 @@ enemy_spacing = 0.4
 
 [node name="terrain" type="Node2D" parent="."]
 
+[node name="grid" type="TileMap" parent="terrain"]
+unique_name_in_owner = true
+tile_set = ExtResource("5_u72bt")
+format = 2
+layer_0/name = "terrain"
+layer_0/tile_data = PackedInt32Array(-327690, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -65546, 0, 0, -10, 0, 0, 65526, 0, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 262153, 0, 0, 196617, 0, 0, 131081, 0, 0, 65545, 0, 0, 9, 0, 0, -65527, 0, 0, -131063, 0, 0, -196599, 0, 0, -262135, 0, 0, -327671, 0, 0, -393207, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393208, 0, 0, -393209, 0, 0, -393210, 0, 0, -393211, 0, 0, -393212, 0, 0, -393213, 0, 0, -393214, 0, 1, -327678, 0, 1, -327679, 0, 1, -327680, 0, 1, -262145, 0, 1, -262146, 0, 1, -262147, 0, 1, -262148, 0, 1, -262149, 0, 1, -196613, 0, 1, -131077, 0, 1, -131076, 0, 1, -131075, 0, 1, -131074, 0, 1, -131073, 0, 1, -196608, 0, 1, -196607, 0, 1, -196606, 0, 1, -196605, 0, 1, -196604, 0, 1, -131068, 0, 1, -65532, 0, 1, 4, 0, 1, 65540, 0, 1, 65539, 0, 1, 65538, 0, 1, 65537, 0, 1, 65536, 0, 1, 131071, 0, 1, 131070, 0, 1, 65534, 65536, 1, -2, 65536, 1, -1, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 65542, 0, 0, 6, 0, 0, -65530, 0, 0, -131066, 0, 0, -196602, 0, 0, -262138, 0, 0, -327674, 0, 0, -327675, 65536, 1, -327676, 65536, 1, -327677, 65536, 1, -262141, 65536, 1, -262142, 65536, 1, -262143, 65536, 1, -262144, 65536, 1, -196609, 65536, 1, -196610, 65536, 1, -196611, 65536, 1, -196612, 65536, 1, -262140, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 196609, 65536, 1, 262145, 65536, 1, 262144, 65536, 1, 327679, 65536, 1, 262143, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, 196605, 0, 1, 131069, 0, 1, 65533, 0, 1, -3, 0, 1, -65539, 65536, 1, -65540, 65536, 1, -65541, 65536, 1, -65542, 65536, 1, -131078, 65536, 1, -196614, 65536, 1, -262150, 65536, 1, -262151, 65536, 1, -262152, 65536, 1, -262153, 65536, 1, -196617, 65536, 1, -131081, 65536, 1, -65545, 65536, 1, -9, 65536, 1, 65527, 65536, 1, 131063, 65536, 1, 196599, 65536, 1, 262135, 65536, 1, 327671, 65536, 1, 327672, 65536, 1, 262136, 65536, 1, 196600, 65536, 1, 131064, 65536, 1, 65528, 65536, 1, -8, 65536, 1, -65544, 65536, 1, -131080, 65536, 1, -196616, 65536, 1, -196615, 65536, 1, -131079, 65536, 1, -65543, 65536, 1, -7, 65536, 1, 65529, 65536, 1, 131065, 65536, 1, 196601, 65536, 1, 262137, 65536, 1, 327673, 65536, 1, 327674, 65536, 1, 262138, 65536, 1, 196602, 65536, 1, 131066, 65536, 1, 65530, 65536, 1, -6, 65536, 1, -5, 0, 1, 65531, 0, 1, 131067, 0, 1, 196603, 65536, 1, 262139, 65536, 1, 327675, 65536, 1, 327676, 65536, 1, 262140, 65536, 1, 196604, 65536, 1, 131068, 0, 1, 65532, 65536, 1, -4, 0, 1, 262141, 0, 1, 327677, 65536, 0, 327678, 65536, 1, 262142, 65536, 1, -65538, 65536, 1, -65537, 65536, 1, -131072, 65536, 1, -131071, 65536, 1, -65535, 65536, 1, 1, 65536, 1, 2, 65536, 1, -65534, 65536, 1, -131070, 65536, 1, -131069, 65536, 1, -65533, 65536, 1, 3, 65536, 1, 262146, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 262149, 65536, 1, 262150, 0, 0, 196614, 0, 0, 131078, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, -65529, 0, 0, -131065, 0, 0, -196601, 0, 0, -262137, 0, 0, -327673, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -131064, 0, 0, -65528, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 196615, 0, 0, 262151, 0, 0, 262152, 0, 0, 65535, 65536, 1, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 1, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0)
+layer_1/name = "markers"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_wehwx")
+
 [node name="path" type="Path2D" parent="terrain"]
 unique_name_in_owner = true
-position = Vector2(0, -320)
-curve = SubResource("Curve2D_sjmh2")
+position = Vector2(500, -1300)
+curve = SubResource("Curve2D_dcuwh")
 script = ExtResource("4_y7vvv")
-
-[node name="grid" type="Node2D" parent="terrain"]
-unique_name_in_owner = true
-script = ExtResource("2_wehwx")
 
 [node name="player_controller" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -50,69 +70,100 @@ script = ExtResource("3_kf0iy")
 
 [node name="player_resources" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-500, 900)
 script = ExtResource("4_tliik")
+
+[node name="box" type="VBoxContainer" parent="player_resources"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="health_text" type="Label" parent="player_resources/box"]
+layout_mode = 2
+text = "50 HP"
+label_settings = ExtResource("10_ep3kf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="power_text" type="Label" parent="player_resources/box"]
+layout_mode = 2
+text = "10 PW"
+label_settings = SubResource("LabelSettings_wygni")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="player_stats" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_i2tho")
-
-[node name="main_camera" type="Camera2D" parent="."]
-unique_name_in_owner = true
-
-[node name="canvas" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-
-[node name="main_control" type="Control" parent="canvas"]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="hand" type="HBoxContainer" parent="canvas/main_control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -170.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("6_xi7ey")
-
-[node name="hand_background" type="ColorRect" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -600.0
-offset_top = 150.0
-offset_right = 600.0
-offset_bottom = 350.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(600, 0)
-color = Color(0, 0, 0, 1)
+power_per_round = 10
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
-script = ExtResource("6_xi7ey")
-
-[node name="debug_card5" parent="draw_pile" instance=ExtResource("7_km5o8")]
+script = ExtResource("12_vj0g1")
 
 [node name="build_card" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
 
 [node name="build_card2" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
 
 [node name="build_card3" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
 
 [node name="build_card4" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
+
+[node name="build_card5" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
+
+[node name="build_card6" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
+
+[node name="build_card7" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
+
+[node name="build_card8" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
+
+[node name="build_card9" parent="draw_pile" instance=ExtResource("8_ufb3e")]
+offset_left = -540.0
+offset_top = 530.0
+offset_right = 100.0
+offset_bottom = 870.0
 
 [node name="discard_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -124,4 +175,75 @@ unique_name_in_owner = true
 visible = false
 script = ExtResource("6_xi7ey")
 
+[node name="hand" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1920.0
+offset_top = -1030.0
+offset_right = 1920.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_xi7ey")
+max_size = 6
+play_on_click = true
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="main" type="Control" parent="hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="pause_panel" type="Panel" parent="hud/main"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="end_screen_box" type="VBoxContainer" parent="hud/main/pause_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.5
+offset_top = -72.5
+offset_right = 156.5
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="win_lose_label" type="Label" parent="hud/main/pause_panel/end_screen_box"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Win!"
+label_settings = SubResource("LabelSettings_irpsx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart_button" type="Button" parent="hud/main/pause_panel/end_screen_box"]
+layout_mode = 2
+theme = ExtResource("13_5gicx")
+theme_override_font_sizes/font_size = 80
+text = "Restart"
+
+[connection signal="battle_started" from="." to="player_resources" method="_on_game_battle_started"]
+[connection signal="round_ended" from="." to="player_resources" method="_on_game_round_ended"]
 [connection signal="round_started" from="." to="spawner" method="_on_game_round_started"]
+[connection signal="death" from="player_resources" to="." method="_on_player_resources_death"]
+[connection signal="pressed" from="hud/main/pause_panel/end_screen_box/restart_button" to="." method="_on_restart_button_pressed"]
