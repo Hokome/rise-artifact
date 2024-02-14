@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxnf0jeb16cme"]
+
+[ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="1_v5o7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmqfv"]
+size = Vector2(120, 120)
+
+[node name="strong_enemy" instance=ExtResource("1_v5o7m")]
+base_speed = 400.0
+max_health = 800
+player_damage = 2
+
+[node name="sprite" parent="." index="0"]
+modulate = Color(0.909804, 0.27451, 0, 1)
+scale = Vector2(30, 30)
+
+[node name="hitbox_shape" parent="hitbox" index="0"]
+shape = SubResource("RectangleShape2D_lmqfv")

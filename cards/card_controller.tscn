@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8321hydj8qfj"]
 
-[ext_resource type="Script" path="res://cards/card.gd" id="1_qxmok"]
-[ext_resource type="Theme" uid="uid://cxecphm8c5rqq" path="res://ui/card_theme.tres" id="2_mdtna"]
+[ext_resource type="Script" path="res://cards/card_controller.gd" id="1_yxp3n"]
+[ext_resource type="Theme" uid="uid://cxecphm8c5rqq" path="res://ui/card_theme.tres" id="2_sv7lg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gun1o"]
 line_spacing = 0.0
@@ -12,7 +12,7 @@ font_color = Color(0, 0, 0, 1)
 font_size = 28
 font_color = Color(0, 0, 0, 1)
 
-[node name="card" type="Control" groups=["cards"]]
+[node name="card_controller" type="Control" groups=["cards"]]
 custom_minimum_size = Vector2(640, 340)
 layout_mode = 3
 anchors_preset = 6
@@ -25,8 +25,7 @@ offset_top = -170.0
 offset_bottom = 170.0
 grow_horizontal = 0
 grow_vertical = 2
-script = ExtResource("1_qxmok")
-title = "default card"
+script = ExtResource("1_yxp3n")
 
 [node name="offset" type="Node2D" parent="."]
 position = Vector2(640, 170)
@@ -116,7 +115,15 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 mouse_filter = 1
-color = Color(0, 0, 0, 1)
+
+[node name="illustration" type="TextureRect" parent="offset/background/card_margin/main_container/card_content/illust_placeholder"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="description_background" type="ColorRect" parent="offset/background/card_margin/main_container/card_content"]
 layout_mode = 2
@@ -135,15 +142,16 @@ grow_vertical = 2
 
 [node name="description" type="RichTextLabel" parent="offset/background/card_margin/main_container/card_content/description_background/description_container"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 mouse_filter = 1
-theme = ExtResource("2_mdtna")
+theme = ExtResource("2_sv7lg")
 bbcode_enabled = true
 text = "Long placeholder.
 Line placeholder."
 fit_content = true
 scroll_active = false
-autowrap_mode = 0
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="offset/background" to="." method="_on_background_mouse_entered"]
 [connection signal="mouse_exited" from="offset/background" to="." method="_on_background_mouse_exited"]

@@ -5,6 +5,7 @@ const DAMAGE_NUMBER_OFFSET: int = 100
 const DAMAGE_NUMBER_TIME: float = 0.6
 
 static var damage_number_scene: PackedScene = load("res://vfx/damage_number.tscn")
+static var damage_number_green: LabelSettings = load("res://vfx/green_damage.tres")
 
 signal death(Enemy)
 signal reached_end(int)
@@ -13,9 +14,9 @@ signal reached_end(int)
 @export var max_health: int = 100
 @export var player_damage: int = 1
 
-@onready var heatlh: int = max_health:
+@onready var health: int = max_health:
 	set(value):
-		heatlh = value
+		health = min(max_health, value)
 		if value <= 0:
 			kill()
 
@@ -26,13 +27,20 @@ func _process(delta):
 		damage_player()
 
 func damage(amount: int):
-	heatlh -= amount
+	health -= amount
 	display_damage(amount)
 
-func display_damage(amount: int):
+func heal(amount: int):
+	health += amount
+	display_damage(amount, damage_number_green)
+
+func display_damage(amount: int, label_settings: LabelSettings = null):
 	var damage_number: Node2D = damage_number_scene.instantiate()
 	var text = damage_number.get_node("text") as Label
+	if label_settings != null:
+		text.label_settings = label_settings
 	text.text = str(amount)
+	
 	get_tree().root.get_child(0).add_child(damage_number)
 	damage_number.global_position = global_position
 	

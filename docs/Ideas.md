@@ -1,6 +1,8 @@
 Unorganized idea dump
 
-Horizontal cards should be considered as it would allow a more square like field
+Building special abilities at a certain level of upgrade (rare+ only maybe?)
+
+Tech tree/web, with potentially hidden tech.
 ## Building ideas
 
 - Machine gun (good single target, okay group damage)
@@ -10,6 +12,8 @@ Horizontal cards should be considered as it would allow a more square like field
 - Slow aura (slows enemies in range)
 - Slow cannon (fires projectiles that slow enemies down)
 - Power plant (generates energy over time)
+- Power duplicator (stores power, doubles it at the end of the round and gives it when broken)
+- Library (pay power to draw a card)
 
 ## Status effect ideas
 

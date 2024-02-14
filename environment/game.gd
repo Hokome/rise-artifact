@@ -1,5 +1,7 @@
 class_name Game extends Node2D
 
+@export var deck: Array[PackedScene]
+
 static var paused := false:
 	set(value):
 		paused = value
@@ -25,7 +27,10 @@ func _input(event):
 			start_round()
 
 func start_battle():
+	for card in deck:
+		draw_pile().add_card(self, card.instantiate())
 	battle_started.emit(self)
+	draw_pile().shuffle()
 	for i in 4:
 		draw_pile().draw_card(self)
 
@@ -37,8 +42,9 @@ func end_round():
 	in_round = false
 	round_ended.emit(self)
 	
-	if current_round == 5:
+	if current_round == spawner().rounds.size() - 1:
 		win()
+		return
 	
 	current_round += 1
 	for i in 5:
@@ -67,8 +73,12 @@ func player_stats() -> PlayerStats:
 
 func grid() -> GameGrid:
 	return %grid
+func terrain() -> Node2D:
+	return %terrain
 func spawner() -> Spawner:
 	return %spawner
+func building_ui() -> BuildingUI:
+	return %building_ui
 
 func _on_player_resources_death():
 	%win_lose_label.text = "Game Joever"

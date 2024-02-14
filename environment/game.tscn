@@ -1,20 +1,144 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=50 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
+[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_turret_card.tscn" id="2_snu5s"]
 [ext_resource type="Script" path="res://environment/grid.gd" id="2_wehwx"]
 [ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
+[ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/upgrade_card.tscn" id="3_s7t4p"]
 [ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="4_3jpdg"]
+[ext_resource type="PackedScene" uid="uid://cf7l2yjh4c1q3" path="res://cards/instant/strike_card.tscn" id="4_dia4b"]
+[ext_resource type="Script" path="res://enemies/waves/round.gd" id="4_e7tt4"]
 [ext_resource type="Script" path="res://player/player_resources.gd" id="4_tliik"]
 [ext_resource type="Script" path="res://environment/path.gd" id="4_y7vvv"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
+[ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/blast_card.tscn" id="5_rnfrq"]
 [ext_resource type="TileSet" uid="uid://db0qb8om6hhbu" path="res://environment/tile_set.tres" id="5_u72bt"]
+[ext_resource type="Script" path="res://enemies/waves/wave.gd" id="6_l0cba"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
-[ext_resource type="PackedScene" uid="uid://dba7a6yowvp5y" path="res://cards/build_card.tscn" id="8_ufb3e"]
+[ext_resource type="PackedScene" uid="uid://br8r0n8j2aukm" path="res://enemies/fast_enemy.tscn" id="7_fcr4k"]
+[ext_resource type="PackedScene" uid="uid://bxnf0jeb16cme" path="res://enemies/strong_enemy.tscn" id="8_gcmyl"]
+[ext_resource type="PackedScene" uid="uid://nuwq4805vyey" path="res://enemies/heal_enemy.tscn" id="9_foq71"]
+[ext_resource type="Texture2D" uid="uid://2ccsh6g6wtrb" path="res://square.png" id="9_x773t"]
 [ext_resource type="LabelSettings" uid="uid://bxwo1meefoi2q" path="res://ui/player_resources.tres" id="10_ep3kf"]
+[ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://ui/circle.svg" id="10_fapa5"]
 [ext_resource type="Script" path="res://player/draw_pile.gd" id="12_vj0g1"]
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
+[ext_resource type="PackedScene" uid="uid://drnbpouwoj8qu" path="res://ui/building_ui.tscn" id="15_gqs0b"]
+[ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
+[ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/card_controller.tscn" id="23_7gl36"]
+
+[sub_resource type="Resource" id="Resource_x7m5m"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("4_3jpdg")
+spacing = 1.0
+count = 8
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_diaud"]
+script = ExtResource("4_e7tt4")
+waves = Array[ExtResource("6_l0cba")]([SubResource("Resource_x7m5m")])
+
+[sub_resource type="Resource" id="Resource_36i3p"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("4_3jpdg")
+spacing = 0.6
+count = 12
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_d6wkc"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("7_fcr4k")
+spacing = 1.0
+count = 8
+delay = 2.0
+
+[sub_resource type="Resource" id="Resource_7qato"]
+script = ExtResource("4_e7tt4")
+waves = Array[ExtResource("6_l0cba")]([SubResource("Resource_36i3p"), SubResource("Resource_d6wkc")])
+
+[sub_resource type="Resource" id="Resource_lwlwg"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("8_gcmyl")
+spacing = 1.0
+count = 2
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_1dk8o"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("4_3jpdg")
+spacing = 0.3
+count = 20
+delay = 1.0
+
+[sub_resource type="Resource" id="Resource_sigdl"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("7_fcr4k")
+spacing = 0.3
+count = 10
+delay = 2.0
+
+[sub_resource type="Resource" id="Resource_1wjf6"]
+script = ExtResource("4_e7tt4")
+waves = Array[ExtResource("6_l0cba")]([SubResource("Resource_lwlwg"), SubResource("Resource_1dk8o"), SubResource("Resource_sigdl")])
+
+[sub_resource type="Resource" id="Resource_oiarw"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("4_3jpdg")
+spacing = 0.7
+count = 30
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_3xoa0"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("9_foq71")
+spacing = 2.5
+count = 4
+delay = 1.2
+
+[sub_resource type="Resource" id="Resource_6y02m"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("8_gcmyl")
+spacing = 0.0
+count = 1
+delay = 5.0
+
+[sub_resource type="Resource" id="Resource_wxxro"]
+script = ExtResource("4_e7tt4")
+waves = Array[ExtResource("6_l0cba")]([SubResource("Resource_oiarw"), SubResource("Resource_3xoa0"), SubResource("Resource_6y02m")])
+
+[sub_resource type="Resource" id="Resource_5fn3v"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("7_fcr4k")
+spacing = 1.0
+count = 20
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_rwk6j"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("9_foq71")
+spacing = 5.0
+count = 3
+delay = 3.0
+
+[sub_resource type="Resource" id="Resource_iyeko"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("4_3jpdg")
+spacing = 0.4
+count = 20
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_ltxdq"]
+script = ExtResource("6_l0cba")
+enemy = ExtResource("8_gcmyl")
+spacing = 3.0
+count = 4
+delay = 5.0
+
+[sub_resource type="Resource" id="Resource_7mdld"]
+script = ExtResource("4_e7tt4")
+waves = Array[ExtResource("6_l0cba")]([SubResource("Resource_5fn3v"), SubResource("Resource_rwk6j"), SubResource("Resource_iyeko"), SubResource("Resource_ltxdq")])
 
 [sub_resource type="Curve2D" id="Curve2D_dcuwh"]
 _data = {
@@ -31,6 +155,7 @@ font_size = 80
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_o5uc8")
+deck = Array[PackedScene]([ExtResource("2_snu5s"), ExtResource("2_snu5s"), ExtResource("3_s7t4p"), ExtResource("3_s7t4p"), ExtResource("3_s7t4p"), ExtResource("4_dia4b"), ExtResource("4_dia4b"), ExtResource("5_rnfrq"), ExtResource("5_rnfrq")])
 
 [node name="main_camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -41,11 +166,10 @@ script = ExtResource("2_gy0tc")
 [node name="spawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_6ckml")
-enemy_scene = ExtResource("4_3jpdg")
-enemy_count = 10
-enemy_spacing = 0.4
+rounds = Array[ExtResource("4_e7tt4")]([SubResource("Resource_diaud"), SubResource("Resource_7qato"), SubResource("Resource_1wjf6"), SubResource("Resource_wxxro"), SubResource("Resource_7mdld")])
 
 [node name="terrain" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="grid" type="TileMap" parent="terrain"]
 unique_name_in_owner = true
@@ -68,10 +192,23 @@ script = ExtResource("4_y7vvv")
 unique_name_in_owner = true
 script = ExtResource("3_kf0iy")
 
+[node name="tile_cursor" type="Sprite2D" parent="player_controller"]
+visible = false
+modulate = Color(1, 1, 1, 0.27451)
+self_modulate = Color(0.619608, 1, 1, 1)
+scale = Vector2(50, 50)
+texture = ExtResource("9_x773t")
+
+[node name="radius_cursor" type="Sprite2D" parent="player_controller"]
+visible = false
+modulate = Color(1, 1, 1, 0.27451)
+texture = ExtResource("10_fapa5")
+
 [node name="player_resources" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-500, 900)
 script = ExtResource("4_tliik")
+max_health = 10
 
 [node name="box" type="VBoxContainer" parent="player_resources"]
 anchors_preset = 8
@@ -104,66 +241,11 @@ vertical_alignment = 1
 [node name="player_stats" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_i2tho")
-power_per_round = 10
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
 script = ExtResource("12_vj0g1")
-
-[node name="build_card" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card2" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card3" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card4" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card5" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card6" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card7" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card8" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
-
-[node name="build_card9" parent="draw_pile" instance=ExtResource("8_ufb3e")]
-offset_left = -540.0
-offset_top = 530.0
-offset_right = 100.0
-offset_bottom = 870.0
 
 [node name="discard_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -188,9 +270,16 @@ offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("6_xi7ey")
-max_size = 6
-play_on_click = true
+script = ExtResource("21_tvpxn")
+card_controller_scene = ExtResource("23_7gl36")
+
+[node name="building_ui" parent="." instance=ExtResource("15_gqs0b")]
+unique_name_in_owner = true
+visible = false
+offset_left = -1920.0
+offset_top = 680.0
+offset_right = -1320.0
+offset_bottom = 1080.0
 
 [node name="hud" type="CanvasLayer" parent="."]
 

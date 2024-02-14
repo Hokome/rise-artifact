@@ -10,7 +10,10 @@ config_version=5
 
 [application]
 
-config/name="CardDefense"
+config/name="rise-artifact"
+config/name_localized={
+"en": "Rise Artifact"
+}
 run/main_scene="res://environment/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -25,6 +28,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="CardDefense"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [rendering]
 

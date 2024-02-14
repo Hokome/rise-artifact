@@ -2,7 +2,7 @@
 Use cards to build and upgrade towers and defend your base.
 ## Theme
 
-Either a hybrid theme (fantasy and tech) combined or maybe a digital world setting.
+Ancient technology would probably be the best.
 
 ## Gameplay
 

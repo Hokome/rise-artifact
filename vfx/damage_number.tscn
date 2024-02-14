@@ -1,9 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bq87lwmx2vurn"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_wy5vw"]
-font_size = 48
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://d00vh1l705dsc" path="res://vfx/white_damage.tres" id="1_yc47y"]
 
 [node name="damage_number" type="Node2D"]
 
@@ -24,7 +21,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "999"
-label_settings = SubResource("LabelSettings_wy5vw")
+label_settings = ExtResource("1_yc47y")
 horizontal_alignment = 1
 vertical_alignment = 1
 

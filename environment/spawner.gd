@@ -1,30 +1,31 @@
 class_name Spawner extends Node2D
 
-@export var enemy_scene: PackedScene
-@export var enemy_count := 1
-@export var enemy_spacing := 1.0
+@export var rounds: Array[Round]
 
 var enemy_list: Array[Enemy] = []
-var spawning := false
+var waves_left
 
 func _on_game_round_started(game: Game):
-	spawning = true
-	
-	var timer: Timer = Timer.new()
-	timer.autostart = false
-	timer.one_shot = true
-	timer.wait_time = enemy_spacing
-	add_child(timer)
-	
-	for i in enemy_count:
-		add_enemy(game, enemy_scene.instantiate())
-		
-		if enemy_count > i + 1:
-			timer.start()
-			await timer.timeout
-	
-	spawning = false
-	timer.queue_free()
+	print("round ", game.current_round)
+	if game.current_round >= rounds.size():
+		return
+	var current_round := rounds[game.current_round]
+	waves_left = current_round.waves.size()
+	for i in current_round.waves.size():
+		var wave := current_round.waves[i]
+		if wave.delay > 0:
+			await get_tree().create_timer(wave.delay).timeout
+		spawn_wave.call_deferred(game, wave)
+
+func is_spawning() -> bool:
+	return waves_left != 0
+
+func spawn_wave(game: Game, wave: Wave):
+	for i in wave.count:
+		add_enemy(game, wave.enemy.instantiate())
+		if i + 1 < wave.count:
+			await get_tree().create_timer(wave.spacing).timeout
+	waves_left -= 1
 
 func add_enemy(game: Game, enemy: Enemy):
 	%path.add_child(enemy)
@@ -34,5 +35,5 @@ func add_enemy(game: Game, enemy: Enemy):
 
 func remove_enemy(enemy):
 	enemy_list.erase(enemy)
-	if !spawning and enemy_list.size() == 0:
+	if !is_spawning() and enemy_list.size() == 0:
 		$"..".end_round()

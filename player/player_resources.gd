@@ -11,7 +11,7 @@ signal death
 		if health <= 0:
 			death.emit()
 
-var power := 0:
+@onready var power := 0:
 	set(value):
 		power = value
 		$box/power_text.text = str(value) + " PW"
@@ -19,6 +19,9 @@ var power := 0:
 func damage(amount: int):
 	health -= amount
 
+func _ready():
+	health = health
+	power = power
 
 func _on_game_battle_started(game):
 	power += game.player_stats().power_per_round

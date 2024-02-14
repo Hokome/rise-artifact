@@ -9,9 +9,14 @@ radius = 400.0
 
 [node name="gun_turret" instance=ExtResource("1_6lxc1")]
 script = ExtResource("2_rq6j6")
-base_attack_cooldown = 0.4
+base_attack_cooldown = 0.3
 base_attack_damage = 30
 base_attack_range = 400.0
+upgrade_damage_mult = 0.3
+upgrade_attack_speed_mult = 0.95
+display_name = "Gun turret"
+description = "Cheap turret that shoots at a single enemy.
+Upgrade for damage and attack speed."
 
 [node name="gun" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_8ye0j")
@@ -20,6 +25,8 @@ texture = ExtResource("3_8ye0j")
 one_shot = true
 
 [node name="range" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 4
 
 [node name="circle" type="CollisionShape2D" parent="range" index="0"]
 shape = SubResource("CircleShape2D_vpmle")

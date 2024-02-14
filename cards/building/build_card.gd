@@ -8,7 +8,7 @@ func play(game: Game):
 	building.preview = true
 	grid.add_child(building)
 	
-	var selected_position = await game.player_controller().place_building(building, validate_placement)
+	var selected_position = await game.player_controller().select_tile(validate_placement, building)
 	
 	if selected_position == null:
 		building.queue_free()

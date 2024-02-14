@@ -60,15 +60,30 @@
 
 ## Building UI
 
-- [ ] Clicking on building opens its UI
-- [ ] UI contains description of building
-- [ ] Buildings can have targeting options
-- [ ] Button to switch targeting in UI
-- [ ] First or strong targeting option on gun turret
+- [x] Hovering on building opens its UI
+- [x] UI contains description of building
+- [x] Buildings can have targeting options
+- [x] Button to switch targeting in UI
+- [x] First or strong targeting option on gun turret
 
 ## Building upgrade
 
-- [ ] Buildings can be upgraded via cards
-- [ ] Each building has its own upgrade function
-- [ ] Upgrade card
-- [ ] Buildings have upgrade descriptions on their UI
+- [x] Buildings can be upgraded via cards
+- [x] Each building has its own upgrade function
+- [x] Upgrade card
+- [x] Buildings have upgrade descriptions on their UI
+
+## Damage card
+
+- [x] Attack object for easier multi-attacks?
+- [x] Card that can use an attack
+- [x] Cheap high damage attack
+- [x] Expensive large area attack
+
+## Better waves
+
+- [x] Wave system
+- [x] Fast enemy
+- [x] Strong slow enemy
+- [x] Healing enemy
+- [x] 6 hand made waves
