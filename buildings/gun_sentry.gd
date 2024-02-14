@@ -1,18 +1,44 @@
 extends Building
 
+@export_category("Base Stats")
 @export var base_attack_cooldown: float
 @export var base_attack_damage: int
 @export var base_attack_range: float
+@export var base_projectile_range: float = 6000
+@export var base_projectile_speed: float = 10.0
 
+@export_category("Upgrade Stats")
 @export var upgrade_damage_mult := 0.0
 @export var upgrade_attack_speed_mult := 1.0
+
+@export_category("Objects Refs")
+@export var projectile: PackedScene
+@export var trail: PackedScene
 
 var can_fire: bool = true
 var enemies_in_range: Array[Enemy] = []
 
-func fire(target: Enemy):
+func fire(target: Vector2):
 	can_fire = false
-	target.damage(get_damage())
+	var p: Projectile = projectile.instantiate()
+	p.trail = trail.instantiate()
+	p.speed = base_projectile_speed
+	p.damage = get_damage()
+	p.max_distance = base_projectile_range
+	
+	var map = get_parent().get_parent()
+	map.add_child(p.trail)
+	map.add_child(p)
+	
+	var offset = %offset.global_position
+	
+	p.trail.add_point(offset)
+	p.trail.add_point(offset)
+	
+	p.global_position = offset
+	p.direction = (target - offset).normalized()
+	p.look_at(target)
+	
 	$attack_cooldown.wait_time = get_attack_cooldown()
 	$attack_cooldown.start()
 
@@ -30,8 +56,10 @@ func get_attack_cooldown() -> float:
 	
 
 func _ready():
-	var range_hitbox = $range/circle.shape as CircleShape2D
+	var range_hitbox = $range/detect.shape as CircleShape2D
 	range_hitbox.radius = base_attack_range
+	var range_circle = $range_circle as Sprite2D
+	range_circle.scale = Vector2.ONE * base_attack_range / 200.0
 	
 	var timer = $attack_cooldown
 	timer.wait_time = get_attack_cooldown()
@@ -41,9 +69,9 @@ func _process(_delta):
 	if Game.is_paused or preview:
 		return
 	
-	var target := get_target()
+	var target = get_target_pos()
 	if target != null:
-		$gun.look_at(target.global_position)
+		$gun.look_at(target)
 		if can_fire:
 			fire(target)
 
@@ -60,7 +88,16 @@ func _on_range_area_exited(area):
 func enemy_out_of_range(enemy: Enemy):
 	enemies_in_range.erase(enemy)
 
-func get_target() -> Enemy:
+func on_hover(value: bool):
+		if selected:
+			return
+		$range_circle.visible = value
+
+func on_select(value: bool):
+		if selected:
+			$range_circle.visible = value
+
+func get_target_pos():
 	if enemies_in_range.size() == 0:
 		return null
 	var best_enemy := enemies_in_range[0]
@@ -74,4 +111,7 @@ func get_target() -> Enemy:
 				if enemy.health > best_enemy.health:
 					best_enemy = enemy
 	
-	return best_enemy
+	if best_enemy != null:
+		var dist = best_enemy.global_position.distance_to(%offset.global_position)
+		return best_enemy.predict_position(dist / base_projectile_speed)
+	return null

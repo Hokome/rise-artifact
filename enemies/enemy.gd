@@ -21,7 +21,7 @@ signal reached_end(int)
 			kill()
 
 func _process(delta):
-	progress += base_speed * delta
+	progress += get_speed() * delta
 	
 	if progress_ratio == 1:
 		damage_player()
@@ -33,6 +33,9 @@ func damage(amount: int):
 func heal(amount: int):
 	health += amount
 	display_damage(amount, damage_number_green)
+
+func get_speed() -> float:
+	return base_speed
 
 func display_damage(amount: int, label_settings: LabelSettings = null):
 	var damage_number: Node2D = damage_number_scene.instantiate()
@@ -47,6 +50,9 @@ func display_damage(amount: int, label_settings: LabelSettings = null):
 	var tween := get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(damage_number, "global_position", global_position + Vector2.UP * DAMAGE_NUMBER_OFFSET, 1)
+
+func predict_position(time: float) -> Vector2:
+	return get_parent().get_prediction(progress + time * get_speed())
 
 func kill():
 	remove()

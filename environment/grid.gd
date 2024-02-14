@@ -24,7 +24,7 @@ func add_building(building: Building, pos: Vector2i):
 	
 	building.hover_on.connect(building_ui.building_hover_on)
 	building.hover_off.connect(building_ui.building_hover_off)
-	building_ui.hovered = building
+	building_ui.hover = building
 	
 	set_building_at(building, pos)
 	

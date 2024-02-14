@@ -2,35 +2,37 @@ class_name BuildingUI extends ColorRect
 
 var self_hovered := false
 
-var selected: Building:
+var selection: Building:
 	set(value):
-		if selected == value:
+		if selection == value:
 			return
-		if selected != null and selected.update_description.is_connected(update_ui):
-			selected.update_description.disconnect(update_ui)
-		selected = value
+		if selection != null and selection.update_description.is_connected(update_ui):
+			selection.update_description.disconnect(update_ui)
+			selection.selected = false
+		selection = value
 		if value == null:
 			update_ui()
 			return
-		if !selected.update_description.is_connected(update_ui):
-			selected.update_description.connect(update_ui)
+		if !selection.update_description.is_connected(update_ui):
+			selection.update_description.connect(update_ui)
+		selection.selected = true
 		update_ui()
 
 
-var hovered: Building:
+var hover: Building:
 	set(value):
-		if hovered == value:
+		if hover == value:
 			return
-		if selected == null and hovered != null and hovered.update_description.is_connected(update_ui):
-			hovered.update_description.disconnect(update_ui)
-		hovered = value
-		if selected == null:
+		if selection == null and hover != null and hover.update_description.is_connected(update_ui):
+			hover.update_description.disconnect(update_ui)
+		hover = value
+		if selection == null:
 			if value == null:
 				update_ui()
 				return
-			if !hovered.update_description.is_connected(update_ui):
+			if !hover.update_description.is_connected(update_ui):
 				update_ui()
-				hovered.update_description.connect(update_ui)
+				hover.update_description.connect(update_ui)
 
 func _input(event):
 	if self_hovered:
@@ -39,14 +41,14 @@ func _input(event):
 		if !event.is_pressed():
 			return
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			selected = hovered
+			selection = hover
 
 func update_ui():
 	var building: Building
-	if selected != null:
-		building = selected
-	elif hovered != null:
-		building = hovered
+	if selection != null:
+		building = selection
+	elif hover != null:
+		building = hover
 	else:
 		visible = false
 		return
@@ -58,14 +60,14 @@ func update_ui():
 	$margin/content/lower/upgrades.text = "LV " + str(building.upgrades)
 
 func building_hover_on(building: Building):
-	hovered = building
+	hover = building
 
 func building_hover_off(building: Building):
-	if hovered == building:
-		hovered = null
+	if hover == building:
+		hover = null
 
 func _on_targeting_pressed():
-	selected.cycle_targeting()
+	selection.cycle_targeting()
 
 func _on_mouse_entered():
 	self_hovered = true

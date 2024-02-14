@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvk6yj6qqgoae"]
+
+[ext_resource type="Script" path="res://vfx/projectile_trail.gd" id="1_md3l1"]
+
+[sub_resource type="Curve" id="Curve_ym66s"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="projectile_trail" type="Line2D"]
+width = 20.0
+width_curve = SubResource("Curve_ym66s")
+end_cap_mode = 2
+script = ExtResource("1_md3l1")

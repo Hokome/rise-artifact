@@ -23,7 +23,7 @@ func play(game: Game):
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Place 1 ")
 	rtl.push_color(Color.CYAN)
-	rtl.append_text("Gun Turret")
+	rtl.append_text("Gun Sentry")
 	rtl.pop()
 
 static func validate_placement(grid: GameGrid, pos: Vector2i) -> bool:

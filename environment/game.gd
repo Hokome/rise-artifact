@@ -88,8 +88,8 @@ func player_stats() -> PlayerStats:
 
 func grid() -> GameGrid:
 	return %grid
-func terrain() -> Node2D:
-	return %terrain
+func map() -> Node2D:
+	return %map
 func spawner() -> Spawner:
 	return %spawner
 func building_ui() -> BuildingUI:
