@@ -21,6 +21,9 @@ Tech tree/web, with potentially hidden tech.
 - Critical (next shot deals x times damage)
 - Phantom (building gets destroyed after one round)
 - Stabilize (ignores phantom for x rounds)
+- Shock (when close to another enemy, share the shock and deal damage, difficult to balance)
+- Burn (lose burn every tick, if burn is applied deal damage equal to previous burn)
+- Poison (lose poison every tick, deal damage equal to poison)
 
 ## Hazard ideas
 
@@ -58,6 +61,7 @@ Tech tree/web, with potentially hidden tech.
 ### Instant cards
 
 - Destroy building and gain power
+- Draw card
 - Upgrade one building
 - Repair a building
 - Apply 1 critical to a building

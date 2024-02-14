@@ -352,5 +352,3 @@ text = "Exit"
 [connection signal="death" from="player_resources" to="." method="_on_player_resources_death"]
 [connection signal="pressed" from="hud/main/pause_panel/end_screen_box/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="hud/main/pause_panel/end_screen_box/restart_button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="hud/main/pause_panel/end_screen_box/exit_button" to="." method="_on_exit_button_pressed"]
-[connection signal="tree_exiting" from="hud/main/pause_panel/end_screen_box/exit_button" to="." method="_on_exit_button_tree_exiting"]

@@ -2,10 +2,15 @@ class_name Game extends Node2D
 
 @export var deck: Array[PackedScene]
 
-static var paused := false:
+static var is_paused := false
+var paused := false:
 	set(value):
 		paused = value
+		is_paused = value
+		$hud/main/pause_panel.visible = value
 		Engine.time_scale = 0 if paused else 1
+
+var can_pause := true
 
 var in_round := false
 var current_round := 0
@@ -23,6 +28,9 @@ func _input(event):
 		if !event.is_pressed():
 			return
 		
+		if event.keycode == KEY_ESCAPE and can_pause:
+			paused = !paused
+		
 		if event.keycode == KEY_SPACE and !in_round:
 			start_round()
 
@@ -38,22 +46,29 @@ func start_round():
 	in_round = true
 	round_started.emit(self)
 
+func _exit_tree():
+	paused = false
+
 func end_round():
 	in_round = false
 	round_ended.emit(self)
 	
-	if current_round == spawner().rounds.size() - 1:
+	if current_round == spawner().rounds.size() - 1 and player_resources().health > 0:
 		win()
 		return
 	
 	current_round += 1
-	for i in 5:
+	for i in 4:
 		draw_pile().draw_card(self)
 
 func win():
 	%win_lose_label.text = "You win!"
+	end_battle()
+func end_battle():
 	paused = true
-	$hud/main/pause_panel.visible = true
+	%resume_button.visible = false
+	%win_lose_label.visible = true
+	can_pause = false
 
 func hand() -> CardPile:
 	return %hand
@@ -81,9 +96,16 @@ func building_ui() -> BuildingUI:
 	return %building_ui
 
 func _on_player_resources_death():
-	%win_lose_label.text = "Game Joever"
-	paused = true
-	$hud/main/pause_panel.visible = true
+	%win_lose_label.text = "Game Owover x3"
+	end_battle()
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
+
+func _on_resume_button_pressed():
+	if can_pause:
+		paused = false
+
+func _on_exit_button_pressed():
+	paused = false
+	get_tree().change_scene_to_file("res://ui/main_menu.tscn")

@@ -38,7 +38,7 @@ func _ready():
 	timer.timeout.connect(cooldown_ended)
 
 func _process(_delta):
-	if Game.paused or preview:
+	if Game.is_paused or preview:
 		return
 	
 	var target := get_target()

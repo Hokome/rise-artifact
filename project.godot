@@ -14,7 +14,7 @@ config/name="rise-artifact"
 config/name_localized={
 "en": "Rise Artifact"
 }
-run/main_scene="res://environment/game.tscn"
+run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

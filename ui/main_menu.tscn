@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl8bbhum6xvdi"]
+
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_1wuf8"]
+[ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="1_8v5c3"]
+[ext_resource type="PackedScene" uid="uid://cpov2w102frwi" path="res://environment/game.tscn" id="2_fh5r5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8scex"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_1wuf8")
+game_scene = ExtResource("2_fh5r5")
+
+[node name="main_control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_buttons" type="VBoxContainer" parent="main_control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="start_button" type="Button" parent="main_control/main_buttons"]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+theme = ExtResource("1_8v5c3")
+text = "Start"
+
+[node name="tutorial_button" type="Button" parent="main_control/main_buttons"]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+theme = ExtResource("1_8v5c3")
+text = "Tutorial"
+
+[node name="collection_button" type="Button" parent="main_control/main_buttons"]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+theme = ExtResource("1_8v5c3")
+disabled = true
+text = "Collection"
+
+[node name="settings_button" type="Button" parent="main_control/main_buttons"]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+theme = ExtResource("1_8v5c3")
+disabled = true
+text = "Settings"
+
+[node name="exit_button" type="Button" parent="main_control/main_buttons"]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+theme = ExtResource("1_8v5c3")
+text = "Exit"
+
+[node name="tutorial_panel" type="Panel" parent="main_control"]
+custom_minimum_size = Vector2(1400, 1200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8v5c3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8scex")
+
+[node name="margin" type="MarginContainer" parent="main_control/tutorial_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8v5c3")
+
+[node name="stack" type="VBoxContainer" parent="main_control/tutorial_panel/margin"]
+layout_mode = 2
+
+[node name="tutorial_text_wall" type="RichTextLabel" parent="main_control/tutorial_panel/margin/stack"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_8v5c3")
+bbcode_enabled = true
+text = "Draw 4 cards per turn. If you have more than 6 cards, discard the card that was drawn the earliest.
+
+Click on a card to play it. The top left number on each card is the amount of [color=cyan]power[/color] needed to play it. You can see your [color=cyan]power[/color] under your HP.
+
+Press space to start the round and try to kill all enemies before they reach your base."
+
+[node name="close_button" type="Button" parent="main_control/tutorial_panel/margin/stack"]
+custom_minimum_size = Vector2(600, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="pressed" from="main_control/main_buttons/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="main_control/main_buttons/tutorial_button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="main_control/main_buttons/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="main_control/tutorial_panel/margin/stack/close_button" to="." method="_on_close_button_pressed"]
