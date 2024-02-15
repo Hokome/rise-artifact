@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="WavePattern" load_steps=5 format=3 uid="uid://ceqy87ctulip1"]
+
+[ext_resource type="Script" path="res://waves/wave_pattern.gd" id="1_ttraj"]
+[ext_resource type="Script" path="res://waves/enemy_requirement.gd" id="2_076at"]
+
+[sub_resource type="Resource" id="Resource_ndn8j"]
+script = ExtResource("2_076at")
+base_cost = 1.0
+offset = 0.0
+count = 1
+spacing = 0.0
+requirements = Array[String](["strong"])
+
+[sub_resource type="Resource" id="Resource_0l5ru"]
+script = ExtResource("2_076at")
+base_cost = 5.0
+offset = 1.0
+count = 5
+spacing = 0.6
+requirements = Array[String](["weak"])
+
+[resource]
+script = ExtResource("1_ttraj")
+base_cost = 0.0
+sub_waves = Array[ExtResource("2_076at")]([SubResource("Resource_ndn8j"), SubResource("Resource_0l5ru")])

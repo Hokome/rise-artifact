@@ -15,7 +15,7 @@ func play(game: Game):
 	attack.shape = shape
 	attack.damage = damage
 	
-	game.terrain().add_child(attack)
+	game.map().add_child(attack)
 	attack.position = selected_pos
 	
 	attack.execute()

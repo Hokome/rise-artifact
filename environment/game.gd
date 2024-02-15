@@ -1,6 +1,7 @@
 class_name Game extends Node2D
 
 @export var deck: Array[PackedScene]
+@export var generator: RoundGenerator
 
 static var is_paused := false
 var paused := false:
@@ -21,6 +22,7 @@ signal round_ended(game: Game)
 
 func _ready():
 	paused = false
+	WavePattern.initialize_patterns()
 	start_battle.call_deferred()
 
 func _input(event):
@@ -35,6 +37,7 @@ func _input(event):
 			start_round()
 
 func start_battle():
+	%spawner.rounds = generator.generate()
 	for card in deck:
 		draw_pile().add_card(self, card.instantiate())
 	battle_started.emit(self)

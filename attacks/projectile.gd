@@ -3,6 +3,7 @@ class_name Projectile extends Area2D
 var damage: int
 var speed: float
 var direction: Vector2
+var pierce := 1
 var trail: Line2D:
 	set(val):
 		trail = val
@@ -26,7 +27,10 @@ func hit(enemy: Enemy):
 	enemy.damage(damage)
 
 func _on_area_entered(area):
+	if pierce == 0:
+		return
 	var parent = area.get_parent()
 	if parent is Enemy:
 		hit(parent)
+		pierce -= 1
 		queue_free()

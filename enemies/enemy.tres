@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyWrapper" load_steps=3 format=3 uid="uid://c3g3oj1vrdd33"]
+
+[ext_resource type="PackedScene" uid="uid://8msb1ku15ayx" path="res://enemies/enemy.tscn" id="1_exoh5"]
+[ext_resource type="Script" path="res://enemies/enemy_wrapper.gd" id="1_jq0nu"]
+
+[resource]
+script = ExtResource("1_jq0nu")
+enemy_scene = ExtResource("1_exoh5")
+cost_modifier = 1.0
+tags = Array[String](["normal", "no_effect", "weak", "high_speed"])

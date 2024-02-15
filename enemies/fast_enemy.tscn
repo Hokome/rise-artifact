@@ -7,7 +7,7 @@ size = Vector2(72, 72)
 
 [node name="fast_enemy" instance=ExtResource("1_pvkhe")]
 base_speed = 1000.0
-max_health = 75
+max_health = 120
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(0.145098, 0.698039, 1, 1)

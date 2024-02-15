@@ -1,6 +1,6 @@
 class_name Spawner extends Node2D
 
-@export var rounds: Array[Round]
+var rounds: Array[Round]
 
 var enemy_list: Array[Enemy] = []
 var waves_left
@@ -22,7 +22,7 @@ func is_spawning() -> bool:
 
 func spawn_wave(game: Game, wave: Wave):
 	for i in wave.count:
-		add_enemy(game, wave.enemy.instantiate())
+		add_enemy(game, wave.enemy.enemy_scene.instantiate())
 		if i + 1 < wave.count:
 			await get_tree().create_timer(wave.spacing).timeout
 	waves_left -= 1

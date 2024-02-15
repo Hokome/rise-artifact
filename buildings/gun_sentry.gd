@@ -53,7 +53,6 @@ func get_attack_cooldown() -> float:
 	for i in upgrades:
 		ratio *= upgrade_attack_speed_mult
 	return base_attack_cooldown * ratio
-	
 
 func _ready():
 	var range_hitbox = $range/detect.shape as CircleShape2D
