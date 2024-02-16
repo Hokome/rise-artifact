@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=27 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
@@ -8,14 +8,12 @@
 [ext_resource type="Resource" uid="uid://c3g3oj1vrdd33" path="res://enemies/enemy.tres" id="3_8g0ug"]
 [ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/blast_card.tscn" id="3_ddtpc"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
-[ext_resource type="PackedScene" uid="uid://cm6yhcpxpi5hb" path="res://environment/map_03.tscn" id="4_3akru"]
 [ext_resource type="Script" path="res://waves/round_generator.gd" id="4_8dpr5"]
 [ext_resource type="PackedScene" uid="uid://cf7l2yjh4c1q3" path="res://cards/instant/strike_card.tscn" id="4_d4nay"]
 [ext_resource type="Resource" uid="uid://cv55kpu34fvaw" path="res://enemies/fast_enemy.tres" id="4_e450d"]
 [ext_resource type="Resource" uid="uid://dm85jpxprmxdw" path="res://enemies/strong_enemy.tres" id="5_h0452"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
 [ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/upgrade_card.tscn" id="5_my2td"]
-[ext_resource type="PackedScene" uid="uid://b7jub3ots15lg" path="res://environment/map_04.tscn" id="5_rbd22"]
 [ext_resource type="PackedScene" uid="uid://dxgmg0eg1m4qj" path="res://environment/map_01.tscn" id="6_aw7do"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
 [ext_resource type="Texture2D" uid="uid://2ccsh6g6wtrb" path="res://square.png" id="9_x773t"]
@@ -30,7 +28,7 @@
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")
 enemy_pool = Array[Resource("res://enemies/enemy_wrapper.gd")]([ExtResource("3_8g0ug"), ExtResource("4_e450d"), ExtResource("5_h0452")])
-budgets = Array[float]([10.0, 20.0, 35.0])
+budgets = Array[float]([10.0])
 max_budget_noise = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_irpsx"]
@@ -38,7 +36,7 @@ font_size = 80
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_o5uc8")
-maps = Array[PackedScene]([ExtResource("6_aw7do"), ExtResource("3_4kayp"), ExtResource("4_3akru"), ExtResource("5_rbd22")])
+maps = Array[PackedScene]([ExtResource("6_aw7do"), ExtResource("3_4kayp")])
 generator = SubResource("Resource_j7ep6")
 
 [node name="main_camera" type="Camera2D" parent="."]
@@ -208,7 +206,7 @@ layout_mode = 2
 theme = ExtResource("13_5gicx")
 text = "Next"
 
-[connection signal="battle_loaded" from="." to="player_arsenal" method="_on_game_battle_loaded"]
+[connection signal="ready" from="." to="player_arsenal" method="_on_game_ready"]
 [connection signal="round_started" from="." to="spawner" method="_on_game_round_started"]
 [connection signal="pressed" from="hud/main/pause_panel/pause_box/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="hud/main/pause_panel/pause_box/restart_button" to="." method="_on_restart_button_pressed"]

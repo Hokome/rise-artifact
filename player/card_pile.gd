@@ -42,6 +42,11 @@ func add_card(_game: Game, card: Card):
 		add_child(card)
 	card.current_pile = self
 
+func remove_all():
+	for card_id in cards.size():
+		cards[0].queue_free()
+		remove_card(cards[0])
+	cards.clear()
 
 func try_play(game: Game, card: Card):
 	if !card.can_play(game):

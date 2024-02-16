@@ -20,7 +20,7 @@ func add_building(building: Building, pos: Vector2i):
 	building.reparent(self)
 	building.position = map_to_local(pos)
 	
-	var building_ui: BuildingUI = %building_ui
+	var building_ui: BuildingUI = $"../../building_ui"
 	
 	building.hover_on.connect(building_ui.building_hover_on)
 	building.hover_off.connect(building_ui.building_hover_off)

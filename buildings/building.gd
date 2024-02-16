@@ -24,7 +24,10 @@ var selected: bool:
 	set(value):
 		selected = value
 		on_select(value)
-	
+var hovered: bool:
+	set(value):
+		hovered = value
+		on_hover(value)
 
 func cycle_targeting():
 	if targeting == Targeting.First:
@@ -52,9 +55,9 @@ func on_hover(_value: bool):
 func _on_mouse_entered():
 	if !preview:
 		hover_on.emit(self)
-		on_hover(true)
+		hovered = true
 
 func _on_mouse_exited():
 	if !preview:
 		hover_off.emit(self)
-		on_hover(false)
+		hovered = false

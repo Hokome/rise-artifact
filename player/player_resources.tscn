@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dncmg2yh4t1mp"]
+
+[ext_resource type="Script" path="res://player/player_resources.gd" id="1_r1qm2"]
+[ext_resource type="LabelSettings" uid="uid://bxwo1meefoi2q" path="res://ui/player_resources.tres" id="2_lx4q1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wygni"]
+font_size = 50
+font_color = Color(0, 0.882353, 0.835294, 1)
+
+[node name="player_resources" type="Node2D"]
+position = Vector2(-500, 900)
+script = ExtResource("1_r1qm2")
+max_health = 10
+
+[node name="box" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="health_text" type="Label" parent="box"]
+layout_mode = 2
+text = "50 HP"
+label_settings = ExtResource("2_lx4q1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="power_text" type="Label" parent="box"]
+layout_mode = 2
+text = "10 PW"
+label_settings = SubResource("LabelSettings_wygni")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,17 +1,16 @@
 class_name PlayerResources extends Node2D
 
 signal death
+var stats: PlayerStats
 
-@export var max_health := 50
-
-@onready var health: int = max_health:
+var health: int:
 	set(value):
-		health = value
-		$box/health_text.text = str(value) + " HP"
+		health = min(value, stats.max_health)
+		$box/health_text.text = str(health) + " HP"
 		if health <= 0:
 			death.emit()
 
-@onready var power := 0:
+var power := 0:
 	set(value):
 		power = value
 		$box/power_text.text = str(value) + " PW"
@@ -19,12 +18,9 @@ signal death
 func damage(amount: int):
 	health -= amount
 
-func _ready():
-	health = health
-	power = power
-
-func _on_game_battle_started(game):
+func _on_game_battle_started(game: Game):
 	power += game.player_stats().power_per_round
+	health = game.player_arsenal().leftover_health
 func _on_game_round_ended(game: Game):
 	power += game.player_stats().power_per_round
 

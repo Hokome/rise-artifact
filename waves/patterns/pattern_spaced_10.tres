@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WavePattern" load_steps=3 format=3 uid="uid://dv7rceupyojhq"]
-
-[ext_resource type="Script" path="res://waves/wave_pattern.gd" id="1_nusdw"]
-[ext_resource type="Resource" uid="uid://b3mm2phqr3qpd" path="res://waves/wave_spaced_10.tres" id="2_phnta"]
-
-[resource]
-script = ExtResource("1_nusdw")
-base_cost = 0.0
-sub_waves = Array[Resource("res://waves/enemy_requirement.gd")]([ExtResource("2_phnta")])

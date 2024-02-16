@@ -32,7 +32,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if control_state == ControlState.Selecting:
 					var mouse_pos := get_global_mouse_position()
-					var grid: TileMap = %grid
+					var grid: TileMap = game.grid()
 					selected_tile = grid.local_to_map(mouse_pos)
 					
 					end_prompt(!validate_selection.call(grid, selected_tile))

@@ -16,3 +16,4 @@ MarginContainer/constants/margin_right = 40
 MarginContainer/constants/margin_top = 40
 Panel/styles/panel = SubResource("StyleBoxFlat_gnetr")
 RichTextLabel/font_sizes/normal_font_size = 50
+VBoxContainer/constants/separation = 20

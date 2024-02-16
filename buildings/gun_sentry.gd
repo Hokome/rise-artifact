@@ -88,13 +88,15 @@ func enemy_out_of_range(enemy: Enemy):
 	enemies_in_range.erase(enemy)
 
 func on_hover(value: bool):
-		if selected:
-			return
-		$range_circle.visible = value
+	if selected:
+		return
+	$range_circle.visible = value
 
 func on_select(value: bool):
-		if selected:
-			$range_circle.visible = value
+	if value:
+		$range_circle.visible = true
+	elif !hovered:
+		$range_circle.visible = false
 
 func get_target_pos():
 	if enemies_in_range.size() == 0:
