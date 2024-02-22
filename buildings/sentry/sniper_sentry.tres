@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingWrapper" load_steps=3 format=3 uid="uid://bxkdsqbcgogj8"]
+
+[ext_resource type="PackedScene" uid="uid://yqukxeqpl40a" path="res://buildings/sentry/sniper_sentry.tscn" id="1_cyu77"]
+[ext_resource type="Script" path="res://buildings/building_wrapper.gd" id="2_gk6wp"]
+
+[resource]
+script = ExtResource("2_gk6wp")
+display_name = "Sniper Sentry"
+description = "Deals high damage to enemies at a long distance.
+Upgrade for damage."
+building_scene = ExtResource("1_cyu77")

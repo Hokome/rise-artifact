@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyjqaub4w4i1m"
-path="res://.godot/imported/gun.svg-e72210607dbb085c218b76f6f9226c3c.ctex"
+uid="uid://if2bo3sfso6i"
+path="res://.godot/imported/gun_sentry_cannon.svg-db2a259da4365a781712564781b78b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://buildings/gun.svg"
-dest_files=["res://.godot/imported/gun.svg-e72210607dbb085c218b76f6f9226c3c.ctex"]
+source_file="res://buildings/sentry/gun_sentry_cannon.svg"
+dest_files=["res://.godot/imported/gun_sentry_cannon.svg-db2a259da4365a781712564781b78b9f.ctex"]
 
 [params]
 

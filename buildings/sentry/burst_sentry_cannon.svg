@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="100mm"
-   height="100mm"
-   viewBox="0 0 100 100"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="building_base.svg"
+   sodipodi:docname="burst_sentry_cannon.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +25,9 @@
      inkscape:document-units="mm"
      showgrid="false"
      showborder="true"
-     inkscape:zoom="2.587745"
-     inkscape:cx="172.15761"
-     inkscape:cy="192.44555"
+     inkscape:zoom="1.2938725"
+     inkscape:cx="371.3658"
+     inkscape:cy="203.26578"
      inkscape:window-width="2560"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
@@ -40,14 +40,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#e5e5e5;fill-opacity:1;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round"
-       id="rect494"
-       width="90"
-       height="90"
-       x="5"
-       y="5"
-       rx="5"
-       ry="5" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#666666;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"
+       d="m 150,70 -50,20 v 20 l 50,20 c 0,0 10,-19.45907 10,-30 0,-10.540926 -10,-30 -10,-30 z"
+       id="path7338"
+       sodipodi:nodetypes="ccccsc" />
+    <circle
+       style="fill:#ffffff;stroke:#666666;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;fill-opacity:1"
+       id="path1325"
+       cx="100"
+       cy="100"
+       r="25" />
   </g>
 </svg>

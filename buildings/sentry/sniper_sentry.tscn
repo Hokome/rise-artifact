@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://yqukxeqpl40a"]
+
+[ext_resource type="Script" path="res://buildings/sentry/gun_sentry.gd" id="1_aj7ym"]
+[ext_resource type="PackedScene" uid="uid://d1h0jbed65tso" path="res://attacks/straight_projectile.tscn" id="2_1n5v0"]
+[ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="2_qdv54"]
+[ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="3_dtily"]
+[ext_resource type="PackedScene" uid="uid://cvk6yj6qqgoae" path="res://vfx/projectile_trail.tscn" id="3_i524m"]
+[ext_resource type="Texture2D" uid="uid://dajwj4cjaxq2p" path="res://buildings/sentry/sniper_sentry_cannon.svg" id="4_07n3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fluw0"]
+radius = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3o3b"]
+size = Vector2(200, 200)
+
+[node name="sniper_sentry" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_aj7ym")
+upgrade_damage_mult = 0.8
+projectile = ExtResource("2_1n5v0")
+trail = ExtResource("3_i524m")
+base_attack_cooldown = 1.0
+base_attack_damage = 200
+base_attack_range = 1000.0
+base_projectile_speed = 10000.0
+
+[node name="range_circle" type="Sprite2D" parent="."]
+modulate = Color(0.2, 0.2, 0.2, 0.392157)
+scale = Vector2(5, 5)
+texture = ExtResource("2_qdv54")
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("3_dtily")
+
+[node name="gun" type="Sprite2D" parent="."]
+texture = ExtResource("4_07n3j")
+
+[node name="offset" type="Node2D" parent="gun"]
+unique_name_in_owner = true
+position = Vector2(72, 0)
+
+[node name="attack_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="detect" type="CollisionShape2D" parent="range"]
+shape = SubResource("CircleShape2D_fluw0")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t3o3b")

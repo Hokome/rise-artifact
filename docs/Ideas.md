@@ -14,6 +14,7 @@ Tech tree/web, with potentially hidden tech.
 - Power plant (generates energy over time)
 - Power duplicator (stores power, doubles it at the end of the round and gives it when broken)
 - Library (pay power to draw a card)
+- Knowledge keeper (store a card and use it on another turn)
 
 ## Status effect ideas
 
@@ -24,6 +25,19 @@ Tech tree/web, with potentially hidden tech.
 - Shock (when close to another enemy, share the shock and deal damage, difficult to balance)
 - Burn (lose burn every tick, if burn is applied deal damage equal to previous burn)
 - Poison (lose poison every tick, deal damage equal to poison)
+
+## Expertise ideas
+
+- Draw 1 more card per turn
+- Gain x more energy per turn
+- On your first turn draw x more cards
+- On your first turn gain x more power
+- When phantom building is destroyed, gain power
+- Choose a card. This card is guaranteed to be in your hand on the first turn
+- Remove 1 card from your deck
+- Expertise that enables extra content
+- Draw x more cards, gain x less power each round
+- Gain x more power, draw x less cards each round
 
 ## Hazard ideas
 
@@ -65,6 +79,10 @@ Tech tree/web, with potentially hidden tech.
 - Upgrade one building
 - Repair a building
 - Apply 1 critical to a building
+- Draw x, discard x
+- Gain x power, discard
+- Lose all power, gain x gold for each power lost
+- Move card from draw pile to the top 
 
 ### Extension cards
 
@@ -72,10 +90,6 @@ Tech tree/web, with potentially hidden tech.
 - Gives x stat boost
 - When killing an enemy, apply one critical to this building
 - Apply one stabilize
-
-### Global cards
-
-- When phantom building is destroyed, gain power
 
 ## Achievement ideas
 

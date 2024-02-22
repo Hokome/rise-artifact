@@ -18,7 +18,6 @@ var selection: Building:
 		selection.selected = true
 		update_ui()
 
-
 var hover: Building:
 	set(value):
 		if hover == value:
@@ -54,8 +53,8 @@ func update_ui():
 		return
 	
 	visible = true
-	$margin/content/name.text = building.display_name
-	$margin/content/description.text = building.description
+	$margin/content/name.text = building.wrapper.display_name
+	$margin/content/description.text = building.wrapper.description
 	$margin/content/lower/targeting.text = building.get_targeting_text()
 	$margin/content/lower/upgrades.text = "LV " + str(building.upgrades)
 

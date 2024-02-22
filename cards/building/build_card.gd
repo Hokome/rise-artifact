@@ -1,9 +1,9 @@
 extends Card
 
-@export var building_scene: PackedScene
+@export var building_wrapper: BuildingWrapper
 
 func play(game: Game):
-	var building: Building = building_scene.instantiate()
+	var building: Building = building_wrapper.instantiate()
 	var grid := game.grid()
 	building.preview = true
 	grid.add_child(building)
@@ -23,7 +23,7 @@ func play(game: Game):
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Place 1 ")
 	rtl.push_color(Color.CYAN)
-	rtl.append_text("Gun Sentry")
+	rtl.append_text(building_wrapper.display_name)
 	rtl.pop()
 
 static func validate_placement(grid: GameGrid, pos: Vector2i) -> bool:

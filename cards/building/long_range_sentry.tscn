@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2yxk243y5y7c"]
+
+[ext_resource type="Script" path="res://cards/building/build_card.gd" id="1_aggqj"]
+[ext_resource type="Resource" uid="uid://bxkdsqbcgogj8" path="res://buildings/sentry/sniper_sentry.tres" id="2_nw1rw"]
+[ext_resource type="Texture2D" uid="uid://g4ilmu8t80w2" path="res://cards/artwork/gun_turret.png" id="3_t024r"]
+
+[node name="long_range_sentry_card" type="Node"]
+script = ExtResource("1_aggqj")
+building_wrapper = ExtResource("2_nw1rw")
+title = "Long range sentry"
+illustration = ExtResource("3_t024r")
+base_cost = 12

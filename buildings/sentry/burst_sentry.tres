@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingWrapper" load_steps=3 format=3 uid="uid://c2trv82leg44j"]
+
+[ext_resource type="PackedScene" uid="uid://x5ceyaqkdm10" path="res://buildings/sentry/burst_sentry.tscn" id="1_y7cip"]
+[ext_resource type="Script" path="res://buildings/building_wrapper.gd" id="2_lg33r"]
+
+[resource]
+script = ExtResource("2_lg33r")
+display_name = "Burst Sentry"
+description = "Blasts towards its target and damages other enemies hit along the way.
+Upgrade for damage and explosion size."
+building_scene = ExtResource("1_y7cip")

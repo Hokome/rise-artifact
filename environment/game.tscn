@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
-[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_turret_card.tscn" id="2_snu5s"]
 [ext_resource type="PackedScene" uid="uid://cba0pwoqdm6ec" path="res://environment/map_02.tscn" id="3_4kayp"]
 [ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
 [ext_resource type="Resource" uid="uid://c3g3oj1vrdd33" path="res://enemies/enemy.tres" id="3_8g0ug"]
-[ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/blast_card.tscn" id="3_ddtpc"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
 [ext_resource type="PackedScene" uid="uid://cm6yhcpxpi5hb" path="res://environment/map_03.tscn" id="4_3akru"]
 [ext_resource type="Script" path="res://waves/round_generator.gd" id="4_8dpr5"]
-[ext_resource type="PackedScene" uid="uid://cf7l2yjh4c1q3" path="res://cards/instant/strike_card.tscn" id="4_d4nay"]
 [ext_resource type="Resource" uid="uid://cv55kpu34fvaw" path="res://enemies/fast_enemy.tres" id="4_e450d"]
 [ext_resource type="Resource" uid="uid://dm85jpxprmxdw" path="res://enemies/strong_enemy.tres" id="5_h0452"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
@@ -23,7 +20,10 @@
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
 [ext_resource type="PackedScene" uid="uid://drnbpouwoj8qu" path="res://ui/building_ui.tscn" id="15_gqs0b"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="16_1pcps"]
+[ext_resource type="PackedScene" uid="uid://cocwcyl0dikt1" path="res://cards/building/explosive_sentry_card.tscn" id="19_1ashe"]
 [ext_resource type="Script" path="res://player/player_arsenal.gd" id="19_csm32"]
+[ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry.tscn" id="20_jx7aq"]
+[ext_resource type="PackedScene" uid="uid://b2x21hwcwtc11" path="res://cards/building/pulsing_sentry_card.tscn" id="21_4lqim"]
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
 [ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/card_controller.tscn" id="23_7gl36"]
 
@@ -89,7 +89,7 @@ script = ExtResource("6_xi7ey")
 [node name="player_arsenal" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("19_csm32")
-deck = Array[PackedScene]([ExtResource("2_snu5s"), ExtResource("2_snu5s"), ExtResource("3_ddtpc"), ExtResource("3_ddtpc"), ExtResource("4_d4nay"), ExtResource("4_d4nay"), ExtResource("5_my2td")])
+deck = Array[PackedScene]([ExtResource("19_1ashe"), ExtResource("20_jx7aq"), ExtResource("21_4lqim"), ExtResource("5_my2td")])
 
 [node name="hand" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

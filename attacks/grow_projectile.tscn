@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnfyat73qmhqw"]
+
+[ext_resource type="Script" path="res://attacks/grow_projectile.gd" id="1_lbnqr"]
+[ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="2_ecwfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8m5d"]
+radius = 1.0
+
+[node name="burst_projectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_lbnqr")
+pierce = -1
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d8m5d")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("2_ecwfn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

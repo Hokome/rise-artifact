@@ -2,8 +2,7 @@ class_name Building extends StaticBody2D
 
 enum Targeting {First, Strong}
 
-@export var display_name: String = "Building"
-@export_multiline var description: String = "Can be built with the help of cards"
+var wrapper: BuildingWrapper
 
 var targeting := Targeting.First
 var upgrades := 0:
@@ -51,6 +50,13 @@ func on_select(_value: bool):
 
 func on_hover(_value: bool):
 	pass
+
+func connect_mouse():
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
+func _ready():
+	connect_mouse()
 
 func _on_mouse_entered():
 	if !preview:
