@@ -73,17 +73,16 @@ script = ExtResource("5_i2tho")
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
+position = Vector2(1920, 1600)
 script = ExtResource("12_vj0g1")
 
 [node name="discard_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
+position = Vector2(1920, -1600)
 script = ExtResource("6_xi7ey")
 
 [node name="delete_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("6_xi7ey")
 
 [node name="player_arsenal" type="Node2D" parent="."]

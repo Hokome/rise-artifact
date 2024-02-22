@@ -26,8 +26,7 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if !event.is_pressed():
-			return
+		if !event.is_pressed(): return
 		
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if control_state == ControlState.Selecting:
@@ -45,12 +44,10 @@ func _input(event):
 		
 	
 	if event is InputEventKey:
-		if !event.is_pressed():
-			return
+		if !event.is_pressed(): return
 		
 		var card_index = get_card_index_input(event.physical_keycode)
-		if card_index < 0:
-			return
+		if card_index < 0: return
 		
 		call_deferred("try_play", card_index)
 
@@ -81,9 +78,9 @@ func try_play(card_id: int):
 	if control_state != ControlState.Default:
 		return
 	var hand := game.hand()
-	if hand.cards.size() <= card_id:
-		return
-	hand.try_play(game, hand.cards[card_id])
+	if hand.cards.size() <= card_id: return
+	
+	hand.try_play(game, hand.cards[card_id].controller)
 
 func select_tile(validate: Callable, preview: Node2D = null):
 	if preview == null:

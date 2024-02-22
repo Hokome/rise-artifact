@@ -2,9 +2,10 @@ extends Card
 
 @export_multiline var message = "debug card was played"
 
-func play(game: Game):
-	print(message);
+func play(game: Game) -> bool:
+	print(message)
+	consume_power(game)
 	discard(game)
+	
+	return true
 
-func get_description() -> String:
-	return "Prints a message to the dev console"

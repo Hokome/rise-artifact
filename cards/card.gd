@@ -14,9 +14,10 @@ func get_cost() -> int:
 func can_play(game: Game) -> bool:
 	return game.player_resources().power >= get_cost()
 # applies the effect of the card
-func play(game: Game):
+func play(game: Game) -> bool:
 	consume_power(game)
 	discard(game)
+	return true
 
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Placeholder description")

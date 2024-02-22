@@ -4,10 +4,10 @@ extends Card
 @export var damage := 0
 @export var radius := 1.0
 
-func play(game: Game):
+func play(game: Game) -> bool:
 	var selected_pos = await game.player_controller().select_range(radius)
 	if selected_pos == null:
-		return
+		return false
 	
 	var attack: AreaAttack = attack_scene.instantiate()
 	var shape = CircleShape2D.new()
@@ -22,6 +22,7 @@ func play(game: Game):
 	
 	consume_power(game)
 	discard(game)
+	return true
 
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Deal ")

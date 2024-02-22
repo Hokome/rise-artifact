@@ -2,7 +2,7 @@ extends Card
 
 @export var building_wrapper: BuildingWrapper
 
-func play(game: Game):
+func play(game: Game) -> bool:
 	var building: Building = building_wrapper.instantiate()
 	var grid := game.grid()
 	building.preview = true
@@ -12,13 +12,14 @@ func play(game: Game):
 	
 	if selected_position == null:
 		building.queue_free()
-		return
+		return false
 	
 	grid.add_building(building, selected_position)
 	building.preview = false
 	
 	consume_power(game)
 	discard(game)
+	return true
 
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Place 1 ")

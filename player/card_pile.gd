@@ -47,9 +47,3 @@ func remove_all():
 		cards[0].queue_free()
 		remove_card(cards[0])
 	cards.clear()
-
-func try_play(game: Game, card: Card):
-	if !card.can_play(game):
-		return
-	
-	await card.play(game)
