@@ -15,12 +15,13 @@ size = Vector2(200, 200)
 [node name="burst_sentry" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_lxutv")
-base_min_size = 100
+base_min_size = 150
 base_max_size = 400.0
+upgrade_damage_mult = 0.2
 projectile = ExtResource("2_wp46i")
 base_projectile_speed = 4000.0
 base_attack_cooldown = 0.5
-base_attack_damage = 20
+base_attack_damage = 40
 base_attack_range = 500.0
 base_projectile_lifetime = 0.1
 

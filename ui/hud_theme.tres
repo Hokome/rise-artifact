@@ -7,6 +7,7 @@ bg_color = Color(0.239216, 0.239216, 0.239216, 1)
 bg_color = Color(0, 0, 0, 0.627451)
 
 [resource]
+BoxContainer/constants/separation = 20
 Button/colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 0.313726)
 Button/font_sizes/font_size = 80
 Button/styles/normal = SubResource("StyleBoxFlat_ccxke")
@@ -16,4 +17,3 @@ MarginContainer/constants/margin_right = 40
 MarginContainer/constants/margin_top = 40
 Panel/styles/panel = SubResource("StyleBoxFlat_gnetr")
 RichTextLabel/font_sizes/normal_font_size = 50
-VBoxContainer/constants/separation = 20

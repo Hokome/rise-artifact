@@ -1,157 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://8321hydj8qfj"]
+[gd_scene load_steps=3 format=3 uid="uid://8321hydj8qfj"]
 
 [ext_resource type="Script" path="res://cards/card_controller.gd" id="1_yxp3n"]
-[ext_resource type="Theme" uid="uid://cxecphm8c5rqq" path="res://ui/card_theme.tres" id="2_sv7lg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_gun1o"]
-line_spacing = 0.0
-font_size = 40
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3mepa"]
-font_size = 28
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://cgmnlmjerd2vu" path="res://cards/control/card_visual.tscn" id="2_w6qi3"]
 
 [node name="card_controller" type="Control" groups=["cards"]]
-custom_minimum_size = Vector2(640, 340)
+custom_minimum_size = Vector2(500, 260)
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -170.0
-offset_bottom = 170.0
+offset_left = -500.0
+offset_top = -130.0
+offset_bottom = 130.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_yxp3n")
+select_offset = Vector2(-100, 0)
 
 [node name="offset" type="Node2D" parent="."]
-position = Vector2(640, 170)
+position = Vector2(500, 130)
 
-[node name="background" type="ColorRect" parent="offset"]
-custom_minimum_size = Vector2(640, 340)
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -170.0
-offset_bottom = 170.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0.858824, 0.909804, 0.972549, 1)
+[node name="visual" parent="offset" instance=ExtResource("2_w6qi3")]
+offset_left = -500.0
+offset_top = -130.0
+offset_right = 0.0
+offset_bottom = 130.0
 
-[node name="card_margin" type="MarginContainer" parent="offset/background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="main_container" type="VBoxContainer" parent="offset/background/card_margin"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="header_background" type="ColorRect" parent="offset/background/card_margin/main_container"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-color = Color(0.662745, 0.788235, 0.933333, 1)
-
-[node name="header_content" type="HBoxContainer" parent="offset/background/card_margin/main_container/header_background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="cost_background" type="ColorRect" parent="offset/background/card_margin/main_container/header_background/header_content"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-mouse_filter = 1
-color = Color(1, 0.929412, 0.690196, 1)
-
-[node name="cost" type="Label" parent="offset/background/card_margin/main_container/header_background/header_content/cost_background"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 0
-text = "00"
-label_settings = SubResource("LabelSettings_gun1o")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="title_container" type="CenterContainer" parent="offset/background/card_margin/main_container/header_background/header_content"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="title" type="Label" parent="offset/background/card_margin/main_container/header_background/header_content/title_container"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Placeholder"
-label_settings = SubResource("LabelSettings_3mepa")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="card_content" type="HBoxContainer" parent="offset/background/card_margin/main_container"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="illust_placeholder" type="ColorRect" parent="offset/background/card_margin/main_container/card_content"]
-custom_minimum_size = Vector2(240, 240)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="illustration" type="TextureRect" parent="offset/background/card_margin/main_container/card_content/illust_placeholder"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="description_background" type="ColorRect" parent="offset/background/card_margin/main_container/card_content"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-color = Color(0.196078, 0.368627, 0.552941, 1)
-
-[node name="description_container" type="CenterContainer" parent="offset/background/card_margin/main_container/card_content/description_background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="description" type="RichTextLabel" parent="offset/background/card_margin/main_container/card_content/description_background/description_container"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("2_sv7lg")
-bbcode_enabled = true
-text = "Long placeholder.
-Line placeholder."
-fit_content = true
-scroll_active = false
-autowrap_mode = 2
-
-[connection signal="mouse_entered" from="offset/background" to="." method="_on_background_mouse_entered"]
-[connection signal="mouse_exited" from="offset/background" to="." method="_on_background_mouse_exited"]
+[connection signal="mouse_entered" from="offset/visual" to="." method="_on_visual_mouse_entered"]
+[connection signal="mouse_exited" from="offset/visual" to="." method="_on_visual_mouse_exited"]

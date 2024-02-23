@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7df7adujc303"]
+
+[ext_resource type="Script" path="res://cards/card_controller.gd" id="1_uljd8"]
+[ext_resource type="PackedScene" uid="uid://cgmnlmjerd2vu" path="res://cards/control/card_visual.tscn" id="2_sstf6"]
+
+[node name="card_viewer" type="Control" groups=["cards"]]
+custom_minimum_size = Vector2(500, 260)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -130.0
+offset_right = 250.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uljd8")
+select_offset = Vector2(-40, 0)
+
+[node name="offset" type="Node2D" parent="."]
+position = Vector2(250, 130)
+
+[node name="visual" parent="offset" instance=ExtResource("2_sstf6")]
+offset_left = -250.0
+offset_top = -130.0
+offset_right = 250.0
+offset_bottom = 130.0
+
+[connection signal="mouse_entered" from="offset/visual" to="." method="_on_visual_mouse_entered"]
+[connection signal="mouse_exited" from="offset/visual" to="." method="_on_visual_mouse_exited"]

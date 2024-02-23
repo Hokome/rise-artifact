@@ -1,13 +1,13 @@
 extends CardPile
 
+@export var controller_scene: PackedScene
 @export var max_size: int = 6
-@export var card_controller_scene: PackedScene
 
 func add_card(game: Game, card: Card):
 	if max_size != 0 and cards.size() == max_size:
 		discard(game, cards[0])
 	
-	var card_controller: CardController = card_controller_scene.instantiate()
+	var card_controller: CardController = controller_scene.instantiate()
 	add_child(card_controller)
 	card_controller.card = card
 	card.controller = card_controller
@@ -22,6 +22,13 @@ func add_card(game: Game, card: Card):
 func remove_card(card: Card):
 	card.controller.clicked.disconnect(on_card_click)
 	cards.erase(card)
+
+func remove_all():
+	for card_id in cards.size():
+		remove_card(cards[0])
+	cards.clear()
+	for child in get_children():
+		child.queue_free()
 
 func discard(game: Game, card: Card):
 	remove_card(card)

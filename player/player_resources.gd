@@ -19,8 +19,7 @@ func damage(amount: int):
 	health -= amount
 
 func _on_game_battle_started(game: Game):
-	power += game.player_stats().power_per_round
 	health = game.player_arsenal().leftover_health
-func _on_game_round_ended(game: Game):
+func _on_game_round_prepared(game: Game):
 	power += game.player_stats().power_per_round
 

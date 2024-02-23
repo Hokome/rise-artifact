@@ -2,6 +2,7 @@ class_name Game extends Node2D
 
 @export var maps: Array[PackedScene]
 @export var generator: RoundGenerator
+const DEFAULT_DRAW_COUNT := 5
 
 static var is_paused := false
 var paused := false:
@@ -20,6 +21,7 @@ var map: Node2D
 
 signal battle_loaded(game: Game)
 signal battle_started(game: Game)
+signal round_prepared(game: Game)
 signal round_started(game: Game)
 signal round_ended(game: Game)
 
@@ -48,7 +50,7 @@ func load_map():
 	player_resources().stats = player_stats()
 	
 	battle_started.connect(player_resources()._on_game_battle_started)
-	round_ended.connect(player_resources()._on_game_round_ended)
+	round_prepared.connect(player_resources()._on_game_round_prepared)
 	
 	spawner().rounds = generator.generate()
 	battle_loaded.emit(self)
@@ -56,9 +58,8 @@ func load_map():
 	start_battle.call_deferred()
 
 func cleanup_map():
-	print("cleanup")
 	battle_started.disconnect(player_resources()._on_game_battle_started)
-	round_ended.disconnect(player_resources()._on_game_round_ended)
+	round_prepared.disconnect(player_resources()._on_game_round_prepared)
 	
 	delete_pile().remove_all()
 	draw_pile().remove_all()
@@ -70,9 +71,13 @@ func cleanup_map():
 func start_battle():
 	battle_started.emit(self)
 	draw_pile().shuffle()
-	for i in 4:
-		draw_pile().draw_card(self)
+	prepare_round()
 	current_round = 0
+
+func prepare_round():
+	round_prepared.emit(self)
+	for i in DEFAULT_DRAW_COUNT:
+		draw_pile().draw_card(self)
 
 func start_round():
 	in_round = true
@@ -82,7 +87,6 @@ func _exit_tree():
 	paused = false
 
 func end_round():
-	print("end round")
 	in_round = false
 	round_ended.emit(self)
 	
@@ -91,15 +95,14 @@ func end_round():
 		return
 	
 	current_round += 1
-	for i in 4:
-		draw_pile().draw_card(self)
+	prepare_round()
 
 func win():
 	if game_ended:
 		return
-	%win_lose_label.text = "You win!"
 	player_arsenal().leftover_health = player_resources().health
 	end_battle()
+	%reward_screen.display_card_rewards(self, $card_pool)
 
 func end_battle():
 	game_ended = true
@@ -131,6 +134,12 @@ func spawner() -> Spawner:
 func building_ui() -> BuildingUI:
 	return %building_ui
 
+func on_select_card_reward(controller: CardController):
+	player_arsenal().add_card_to_deck(controller.card)
+	
+	controller.card = null
+	controller.animate_fade()
+
 func _on_player_resources_death():
 	%win_lose_label.text = "Game Owover x3"
 	end_battle()
@@ -146,7 +155,7 @@ func _on_exit_button_pressed():
 	paused = false
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 
-func _on_next_button_pressed():
+func _on_next_pressed():
 	game_ended = false
 	$hud/main/end_panel.visible = false
 	cleanup_map()

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CardPool" load_steps=2 format=3 uid="uid://ubnj1o8wqwlv"]
+
+[ext_resource type="Script" path="res://cards/card_pool.gd" id="1_gfdbh"]
+
+[resource]
+script = ExtResource("1_gfdbh")
+cards = Array[null]([null])

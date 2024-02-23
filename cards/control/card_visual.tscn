@@ -1,0 +1,136 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgmnlmjerd2vu"]
+
+[ext_resource type="Theme" uid="uid://cxecphm8c5rqq" path="res://ui/card_theme.tres" id="1_560lx"]
+[ext_resource type="Script" path="res://cards/control/card_visual.gd" id="1_tn2ha"]
+
+[node name="background" type="ColorRect"]
+custom_minimum_size = Vector2(500, 260)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -170.0
+offset_right = 180.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_560lx")
+color = Color(0.858824, 0.909804, 0.972549, 1)
+script = ExtResource("1_tn2ha")
+
+[node name="card_margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="main_container" type="VBoxContainer" parent="card_margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="header_background" type="ColorRect" parent="card_margin/main_container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+color = Color(0.662745, 0.788235, 0.933333, 1)
+
+[node name="title_container" type="CenterContainer" parent="card_margin/main_container/header_background"]
+layout_mode = 2
+offset_left = 100.0
+offset_right = 480.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="title" type="Label" parent="card_margin/main_container/header_background/title_container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_560lx")
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="card_content" type="HBoxContainer" parent="card_margin/main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="illust_aspect" type="AspectRatioContainer" parent="card_margin/main_container/card_content"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+stretch_mode = 1
+
+[node name="illust_placeholder" type="ColorRect" parent="card_margin/main_container/card_content/illust_aspect"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="illustration" type="TextureRect" parent="card_margin/main_container/card_content/illust_aspect/illust_placeholder"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="description_background" type="ColorRect" parent="card_margin/main_container/card_content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+color = Color(0.196078, 0.368627, 0.552941, 1)
+
+[node name="description_container" type="CenterContainer" parent="card_margin/main_container/card_content/description_background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="description" type="RichTextLabel" parent="card_margin/main_container/card_content/description_background/description_container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_560lx")
+bbcode_enabled = true
+text = "Long placeholder.
+Line placeholder. "
+fit_content = true
+scroll_active = false
+
+[node name="cost_background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_filter = 1
+color = Color(1, 0.929412, 0.690196, 1)
+
+[node name="cost" type="Label" parent="cost_background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_560lx")
+theme_override_font_sizes/font_size = 40
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1

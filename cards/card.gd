@@ -26,5 +26,4 @@ func consume_power(game: Game):
 	game.player_resources().power -= get_cost()
 
 func discard(game: Game):
-	current_pile.remove_card(self)
-	game.discard_pile().add_card(game, self)
+	current_pile.discard(game, self)

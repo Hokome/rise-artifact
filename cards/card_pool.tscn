@@ -1,0 +1,27 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc0gf3swjyqk"]
+
+[ext_resource type="Script" path="res://cards/card_pool.gd" id="1_ohdh4"]
+[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_sentry_card.tscn" id="2_fslvo"]
+[ext_resource type="PackedScene" uid="uid://cocwcyl0dikt1" path="res://cards/building/explosive_sentry_card.tscn" id="3_2nqne"]
+[ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry.tscn" id="4_fy3al"]
+[ext_resource type="PackedScene" uid="uid://b2x21hwcwtc11" path="res://cards/building/pulsing_sentry_card.tscn" id="5_lj13i"]
+[ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/strike_card.tscn" id="6_41006"]
+[ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/upgrade_card.tscn" id="7_ky87c"]
+[ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/blast_card.tscn" id="8_sfex1"]
+
+[node name="card_pool" type="Node"]
+script = ExtResource("1_ohdh4")
+
+[node name="explosive_sentry_card" parent="." instance=ExtResource("3_2nqne")]
+
+[node name="long_range_sentry_card" parent="." instance=ExtResource("4_fy3al")]
+
+[node name="pulsing_sentry_card" parent="." instance=ExtResource("5_lj13i")]
+
+[node name="deploy_sentry_card" parent="." instance=ExtResource("2_fslvo")]
+
+[node name="strike_card" parent="." instance=ExtResource("6_41006")]
+
+[node name="upgrade_card" parent="." instance=ExtResource("7_ky87c")]
+
+[node name="blast_card" parent="." instance=ExtResource("8_sfex1")]
