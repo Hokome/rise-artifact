@@ -3,7 +3,6 @@ extends TargetingSentry
 @export var base_projectile_speed: float = 100.0
 @export var base_min_size := 10
 @export var base_max_size := 200.0
-@export var upgrade_size_mult := 0.2
 
 @export_category("Objects Refs")
 @export var projectile: PackedScene
@@ -35,8 +34,6 @@ func fire(target: Enemy):
 	$attack_cooldown.start()
 
 func get_projectile_max_size() -> float:
-	var ratio = 1 + upgrade_size_mult * upgrades
-	return base_max_size * ratio
+	return base_max_size
 func get_projectile_min_size() -> float:
-	var ratio = 1 + upgrade_size_mult * upgrades
-	return base_min_size * ratio
+	return base_min_size

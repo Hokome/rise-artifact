@@ -2,6 +2,8 @@ class_name Building extends StaticBody2D
 
 enum Targeting {First, Strong}
 
+@export var upgrade_behaviour: UpgradeBehaviour
+
 var wrapper: BuildingWrapper
 
 var targeting := Targeting.First

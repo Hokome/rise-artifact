@@ -9,4 +9,4 @@ script = ExtResource("1_2l7b4")
 building_wrapper = ExtResource("2_sybsy")
 title = "Pulsing sentry"
 illustration = ExtResource("3_kb2fg")
-base_cost = 12
+base_cost = 14

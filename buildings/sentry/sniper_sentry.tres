@@ -6,6 +6,5 @@
 [resource]
 script = ExtResource("2_gk6wp")
 display_name = "Sniper Sentry"
-description = "Deals high damage to enemies at a long distance.
-Upgrade for damage."
+description = "Deals high damage to enemies at a long distance."
 building_scene = ExtResource("1_cyu77")

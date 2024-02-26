@@ -1,9 +1,5 @@
 class_name GunSentry extends TargetingSentry
 
-@export_category("Upgrade Stats")
-@export var upgrade_damage_mult := 0.0
-@export var upgrade_attack_speed_mult := 1.0
-
 @export_category("Objects Refs")
 @export var trail: PackedScene
 
@@ -40,12 +36,3 @@ func get_contact_point(target: Vector2):
 	query.collide_with_bodies = false
 	var result = space_state.intersect_ray(query)
 	return result.position
-
-func get_damage() -> int:
-	var ratio = 1 + upgrade_damage_mult * upgrades
-	return ceili(base_attack_damage * ratio)
-func get_attack_cooldown() -> float:
-	var ratio = 1.0
-	for i in upgrades:
-		ratio *= upgrade_attack_speed_mult
-	return base_attack_cooldown * ratio

@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dumg1s70gb6om"]
+[gd_scene load_steps=10 format=3 uid="uid://dumg1s70gb6om"]
 
 [ext_resource type="Script" path="res://buildings/sentry/gun_sentry.gd" id="2_rw0f1"]
 [ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="3_02egr"]
+[ext_resource type="Script" path="res://buildings/upgrade_behaviour.gd" id="3_meell"]
 [ext_resource type="PackedScene" uid="uid://cvk6yj6qqgoae" path="res://vfx/projectile_trail.tscn" id="4_8i2j1"]
 [ext_resource type="Texture2D" uid="uid://if2bo3sfso6i" path="res://buildings/sentry/gun_sentry_cannon.svg" id="4_fmvy2"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="5_l55n4"]
+
+[sub_resource type="Resource" id="Resource_qxsea"]
+script = ExtResource("3_meell")
+flat_damage = 10
+attack_speed_mult = 0.95
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fluw0"]
 radius = 400.0
@@ -16,14 +22,13 @@ size = Vector2(200, 200)
 collision_mask = 4
 input_pickable = true
 script = ExtResource("2_rw0f1")
-upgrade_damage_mult = 0.5
-upgrade_attack_speed_mult = 0.95
 trail = ExtResource("4_8i2j1")
 base_attack_cooldown = 0.3
 base_attack_damage = 30
 base_attack_range = 400.0
 base_aspect_intensity = 10
 base_projectile_lifetime = 0.2
+upgrade_behaviour = SubResource("Resource_qxsea")
 
 [node name="range_circle" type="Sprite2D" parent="."]
 modulate = Color(0.2, 0.2, 0.2, 0.392157)

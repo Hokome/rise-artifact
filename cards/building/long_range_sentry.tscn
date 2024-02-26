@@ -9,4 +9,4 @@ script = ExtResource("1_aggqj")
 building_wrapper = ExtResource("2_nw1rw")
 title = "Long range sentry"
 illustration = ExtResource("3_t024r")
-base_cost = 12
+base_cost = 14

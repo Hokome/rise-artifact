@@ -7,3 +7,4 @@
 script = ExtResource("1_fqv20")
 aspect = ExtResource("2_77kby")
 title = "Passive Cooling"
+base_cost = 10

@@ -7,3 +7,4 @@
 script = ExtResource("1_3kcxn")
 aspect = ExtResource("2_ihel1")
 title = "Hot Shot"
+base_cost = 10

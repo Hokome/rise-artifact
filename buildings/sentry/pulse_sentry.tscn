@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://drwqiyk2nmh6t"]
+[gd_scene load_steps=10 format=3 uid="uid://drwqiyk2nmh6t"]
 
 [ext_resource type="Script" path="res://buildings/sentry/pulse_sentry.gd" id="1_x8phy"]
 [ext_resource type="PackedScene" uid="uid://dnfyat73qmhqw" path="res://attacks/grow_projectile.tscn" id="2_abywx"]
+[ext_resource type="Script" path="res://buildings/upgrade_behaviour.gd" id="3_7ebap"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="3_i5tih"]
 [ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="4_5yrt8"]
 [ext_resource type="Texture2D" uid="uid://clrsbj3pkrvu4" path="res://buildings/sentry/pulse_sentry_cannon.svg" id="5_cgc5p"]
+
+[sub_resource type="Resource" id="Resource_s5xai"]
+script = ExtResource("3_7ebap")
+flat_damage = 5
+attack_speed_mult = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fluw0"]
 radius = 400.0
@@ -20,8 +26,9 @@ projectile = ExtResource("2_abywx")
 base_attack_cooldown = 0.3
 base_attack_damage = 20
 base_attack_range = 300.0
-base_aspect_intensity = 5
+base_aspect_intensity = 4
 base_projectile_lifetime = 0.2
+upgrade_behaviour = SubResource("Resource_s5xai")
 
 [node name="range_circle" type="Sprite2D" parent="."]
 modulate = Color(0.2, 0.2, 0.2, 0.392157)

@@ -32,9 +32,9 @@ func cooldown_ended():
 	can_fire = true
 
 func get_damage() -> int:
-	return base_attack_damage
+	return base_attack_damage + (upgrade_behaviour.flat_damage * upgrades)
 func get_attack_cooldown() -> float:
-	return base_attack_cooldown
+	return base_attack_cooldown * pow(upgrade_behaviour.attack_speed_mult, upgrades)
 
 func _on_range_area_entered(area):
 	var node = area.get_parent()

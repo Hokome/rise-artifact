@@ -6,6 +6,5 @@
 [resource]
 script = ExtResource("1_81a3p")
 display_name = "Gun Sentry"
-description = "Simplest sentries of all. Cheap to make but relatively weak.
-Upgrade for damage and attack speed."
+description = "Simplest sentries of all. Cheap to make but relatively weak."
 building_scene = ExtResource("1_ft472")

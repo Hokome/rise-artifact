@@ -102,6 +102,9 @@ func win():
 		return
 	player_arsenal().leftover_health = player_resources().health
 	end_battle()
+	for i in generator.budgets.size():
+		generator.budgets[i] += 5
+	print(generator.budgets)
 	%reward_screen.display_card_rewards(self, $card_pool)
 
 func end_battle():

@@ -19,12 +19,12 @@
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
 [ext_resource type="PackedScene" uid="uid://drnbpouwoj8qu" path="res://ui/building_ui.tscn" id="15_gqs0b"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="16_1pcps"]
+[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_sentry_card.tscn" id="19_7vnyd"]
 [ext_resource type="Script" path="res://player/player_arsenal.gd" id="19_csm32"]
-[ext_resource type="PackedScene" uid="uid://e30cmslngf1y" path="res://cards/instant/passive_cooling_card.tscn" id="21_o8x37"]
+[ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/blast_card.tscn" id="20_vmxqw"]
+[ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/strike_card.tscn" id="21_eygyh"]
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
-[ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry.tscn" id="22_a8p40"]
-[ext_resource type="PackedScene" uid="uid://dym7ew8xjmqq6" path="res://cards/instant/hot_shot_card.tscn" id="22_lkwrf"]
-[ext_resource type="PackedScene" uid="uid://cocwcyl0dikt1" path="res://cards/building/explosive_sentry_card.tscn" id="22_r3xe5"]
+[ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/upgrade_card.tscn" id="22_w56xi"]
 [ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/card_controller.tscn" id="24_su8ev"]
 [ext_resource type="PackedScene" uid="uid://cc0gf3swjyqk" path="res://cards/card_pool.tscn" id="27_20nv3"]
 [ext_resource type="Script" path="res://ui/reward_screen.gd" id="27_32plo"]
@@ -33,7 +33,7 @@
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")
 enemy_pool = Array[Resource("res://enemies/enemy_wrapper.gd")]([ExtResource("3_8g0ug"), ExtResource("4_e450d"), ExtResource("5_h0452")])
-budgets = Array[float]([50.0, 20.0])
+budgets = Array[float]([10.0, 20.0, 30.0, 40.0, 50.0])
 max_budget_noise = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqdlg"]
@@ -95,13 +95,21 @@ script = ExtResource("6_xi7ey")
 unique_name_in_owner = true
 script = ExtResource("19_csm32")
 
-[node name="passive_cooling_card" parent="player_arsenal" instance=ExtResource("21_o8x37")]
+[node name="deploy_sentry_card" parent="player_arsenal" instance=ExtResource("19_7vnyd")]
 
-[node name="explosive_sentry_card" parent="player_arsenal" instance=ExtResource("22_r3xe5")]
+[node name="deploy_sentry_card2" parent="player_arsenal" instance=ExtResource("19_7vnyd")]
 
-[node name="hot_shot_card" parent="player_arsenal" instance=ExtResource("22_lkwrf")]
+[node name="blast_card" parent="player_arsenal" instance=ExtResource("20_vmxqw")]
 
-[node name="long_range_sentry_card" parent="player_arsenal" instance=ExtResource("22_a8p40")]
+[node name="blast_card2" parent="player_arsenal" instance=ExtResource("20_vmxqw")]
+
+[node name="strike_card" parent="player_arsenal" instance=ExtResource("21_eygyh")]
+
+[node name="strike_card2" parent="player_arsenal" instance=ExtResource("21_eygyh")]
+
+[node name="upgrade_card" parent="player_arsenal" instance=ExtResource("22_w56xi")]
+
+[node name="upgrade_card2" parent="player_arsenal" instance=ExtResource("22_w56xi")]
 
 [node name="hand" type="HBoxContainer" parent="."]
 unique_name_in_owner = true

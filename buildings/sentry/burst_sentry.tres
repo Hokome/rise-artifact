@@ -6,6 +6,5 @@
 [resource]
 script = ExtResource("2_lg33r")
 display_name = "Burst Sentry"
-description = "Blasts towards its target and damages other enemies hit along the way.
-Upgrade for damage and explosion size."
+description = "Blasts towards its target and damages other enemies hit along the way."
 building_scene = ExtResource("1_y7cip")
