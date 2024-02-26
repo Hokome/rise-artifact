@@ -7,7 +7,7 @@
 [node name="blizzard_card" type="Node"]
 script = ExtResource("1_nk8rq")
 status_effect = ExtResource("2_3l4mt")
-intensity = 50
+intensity = 70
 attack_scene = ExtResource("3_0vxnw")
 damage = 20
 radius = 500.0

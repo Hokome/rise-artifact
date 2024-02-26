@@ -4,16 +4,16 @@
 [ext_resource type="Script" path="res://cards/control/card_visual.gd" id="1_tn2ha"]
 
 [node name="background" type="ColorRect"]
-custom_minimum_size = Vector2(500, 260)
+custom_minimum_size = Vector2(400, 640)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -170.0
-offset_right = 180.0
-offset_bottom = 90.0
+offset_left = -200.0
+offset_top = -320.0
+offset_right = 200.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -40,17 +40,20 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="header_background" type="ColorRect" parent="card_margin/main_container"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 1
 color = Color(0.662745, 0.788235, 0.933333, 1)
 
 [node name="title_container" type="CenterContainer" parent="card_margin/main_container/header_background"]
-layout_mode = 2
-offset_left = 100.0
-offset_right = 480.0
-offset_bottom = 50.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="title" type="Label" parent="card_margin/main_container/header_background/title_container"]
@@ -61,21 +64,17 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="card_content" type="HBoxContainer" parent="card_margin/main_container"]
+[node name="card_content" type="VBoxContainer" parent="card_margin/main_container"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="illust_aspect" type="AspectRatioContainer" parent="card_margin/main_container/card_content"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-stretch_mode = 1
-
-[node name="illust_placeholder" type="ColorRect" parent="card_margin/main_container/card_content/illust_aspect"]
+[node name="illust_placeholder" type="ColorRect" parent="card_margin/main_container/card_content"]
+custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="illustration" type="TextureRect" parent="card_margin/main_container/card_content/illust_aspect/illust_placeholder"]
+[node name="illustration" type="TextureRect" parent="card_margin/main_container/card_content/illust_placeholder"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -83,7 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 5
+expand_mode = 3
 stretch_mode = 5
 
 [node name="description_background" type="ColorRect" parent="card_margin/main_container/card_content"]

@@ -4,29 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://cgmnlmjerd2vu" path="res://cards/control/card_visual.tscn" id="2_w6qi3"]
 
 [node name="card_controller" type="Control" groups=["cards"]]
-custom_minimum_size = Vector2(500, 260)
+custom_minimum_size = Vector2(400, 640)
 layout_mode = 3
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -130.0
-offset_bottom = 130.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -640.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_yxp3n")
-select_offset = Vector2(-100, 0)
+hover_scale = 1.3
+hover_offset = Vector2(0, -300)
 
 [node name="offset" type="Node2D" parent="."]
-position = Vector2(500, 130)
+position = Vector2(200, 640)
 
 [node name="visual" parent="offset" instance=ExtResource("2_w6qi3")]
-offset_left = -500.0
-offset_top = -130.0
-offset_right = 0.0
-offset_bottom = 130.0
+offset_top = -640.0
+offset_bottom = 0.0
 
 [connection signal="mouse_entered" from="offset/visual" to="." method="_on_visual_mouse_entered"]
 [connection signal="mouse_exited" from="offset/visual" to="." method="_on_visual_mouse_exited"]

@@ -2,10 +2,10 @@ class_name CardController extends Control
 
 signal clicked(controller: CardController)
 
-@export var hover_scale: float = 2.2
+@export var hover_scale: float = 1.4
+@export var hover_offset: Vector2
 @export var hover_tween_time: float = 0.2
 
-@export var select_offset: Vector2
 @export var select_tween_time: float = 0.1
 
 @export var draw_tween_time: float = 0.5
@@ -43,6 +43,11 @@ var scale_tween: Tween:
 		if scale_tween:
 			scale_tween.stop()
 		scale_tween = value
+var color_tween: Tween:
+	set(value):
+		if color_tween:
+			color_tween.stop()
+		color_tween = value
 
 var card: Card:
 	set(value):
@@ -64,15 +69,20 @@ func animate_select(value: bool):
 	var offset: Node2D = $offset
 	offset.scale = Vector2.ONE * hover_scale
 	
-	var final_pos := card_offset
-	if value:
-		final_pos += select_offset
+	var color = Color(1, 1, 1, 0.5) if value else Color.WHITE
+	var pos = card_offset if value else (hover_offset + card_offset)
 	
-	animate(select_tween_time, null, final_pos)
+	color_tween = create_tween()
+	color_tween.tween_property(self, "modulate", color, select_tween_time)
+	
+	animate(select_tween_time, hover_scale, pos)
 
-func animate_hover(): animate(hover_tween_time, hover_scale)
+func animate_hover(): animate(hover_tween_time, hover_scale, card_offset + hover_offset)
 
-func animate_reset(): animate(hover_tween_time)
+func animate_reset():
+	color_tween = create_tween()
+	color_tween.tween_property(self, "modulate", Color.WHITE, select_tween_time)
+	animate(hover_tween_time)
 
 func animate(time: float, target_scale = card_scale, target_pos = card_offset):
 	var offset: Node2D = $offset
@@ -123,6 +133,7 @@ func animate_shrink():
 func animate_fade():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, shrink_tween_time).finished.connect(queue_free)
+
 
 func _input(event):
 	if !enabled: return
