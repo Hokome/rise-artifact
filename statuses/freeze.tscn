@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://4nvgi3i7wl5r"]
+
+[ext_resource type="Script" path="res://statuses/freeze_status_effect.gd" id="1_ffimx"]
+[ext_resource type="Texture2D" uid="uid://wmf6od0jtgkp" path="res://statuses/freeze_visuals.png" id="2_bnw3s"]
+
+[node name="freeze" type="Node2D"]
+script = ExtResource("1_ffimx")
+
+[node name="sprite_fx" type="Sprite2D" parent="."]
+modulate = Color(0.470588, 0.886275, 1, 1)
+texture = ExtResource("2_bnw3s")
+
+[node name="tick" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="intensity_changed" from="." to="." method="_on_intensity_changed"]
+[connection signal="timeout" from="tick" to="." method="_on_tick_timeout"]

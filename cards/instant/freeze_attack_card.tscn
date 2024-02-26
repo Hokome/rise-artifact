@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://db35wk4xymyna"]
+
+[ext_resource type="Script" path="res://cards/instant/status_attack_card.gd" id="1_nk8rq"]
+[ext_resource type="PackedScene" uid="uid://4nvgi3i7wl5r" path="res://statuses/freeze.tscn" id="2_3l4mt"]
+[ext_resource type="PackedScene" uid="uid://b05kfwlu8fr4p" path="res://attacks/status_area_attack.tscn" id="3_0vxnw"]
+
+[node name="blizzard_card" type="Node"]
+script = ExtResource("1_nk8rq")
+status_effect = ExtResource("2_3l4mt")
+intensity = 50
+attack_scene = ExtResource("3_0vxnw")
+damage = 20
+radius = 500.0
+title = "Blizzard"
+base_cost = 6

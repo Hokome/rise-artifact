@@ -44,5 +44,7 @@ func on_card_click(controller: CardController):
 
 func try_play(game: Game, controller: CardController):
 	controller.is_selected = true
+	
+	@warning_ignore("redundant_await")
 	if !await controller.card.play(game):
 		controller.is_selected = false

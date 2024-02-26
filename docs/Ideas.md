@@ -6,6 +6,8 @@ Tech web, with "expertise", upgrades that last the whole run and can be acquired
 
 Some cards could be a key to secret stuff. Could be extra content after the "end" in which case it should be guaranteed in a way, or side content that gives a bonus when completed.
 
+	Making cards always somewhat useful on their own seems important.
+
 ## Building ideas
 
 - Barrel sentry (very high fire rate, low damage and intensity, fires faster the longer it attacks)

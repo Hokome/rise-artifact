@@ -11,8 +11,8 @@ max_health = 800
 player_damage = 2
 
 [node name="sprite" parent="." index="0"]
-modulate = Color(0.909804, 0.27451, 0, 1)
-scale = Vector2(30, 30)
+self_modulate = Color(0.909804, 0.27451, 0, 1)
+scale = Vector2(0.6, 0.6)
 
 [node name="hitbox_shape" parent="hitbox" index="0"]
 shape = SubResource("RectangleShape2D_lmqfv")

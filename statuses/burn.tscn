@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dew062k3sgkp7"]
+
+[ext_resource type="Script" path="res://statuses/burn_status_effect.gd" id="1_8kxly"]
+[ext_resource type="Texture2D" uid="uid://cjaota01bxfxq" path="res://statuses/burn_visuals.png" id="2_3hc40"]
+
+[node name="burn" type="Node2D"]
+script = ExtResource("1_8kxly")
+
+[node name="sprite_fx" type="Sprite2D" parent="."]
+modulate = Color(0.913725, 0.584314, 0.403922, 1)
+texture = ExtResource("2_3hc40")
+
+[node name="tick" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="tick" to="." method="_on_tick_timeout"]

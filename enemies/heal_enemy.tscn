@@ -17,13 +17,14 @@ base_speed = 550.0
 max_health = 400
 
 [node name="sprite" parent="." index="0"]
-modulate = Color(0.160784, 0.8, 0.427451, 1)
-scale = Vector2(24, 24)
+self_modulate = Color(0.160784, 0.8, 0.427451, 1)
+scale = Vector2(0.48, 0.48)
 
 [node name="hitbox_shape" parent="hitbox" index="0"]
 shape = SubResource("RectangleShape2D_4usa3")
 
 [node name="cast" type="ShapeCast2D" parent="." index="2"]
+visible = false
 shape = SubResource("CircleShape2D_nwm3h")
 target_position = Vector2(0, 0)
 collision_mask = 4

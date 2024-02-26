@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="enemy.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#4c4c4c"
+     bordercolor="#ffffff"
+     borderopacity="0.24705882"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#252525"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showborder="true"
+     inkscape:zoom="0.64693624"
+     inkscape:cx="263.54993"
+     inkscape:cy="339.29155"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect352"
+       style="fill:#ffffff;stroke:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"
+       d="M 9.9999064 0 C 4.459912 -1.2533172e-15 3.0947436e-17 4.459912 0 9.9999064 L 0 189.99977 C -1.2533172e-15 195.53977 4.459912 200.0002 9.9999064 200.0002 L 189.99977 200.0002 C 195.53977 200.0002 200.0002 195.53977 200.0002 189.99977 L 200.0002 9.9999064 C 200.0002 4.459912 195.53977 3.0947436e-17 189.99977 0 L 9.9999064 0 z M 54.999744 44.999837 L 144.99993 44.999837 C 150.53993 44.999837 154.99984 49.459749 154.99984 54.999744 L 154.99984 144.99993 C 154.99984 150.53993 150.53993 154.99984 144.99993 154.99984 L 54.999744 154.99984 C 49.459749 154.99984 44.999837 150.53993 44.999837 144.99993 L 44.999837 54.999744 C 44.999837 49.459749 49.459749 44.999837 54.999744 44.999837 z " />
+  </g>
+</svg>

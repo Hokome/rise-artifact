@@ -1,4 +1,4 @@
-extends Card
+class_name AttackCard extends Card
 
 @export var attack_scene: PackedScene
 @export var damage := 0
@@ -9,6 +9,13 @@ func play(game: Game) -> bool:
 	if selected_pos == null:
 		return false
 	
+	use_attack(game, selected_pos)
+	
+	consume_power(game)
+	discard(game)
+	return true
+
+func use_attack(game: Game, position: Vector2):
 	var attack: AreaAttack = attack_scene.instantiate()
 	var shape = CircleShape2D.new()
 	shape.radius = radius
@@ -16,13 +23,9 @@ func play(game: Game) -> bool:
 	attack.damage = damage
 	
 	game.map.add_child(attack)
-	attack.position = selected_pos
+	attack.position = position
 	
 	attack.execute()
-	
-	consume_power(game)
-	discard(game)
-	return true
 
 func set_description(rtl: RichTextLabel):
 	rtl.append_text("Deal ")

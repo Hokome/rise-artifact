@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b05kfwlu8fr4p"]
+
+[ext_resource type="Script" path="res://attacks/status_area_attack.gd" id="1_e3ovr"]
+
+[node name="area_attack" type="Node2D"]
+script = ExtResource("1_e3ovr")
+
+[node name="cast" type="ShapeCast2D" parent="."]
+collision_mask = 4
+collide_with_areas = true

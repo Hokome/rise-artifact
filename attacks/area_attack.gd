@@ -15,4 +15,7 @@ func execute():
 	for col: Dictionary in result:
 		var parent = col.collider.get_parent()
 		if parent is Enemy:
-			parent.damage(damage)
+			apply_effect(parent)
+
+func apply_effect(enemy: Enemy):
+	enemy.damage(damage)
