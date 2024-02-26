@@ -1,6 +1,6 @@
 extends AreaAttack
 
-var status_effect: PackedScene
+var status_effect: StatusWrapper
 var intensity: int
 
 func apply_effect(enemy: Enemy):

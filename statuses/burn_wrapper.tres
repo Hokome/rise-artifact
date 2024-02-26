@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatusWrapper" load_steps=2 format=3 uid="uid://ciipb3ayott13"]
+
+[ext_resource type="Script" path="res://statuses/status_wrapper.gd" id="1_6ewl3"]
+
+[resource]
+script = ExtResource("1_6ewl3")
+unique_name = &""
+display_name = ""
+description = ""

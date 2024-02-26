@@ -1,6 +1,6 @@
 extends AttackCard
 
-@export var status_effect: PackedScene
+@export var status_effect: StatusWrapper
 @export var intensity: int
 
 func use_attack(game: Game, position: Vector2):

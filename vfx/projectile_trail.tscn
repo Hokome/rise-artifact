@@ -7,6 +7,7 @@ _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="projectile_trail" type="Line2D"]
+closed = true
 width = 20.0
 width_curve = SubResource("Curve_ym66s")
 end_cap_mode = 2

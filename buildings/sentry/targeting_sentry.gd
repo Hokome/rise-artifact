@@ -1,21 +1,19 @@
 class_name TargetingSentry extends Sentry
 
-@export var base_projectile_speed: float = 100.0
-
 func _process(_delta):
 	if Game.is_paused or preview:
 		return
 	
-	var target = get_target_pos()
+	var target = get_target()
 	if target != null:
-		$gun.look_at(target)
+		$gun.look_at(get_target_pos(target))
 		if can_fire:
 			fire(target)
 
-func fire(_target: Vector2):
+func fire(_target: Enemy):
 	pass
 
-func get_target_pos():
+func get_target():
 	if enemies_in_range.size() == 0:
 		return null
 	var best_enemy := enemies_in_range[0]
@@ -28,8 +26,12 @@ func get_target_pos():
 			for enemy in enemies_in_range:
 				if enemy.health > best_enemy.health:
 					best_enemy = enemy
-	
-	if best_enemy != null:
-		var dist = best_enemy.global_position.distance_to(%offset.global_position)
-		return best_enemy.predict_position(dist / base_projectile_speed)
+	return best_enemy
+
+func get_target_pos(enemy, projectile_speed = null):
+	if enemy != null:
+		if projectile_speed == null:
+			return enemy.global_position
+		var dist = enemy.global_position.distance_to(%offset.global_position)
+		return enemy.predict_position(dist / projectile_speed)
 	return null

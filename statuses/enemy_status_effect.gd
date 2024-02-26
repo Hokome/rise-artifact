@@ -11,11 +11,10 @@ var intensity: int:
 			on_remove()
 			queue_free()
 
-static func apply_status(enemy: Enemy, status: PackedScene, status_intensity: int):
-	var status_name := status.get_state().get_node_name(0)
-	var node := enemy.get_node_or_null(str(status_name))
+static func apply_status(enemy: Enemy, status: StatusWrapper, status_intensity: int):
+	var node := enemy.get_node_or_null(str(status.unique_name))
 	if node == null:
-		var st: EnemyStatusEffect = status.instantiate()
+		var st: EnemyStatusEffect = status.scene.instantiate()
 		st.apply(enemy)
 		st.intensity = status_intensity
 	else:

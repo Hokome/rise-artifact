@@ -10,9 +10,6 @@ class_name Sentry extends Building
 var can_fire: bool = true
 var enemies_in_range: Array[Enemy] = []
 
-func enemy_out_of_range(enemy: Enemy):
-	enemies_in_range.erase(enemy)
-	
 func _ready():
 	var range_hitbox = $range/detect.shape as CircleShape2D
 	range_hitbox.radius = base_attack_range
@@ -47,6 +44,9 @@ func _on_range_area_exited(area):
 	if node is Enemy:
 		enemy_out_of_range(node)
 
+func enemy_out_of_range(enemy: Enemy):
+	enemies_in_range.erase(enemy)
+	
 func on_hover(value: bool):
 	if selected:
 		return

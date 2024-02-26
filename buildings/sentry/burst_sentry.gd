@@ -1,10 +1,14 @@
-extends GunSentry
+extends TargetingSentry
 
+@export var base_projectile_speed: float = 100.0
 @export var base_min_size := 10
 @export var base_max_size := 200.0
 @export var upgrade_size_mult := 0.2
 
-func fire(target: Vector2):
+@export_category("Objects Refs")
+@export var projectile: PackedScene
+
+func fire(target: Enemy):
 	can_fire = false
 	var p: Projectile = projectile.instantiate()
 	p.speed = base_projectile_speed
@@ -18,9 +22,11 @@ func fire(target: Vector2):
 	
 	var offset = %offset.global_position
 	
+	var target_pos = get_target_pos(target, base_projectile_speed)
+	
 	p.global_position = offset
-	p.direction = (target - offset).normalized()
-	p.look_at(target)
+	p.direction = (target_pos - offset).normalized()
+	p.look_at(target_pos)
 	
 	$attack_cooldown.wait_time = get_attack_cooldown()
 	$attack_cooldown.start()

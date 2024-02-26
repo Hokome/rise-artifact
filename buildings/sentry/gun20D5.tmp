@@ -37,7 +37,7 @@ texture = ExtResource("4_fmvy2")
 
 [node name="offset" type="Node2D" parent="gun"]
 unique_name_in_owner = true
-position = Vector2(60, 0)
+position = Vector2(72, 0)
 
 [node name="attack_cooldown" type="Timer" parent="."]
 one_shot = true
