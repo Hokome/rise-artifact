@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusWrapper" load_steps=3 format=3 uid="uid://ccuggko1a3pg4"]
+
+[ext_resource type="PackedScene" uid="uid://4nvgi3i7wl5r" path="res://statuses/freeze.tscn" id="1_hfkh3"]
+[ext_resource type="Script" path="res://statuses/status_wrapper.gd" id="1_rd5bw"]
+
+[resource]
+script = ExtResource("1_rd5bw")
+scene = ExtResource("1_hfkh3")
+unique_name = &"freeze"
+display_name = "Freeze"
+description = "Slows down enemy according to freeze value. Decreases 10 times per second."

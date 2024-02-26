@@ -22,5 +22,8 @@ func fire():
 	
 	p.global_position = offset
 	
+	if aspect != null:
+		aspect.modify_projectile(p, base_aspect_intensity)
+	
 	$attack_cooldown.wait_time = get_attack_cooldown()
 	$attack_cooldown.start()

@@ -25,6 +25,9 @@ func fire(target: Enemy):
 	t.global_position = contact_point
 	
 	target.damage(get_damage())
+	if aspect != null:
+		aspect.apply_to_enemy(target, self)
+		aspect.modify_trail(t)
 	
 	$attack_cooldown.wait_time = get_attack_cooldown()
 	$attack_cooldown.start()

@@ -6,8 +6,13 @@ var damage: int
 var speed: float
 var direction: Vector2
 
+var status_effect: StatusWrapper
+var status_intensity: int
+
 func hit(enemy: Enemy):
 	enemy.damage(damage)
+	if status_effect != null:
+		status_effect.apply(enemy, status_intensity)
 
 func _on_area_entered(area):
 	if pierce == 0:

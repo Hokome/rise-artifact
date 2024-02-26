@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="StatusWrapper" load_steps=2 format=3 uid="uid://ciipb3ayott13"]
+[gd_resource type="Resource" script_class="StatusWrapper" load_steps=3 format=3 uid="uid://ciipb3ayott13"]
 
 [ext_resource type="Script" path="res://statuses/status_wrapper.gd" id="1_6ewl3"]
+[ext_resource type="PackedScene" uid="uid://dew062k3sgkp7" path="res://statuses/burn.tscn" id="1_absej"]
 
 [resource]
 script = ExtResource("1_6ewl3")
-unique_name = &""
-display_name = ""
-description = ""
+scene = ExtResource("1_absej")
+unique_name = &"burn"
+display_name = "Burn"
+description = "Deals damage every second according to burn value and decreases by 10. "

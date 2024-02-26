@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckp51crh8q5cc"]
 
 [ext_resource type="Script" path="res://cards/instant/status_attack_card.gd" id="1_ypu50"]
-[ext_resource type="PackedScene" uid="uid://dew062k3sgkp7" path="res://statuses/burn.tscn" id="2_6arq1"]
 [ext_resource type="PackedScene" uid="uid://b05kfwlu8fr4p" path="res://attacks/status_area_attack.tscn" id="2_klmmm"]
+[ext_resource type="Resource" uid="uid://ciipb3ayott13" path="res://statuses/burn_wrapper.tres" id="2_o3yif"]
 
-[node name="burn_attack_card" type="Node"]
+[node name="blaze_card" type="Node"]
 script = ExtResource("1_ypu50")
-status_effect = ExtResource("2_6arq1")
+status_effect = ExtResource("2_o3yif")
 intensity = 60
 attack_scene = ExtResource("2_klmmm")
 damage = 200
 radius = 500.0
-title = "Blast"
+title = "Blaze"
 base_cost = 6

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusAspect" load_steps=3 format=3 uid="uid://bcvqnwu40o6st"]
+
+[ext_resource type="Script" path="res://aspects/status_aspect.gd" id="1_i6p1x"]
+[ext_resource type="Resource" uid="uid://ciipb3ayott13" path="res://statuses/burn_wrapper.tres" id="2_pq50d"]
+
+[resource]
+script = ExtResource("1_i6p1x")
+status_effect = ExtResource("2_pq50d")
+display_name = "Fire aspect"
+color = Color(1, 0.545098, 0.168627, 1)

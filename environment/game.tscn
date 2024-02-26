@@ -19,12 +19,12 @@
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
 [ext_resource type="PackedScene" uid="uid://drnbpouwoj8qu" path="res://ui/building_ui.tscn" id="15_gqs0b"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="16_1pcps"]
-[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_sentry_card.tscn" id="19_7vnyd"]
-[ext_resource type="PackedScene" uid="uid://ckp51crh8q5cc" path="res://cards/instant/burn_attack_card.tscn" id="19_36xb3"]
 [ext_resource type="Script" path="res://player/player_arsenal.gd" id="19_csm32"]
-[ext_resource type="PackedScene" uid="uid://db35wk4xymyna" path="res://cards/instant/freeze_attack_card.tscn" id="20_12pod"]
-[ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/strike_card.tscn" id="21_eygyh"]
+[ext_resource type="PackedScene" uid="uid://e30cmslngf1y" path="res://cards/instant/passive_cooling_card.tscn" id="21_o8x37"]
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
+[ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry.tscn" id="22_a8p40"]
+[ext_resource type="PackedScene" uid="uid://dym7ew8xjmqq6" path="res://cards/instant/hot_shot_card.tscn" id="22_lkwrf"]
+[ext_resource type="PackedScene" uid="uid://cocwcyl0dikt1" path="res://cards/building/explosive_sentry_card.tscn" id="22_r3xe5"]
 [ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/card_controller.tscn" id="24_su8ev"]
 [ext_resource type="PackedScene" uid="uid://cc0gf3swjyqk" path="res://cards/card_pool.tscn" id="27_20nv3"]
 [ext_resource type="Script" path="res://ui/reward_screen.gd" id="27_32plo"]
@@ -79,12 +79,12 @@ script = ExtResource("5_i2tho")
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1920, 1600)
+position = Vector2(2420, 1080)
 script = ExtResource("12_vj0g1")
 
 [node name="discard_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1920, -1600)
+position = Vector2(-2420, 1080)
 script = ExtResource("6_xi7ey")
 
 [node name="delete_pile" type="Node2D" parent="."]
@@ -95,17 +95,13 @@ script = ExtResource("6_xi7ey")
 unique_name_in_owner = true
 script = ExtResource("19_csm32")
 
-[node name="deploy_sentry_card" parent="player_arsenal" instance=ExtResource("19_7vnyd")]
+[node name="passive_cooling_card" parent="player_arsenal" instance=ExtResource("21_o8x37")]
 
-[node name="burn_attack_card" parent="player_arsenal" instance=ExtResource("19_36xb3")]
-damage = 50
-radius = 300.0
-title = "Burn"
-base_cost = 4
+[node name="explosive_sentry_card" parent="player_arsenal" instance=ExtResource("22_r3xe5")]
 
-[node name="blizzard_card2" parent="player_arsenal" instance=ExtResource("20_12pod")]
+[node name="hot_shot_card" parent="player_arsenal" instance=ExtResource("22_lkwrf")]
 
-[node name="strike_card" parent="player_arsenal" instance=ExtResource("21_eygyh")]
+[node name="long_range_sentry_card" parent="player_arsenal" instance=ExtResource("22_a8p40")]
 
 [node name="hand" type="HBoxContainer" parent="."]
 unique_name_in_owner = true

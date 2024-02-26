@@ -4,9 +4,11 @@ class_name Sentry extends Building
 @export var base_attack_cooldown: float
 @export var base_attack_damage: int
 @export var base_attack_range: float
+@export var base_aspect_intensity: int
 #May be in seconds or in pixels depending on the projectile type
 @export var base_projectile_lifetime: float = 6000
 
+var aspect: Aspect
 var can_fire: bool = true
 var enemies_in_range: Array[Enemy] = []
 
