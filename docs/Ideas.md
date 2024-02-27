@@ -10,6 +10,8 @@ Making cards always somewhat useful on their own seems important.
 
 Upgrade logic should be in its own class.
 
+Playstyle system: some cards are restricted to a playstyle. Playstyle is selected at the beginning of the run but others can be acquired with expertise. 
+
 ## Building ideas
 
 - Barrel sentry (very high fire rate, low damage and intensity, fires faster the longer it attacks)
@@ -25,7 +27,7 @@ Upgrade logic should be in its own class.
 - Capacitor (stores power with low priority, gets used first, stores in last)
 - Power duplicator (stores power, doubles it at the end of the round and gives it when broken)
 - Library (pay power to draw a card)
-- Knowledge keeper (store a card and use it on another turn)
+- Knowledge keeper (store a card and use it on another turn, could be used as a way to remove cards by playing card on destroy)
 - Laboratory (gives expertise points each round or at the end of the battle for each level)
 - Beacon (applies all its buffs to other enemies)
 
@@ -63,6 +65,7 @@ Upgrade logic should be in its own class.
 - Buildings can have 2 aspects at once/all aspects at once
 - Expertise with very strong effect but limits health to 1
 - Regenerate x HP at the end of each round/battle
+- Choose a card, its cost is decreased but it exhausts
 
 ## Hazard ideas
 

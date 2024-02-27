@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WavePattern" load_steps=4 format=3 uid="uid://cddaypq34guar"]
+
+[ext_resource type="Script" path="res://waves/wave_pattern.gd" id="1_se8t0"]
+[ext_resource type="Script" path="res://waves/enemy_requirement.gd" id="2_nc32o"]
+
+[sub_resource type="Resource" id="Resource_v77pj"]
+script = ExtResource("2_nc32o")
+base_cost = 6.0
+offset = 0.0
+count = 5
+spacing = 1.0
+requirements = Array[String](["heal"])
+
+[resource]
+script = ExtResource("1_se8t0")
+base_cost = 2.0
+sub_waves = Array[ExtResource("2_nc32o")]([SubResource("Resource_v77pj")])

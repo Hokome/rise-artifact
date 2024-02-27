@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_amuy0")
 enemy_scene = ExtResource("1_8ni1k")
-cost_modifier = 1.1
-tags = Array[String](["normal", "no_effect", "weak", "med_speed"])
+cost_modifier = 0.978
+tags = Array[String](["normal", "no_effect", "weak", "high_speed"])

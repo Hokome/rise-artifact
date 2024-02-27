@@ -7,4 +7,4 @@
 script = ExtResource("1_jq0nu")
 enemy_scene = ExtResource("1_exoh5")
 cost_modifier = 1.0
-tags = Array[String](["normal", "no_effect", "weak", "high_speed"])
+tags = Array[String](["normal", "no_effect", "weak", "med_speed"])

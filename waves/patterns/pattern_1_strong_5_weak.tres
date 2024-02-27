@@ -17,7 +17,7 @@ base_cost = 5.0
 offset = 1.0
 count = 5
 spacing = 0.6
-requirements = Array[String](["weak"])
+requirements = Array[String](["weak", "no_effect"])
 
 [resource]
 script = ExtResource("1_ttraj")

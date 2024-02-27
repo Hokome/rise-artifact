@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=34 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b7jub3ots15lg" path="res://environment/map_04.tscn" id="5_rbd22"]
 [ext_resource type="PackedScene" uid="uid://dxgmg0eg1m4qj" path="res://environment/map_01.tscn" id="6_aw7do"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
+[ext_resource type="Resource" uid="uid://b0iby2kbgg3u3" path="res://enemies/heal_enemy.tres" id="9_d4mu8"]
 [ext_resource type="Texture2D" uid="uid://2ccsh6g6wtrb" path="res://square.png" id="9_x773t"]
 [ext_resource type="Script" path="res://player/draw_pile.gd" id="12_vj0g1"]
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
@@ -32,8 +33,8 @@
 
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")
-enemy_pool = Array[Resource("res://enemies/enemy_wrapper.gd")]([ExtResource("3_8g0ug"), ExtResource("4_e450d"), ExtResource("5_h0452")])
-budgets = Array[float]([10.0, 20.0, 30.0, 40.0, 50.0])
+enemy_pool = Array[Resource("res://enemies/enemy_wrapper.gd")]([ExtResource("3_8g0ug"), ExtResource("4_e450d"), ExtResource("5_h0452"), ExtResource("9_d4mu8")])
+budgets = Array[float]([8.0, 20.0, 40.0, 60.0, 80.0])
 max_budget_noise = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqdlg"]
@@ -230,7 +231,7 @@ theme = ExtResource("13_5gicx")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="cards" type="VBoxContainer" parent="hud/main/end_panel/reward_screen/hbox/reward"]
+[node name="cards" type="HBoxContainer" parent="hud/main/end_panel/reward_screen/hbox/reward"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5

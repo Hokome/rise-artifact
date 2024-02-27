@@ -9,7 +9,7 @@ base_cost = 10.0
 offset = 0.0
 count = 10
 spacing = 0.4
-requirements = Array[String]([])
+requirements = Array[String](["no_effect"])
 
 [resource]
 script = ExtResource("1_hejl7")
