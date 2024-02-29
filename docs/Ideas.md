@@ -1,5 +1,7 @@
 Unorganized idea dump
 
+Should make sentries cheaper but weaker to increase options.
+
 Building special abilities at a certain level of upgrade (rare+ only maybe?)
 
 Tech web, with "expertise", upgrades that last the whole run and can be acquired if adjacent to already acquired expertise. All expertises are always present on the web, but not in the same configuration. Deeper in the web there should be more expensive but more powerful and/or niche expertises. Expertises can be bought with expertise points.
@@ -22,6 +24,7 @@ Playstyle system: some cards are restricted to a playstyle. Playstyle is selecte
 - Spray sentry (fires multiple projectiles, making it a good against weak grouped targets or large high HP enemies)
 - Charge sentry (charges itself over time, and releases pent up charge all at once when an enemy shows up, excellent safety net but overall low sustained DPS)
 - Switch sentry (has a weak mode that charges its other stronger mode)
+- Amp sentry (regularly buffs sentries in range, with buff type changing with aspect)
 
 - Power plant (generates power over time)
 - Capacitor (stores power with low priority, gets used first, stores in last)

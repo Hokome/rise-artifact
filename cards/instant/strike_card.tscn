@@ -8,7 +8,7 @@
 script = ExtResource("1_k72nv")
 attack_scene = ExtResource("2_quwjk")
 damage = 500
-radius = 150.0
+radius = 200.0
 title = "Strike"
 illustration = ExtResource("3_j1eha")
-base_cost = 2
+base_cost = 3

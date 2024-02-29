@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BuildingWrapper" load_steps=3 format=3 uid="uid://d02pt7gpfyvgi"]
+
+[ext_resource type="PackedScene" uid="uid://dumg1s70gb6om" path="res://buildings/sentry/simple_sentry/simple_sentry.tscn" id="1_t1674"]
+[ext_resource type="Script" path="res://buildings/building_wrapper.gd" id="2_xkw5l"]
+
+[resource]
+script = ExtResource("2_xkw5l")
+display_name = "Simple Sentry"
+description = "Simplest sentries of all. Cheap to make but relatively weak."
+building_scene = ExtResource("1_t1674")

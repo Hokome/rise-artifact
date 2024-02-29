@@ -75,6 +75,8 @@ func get_card_index_input(key) -> int:
 				return -1
 
 func try_play(card_id: int):
+	if $"..".game_ended:
+		return
 	if control_state != ControlState.Default:
 		return
 	var hand := game.hand()

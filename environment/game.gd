@@ -2,7 +2,7 @@ class_name Game extends Node2D
 
 @export var maps: Array[PackedScene]
 @export var generator: RoundGenerator
-const DEFAULT_DRAW_COUNT := 5
+const DEFAULT_DRAW_COUNT := 4
 
 static var is_paused := false
 var paused := false:
@@ -27,7 +27,7 @@ signal round_ended(game: Game)
 
 func _ready():
 	paused = false
-	WavePattern.initialize_patterns()
+	Round.initialize_rounds()
 	player_arsenal().leftover_health = player_stats().max_health
 	
 	load_map()
@@ -51,6 +51,7 @@ func load_map():
 	
 	battle_started.connect(player_resources()._on_game_battle_started)
 	round_prepared.connect(player_resources()._on_game_round_prepared)
+	player_resources().death.connect(lose)
 	
 	spawner().rounds = generator.generate()
 	battle_loaded.emit(self)
@@ -69,6 +70,7 @@ func cleanup_map():
 	map.queue_free()
 
 func start_battle():
+	spawner().ramping = 0
 	battle_started.emit(self)
 	draw_pile().shuffle()
 	prepare_round()
@@ -80,6 +82,8 @@ func prepare_round():
 		draw_pile().draw_card(self)
 
 func start_round():
+	if game_ended:
+		return
 	in_round = true
 	round_started.emit(self)
 
@@ -93,8 +97,10 @@ func end_round():
 	if current_round == spawner().rounds.size() - 1 and player_resources().health > 0:
 		win()
 		return
+	hand().discard_all(self)
 	
 	current_round += 1
+	spawner().ramping += 1
 	prepare_round()
 
 func win():
@@ -103,9 +109,14 @@ func win():
 	player_arsenal().leftover_health = player_resources().health
 	end_battle()
 	for i in generator.budgets.size():
-		generator.budgets[i] *= 1.1
-	print(generator.budgets)
+		generator.budgets[i] *= 1.4
+	%reward_screen.visible = true
 	%reward_screen.display_card_rewards(self, $card_pool)
+func lose():
+	if game_ended:
+		return
+	end_battle()
+	%game_over_screen.visible = true
 
 func end_battle():
 	game_ended = true
@@ -143,10 +154,6 @@ func on_select_card_reward(controller: CardController):
 	controller.card = null
 	controller.animate_fade()
 
-func _on_player_resources_death():
-	%win_lose_label.text = "Game Owover x3"
-	end_battle()
-
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 
@@ -160,6 +167,7 @@ func _on_exit_button_pressed():
 
 func _on_next_pressed():
 	game_ended = false
+	%reward_screen.visible = false
 	$hud/main/end_panel.visible = false
 	cleanup_map()
 	

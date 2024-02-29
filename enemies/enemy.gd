@@ -8,6 +8,8 @@ static var health_gradient: Gradient = load("res://ui/health_gradient.tres")
 #static var damage_number_scene: PackedScene = load("res://vfx/damage_number.tscn")
 #static var damage_number_green: LabelSettings = load("res://vfx/green_damage.tres")
 
+const RAMPING_INCREASE: float = 0.1
+
 signal death(Enemy)
 signal reached_end(int)
 
@@ -26,15 +28,16 @@ var health: int:
 
 var speed_penalty := 1.0
 
-func _ready():
-	$sprite/health_progress.max_value = max_health
-	health = max_health
-
 func _process(delta):
 	progress += get_speed() * delta
 	
 	if progress_ratio == 1:
 		damage_player()
+
+func set_ramping(ramping: int):
+	max_health += max_health * RAMPING_INCREASE * ramping
+	$sprite/health_progress.max_value = max_health
+	health = max_health
 
 func damage(amount: int):
 	health -= amount

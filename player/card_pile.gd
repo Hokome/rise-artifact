@@ -42,6 +42,11 @@ func add_card(_game: Game, card: Card):
 		add_child(card)
 	card.current_pile = self
 
+func discard_all(game: Game):
+	var count = cards.size()
+	for card_id in count:
+		discard(game, cards[0])
+
 func remove_all():
 	for card_id in cards.size():
 		cards[0].queue_free()

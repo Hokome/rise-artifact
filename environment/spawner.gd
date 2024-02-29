@@ -5,8 +5,9 @@ var rounds: Array[Round]
 var enemy_list: Array[Enemy] = []
 var waves_left
 
+var ramping: int
+
 func _on_game_round_started(game: Game):
-	print("Round ", game.current_round)
 	if game.current_round >= rounds.size():
 		return
 	var current_round := rounds[game.current_round]
@@ -30,6 +31,7 @@ func spawn_wave(game: Game, wave: Wave):
 func add_enemy(game: Game, enemy: Enemy):
 	game.map.get_node("path").add_child(enemy)
 	enemy_list.append(enemy)
+	enemy.set_ramping(ramping)
 	enemy.death.connect(remove_enemy)
 	enemy.reached_end.connect(game.player_resources().damage)
 

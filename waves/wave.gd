@@ -1,6 +1,6 @@
-class_name Wave extends RefCounted
+class_name Wave extends Resource
 
-var enemy: EnemyWrapper
-var spacing: float
-var count: int
-var delay: float
+@export var enemy: EnemyWrapper
+@export var spacing: float
+@export var count: int
+@export var delay: float

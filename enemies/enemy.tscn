@@ -13,7 +13,7 @@ rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("1_u5vpk")
-max_health = 160
+max_health = 150
 
 [node name="sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.788235, 0.0392157, 0.0392157, 1)

@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dumg1s70gb6om"]
+
+[ext_resource type="Script" path="res://buildings/sentry/simple_sentry/simple_sentry.gd" id="1_qo7q7"]
+[ext_resource type="PackedScene" uid="uid://cvk6yj6qqgoae" path="res://vfx/projectile_trail.tscn" id="2_7s5h4"]
+[ext_resource type="Script" path="res://buildings/upgrade_behaviour.gd" id="3_7skel"]
+[ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="4_7k05a"]
+[ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="5_xhem8"]
+[ext_resource type="Texture2D" uid="uid://if2bo3sfso6i" path="res://buildings/sentry/simple_sentry/simple_sentry_cannon.svg" id="6_p4ma7"]
+
+[sub_resource type="Resource" id="Resource_qxsea"]
+script = ExtResource("3_7skel")
+flat_damage = 10
+attack_speed_increase = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fluw0"]
+radius = 400.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlpfb"]
+size = Vector2(200, 200)
+
+[node name="gun_sentry" type="StaticBody2D"]
+collision_mask = 4
+input_pickable = true
+script = ExtResource("1_qo7q7")
+trail = ExtResource("2_7s5h4")
+base_attack_cooldown = 0.4
+base_attack_damage = 30
+base_attack_range = 400.0
+base_aspect_intensity = 15
+base_projectile_lifetime = 0.2
+upgrade_behaviour = SubResource("Resource_qxsea")
+
+[node name="range_circle" type="Sprite2D" parent="."]
+modulate = Color(0.2, 0.2, 0.2, 0.392157)
+scale = Vector2(2, 2)
+texture = ExtResource("4_7k05a")
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("5_xhem8")
+
+[node name="gun" type="Sprite2D" parent="."]
+texture = ExtResource("6_p4ma7")
+
+[node name="offset" type="Node2D" parent="gun"]
+unique_name_in_owner = true
+position = Vector2(60, 0)
+
+[node name="attack_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="detect" type="CollisionShape2D" parent="range"]
+shape = SubResource("CircleShape2D_fluw0")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlpfb")

@@ -1,21 +1,17 @@
-[gd_scene load_steps=34 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=30 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
 [ext_resource type="PackedScene" uid="uid://cba0pwoqdm6ec" path="res://environment/map_02.tscn" id="3_4kayp"]
 [ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
-[ext_resource type="Resource" uid="uid://c3g3oj1vrdd33" path="res://enemies/enemy.tres" id="3_8g0ug"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
 [ext_resource type="PackedScene" uid="uid://cm6yhcpxpi5hb" path="res://environment/map_03.tscn" id="4_3akru"]
 [ext_resource type="Script" path="res://waves/round_generator.gd" id="4_8dpr5"]
-[ext_resource type="Resource" uid="uid://cv55kpu34fvaw" path="res://enemies/fast_enemy.tres" id="4_e450d"]
-[ext_resource type="Resource" uid="uid://dm85jpxprmxdw" path="res://enemies/strong_enemy.tres" id="5_h0452"]
 [ext_resource type="Script" path="res://player/player_stats.gd" id="5_i2tho"]
 [ext_resource type="PackedScene" uid="uid://b7jub3ots15lg" path="res://environment/map_04.tscn" id="5_rbd22"]
 [ext_resource type="PackedScene" uid="uid://dxgmg0eg1m4qj" path="res://environment/map_01.tscn" id="6_aw7do"]
 [ext_resource type="Script" path="res://player/card_pile.gd" id="6_xi7ey"]
-[ext_resource type="Resource" uid="uid://b0iby2kbgg3u3" path="res://enemies/heal_enemy.tres" id="9_d4mu8"]
-[ext_resource type="Texture2D" uid="uid://2ccsh6g6wtrb" path="res://square.png" id="9_x773t"]
+[ext_resource type="Texture2D" uid="uid://chjgsrearrt3y" path="res://square.png" id="9_x773t"]
 [ext_resource type="Script" path="res://player/draw_pile.gd" id="12_vj0g1"]
 [ext_resource type="Theme" uid="uid://gic0gee2mxk" path="res://ui/hud_theme.tres" id="13_5gicx"]
 [ext_resource type="PackedScene" uid="uid://drnbpouwoj8qu" path="res://ui/building_ui.tscn" id="15_gqs0b"]
@@ -33,9 +29,9 @@
 
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")
-enemy_pool = Array[Resource("res://enemies/enemy_wrapper.gd")]([ExtResource("3_8g0ug"), ExtResource("4_e450d"), ExtResource("5_h0452"), ExtResource("9_d4mu8")])
-budgets = Array[float]([8.0, 20.0, 40.0, 60.0, 80.0])
-max_budget_noise = 4.0
+budgets = Array[float]([8.0, 20.0, 40.0, 80.0, 100.0])
+max_budget_noise = 2.0
+max_cost_noise = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqdlg"]
 bg_color = Color(0.027451, 0.278431, 0.380392, 1)
@@ -77,6 +73,7 @@ texture = ExtResource("16_1pcps")
 [node name="player_stats" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_i2tho")
+max_health = 50
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -199,7 +196,7 @@ text = "Restart"
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 theme = ExtResource("13_5gicx")
-text = "Exit"
+text = "Main Menu"
 
 [node name="end_panel" type="Panel" parent="hud/main"]
 visible = false
@@ -213,6 +210,7 @@ theme = ExtResource("13_5gicx")
 
 [node name="reward_screen" type="MarginContainer" parent="hud/main/end_panel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,10 +231,10 @@ size_flags_horizontal = 3
 
 [node name="cards" type="HBoxContainer" parent="hud/main/end_panel/reward_screen/hbox/reward"]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -259,6 +257,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bqdlg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y6g57")
 text = "Next"
 
+[node name="game_over_screen" type="CenterContainer" parent="hud/main/end_panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over_screen" type="VBoxContainer" parent="hud/main/end_panel/game_over_screen"]
+layout_mode = 2
+
+[node name="game_over_label" type="Label" parent="hud/main/end_panel/game_over_screen/game_over_screen"]
+layout_mode = 2
+theme = ExtResource("13_5gicx")
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="main_menu_button" type="Button" parent="hud/main/end_panel/game_over_screen/game_over_screen"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme = ExtResource("13_5gicx")
+text = "Main Menu"
+
 [node name="card_pool" parent="." instance=ExtResource("27_20nv3")]
 
 [connection signal="battle_loaded" from="." to="player_arsenal" method="_on_game_battle_loaded"]
@@ -269,3 +292,5 @@ text = "Next"
 [connection signal="tree_exiting" from="hud/main/pause_panel/pause_box/exit_button" to="." method="_on_exit_button_tree_exiting"]
 [connection signal="pressed" from="hud/main/end_panel/reward_screen/hbox/reward_list/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="hud/main/end_panel/reward_screen/hbox/reward_list/next" to="hud/main/end_panel/reward_screen" method="_on_next_pressed"]
+[connection signal="pressed" from="hud/main/end_panel/game_over_screen/game_over_screen/main_menu_button" to="." method="_on_exit_button_pressed"]
+[connection signal="tree_exiting" from="hud/main/end_panel/game_over_screen/game_over_screen/main_menu_button" to="." method="_on_exit_button_tree_exiting"]

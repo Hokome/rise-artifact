@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Round" load_steps=5 format=3 uid="uid://cyyomih1ccaw4"]
+
+[ext_resource type="Script" path="res://waves/round.gd" id="1_3m7po"]
+[ext_resource type="Resource" uid="uid://c3g3oj1vrdd33" path="res://enemies/enemy.tres" id="2_tygt1"]
+[ext_resource type="Script" path="res://waves/wave.gd" id="3_17y4w"]
+
+[sub_resource type="Resource" id="Resource_lbeiv"]
+script = ExtResource("3_17y4w")
+enemy = ExtResource("2_tygt1")
+spacing = 1.2
+count = 6
+delay = 0.0
+
+[resource]
+script = ExtResource("1_3m7po")
+cost = 5.0
+waves = Array[ExtResource("3_17y4w")]([SubResource("Resource_lbeiv")])

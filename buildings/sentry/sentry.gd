@@ -34,7 +34,9 @@ func cooldown_ended():
 func get_damage() -> int:
 	return base_attack_damage + (upgrade_behaviour.flat_damage * upgrades)
 func get_attack_cooldown() -> float:
-	return base_attack_cooldown * pow(upgrade_behaviour.attack_speed_mult, upgrades)
+	var ratio := 1 + upgrade_behaviour.attack_speed_increase * upgrades
+	var speed := ratio / base_attack_cooldown
+	return 1.0 / speed
 
 func _on_range_area_entered(area):
 	var node = area.get_parent()
