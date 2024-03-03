@@ -27,6 +27,7 @@ base_attack_cooldown = 1.0
 base_attack_damage = 200
 base_attack_range = 800.0
 base_aspect_intensity = 50
+base_projectile_lifetime = 0.3
 upgrade_behaviour = SubResource("Resource_wxd5s")
 
 [node name="range_circle" type="Sprite2D" parent="."]
