@@ -14,10 +14,18 @@ Early game they may be the only building available. They are also very cheap, ma
 Spam, some cards should be focused on making many simple sentries efficiently and giving buffs to them such as [[Cards#Mass production]]
 
 ### Sniper sentry
+
+High single target, and great range but the lowest fire rate of all sentries.
+
 ### Burst sentry
+
+Shoots AOE projectiles, works well in straight line but isn't limited to them.
+
 ### Pulse sentry
+
+Deals damage around id, weak single target but great grouped damage and can work especially well with aspects.
+
 ### Spray sentry
-### Aura sentry
 ### Barrel sentry
 ### Charge sentry
 ### Switch sentry

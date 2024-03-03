@@ -6,14 +6,18 @@ Aspects give special properties to the projectiles of the sentry it is applied o
 
 Each sentry has its own aspect intensity, which dictates how effective aspects are with it. In general, slower high damage towers like snipers use their aspect less often so they should have a higher aspect intensity, while AOE and fast firing sentries should have lower ones to compensate. Some sentries could be specialized in aspects by having very low DPS but much higher intensity to compensate.
 
-### Status aspects
+### Fire
 
-Some aspects simply apply a status effect equal to their aspect intensity. Those aspects are:
+Applies [[#Burn]] according to intensity
 
-- Fire aspect, which applies burn
-- Ice aspect, which applies freeze
+This is the single target shredder aspect.
 
-The remaining aspects are described below
+### Ice
+
+Applies [[#Freeze]] according to intensity
+
+Introduces support aspects and works great with AOE.
+
 ### Lightning
 
 Lightning chains damage to nearby enemies, halving its damage every time it chains. This means towers that have high single target damage but are bad against multiple targets can now deal with grouped enemies very efficiently.
