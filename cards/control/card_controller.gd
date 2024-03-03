@@ -59,9 +59,7 @@ var card: Card:
 		visual.set_cost(card.get_cost())
 		visual.set_illustration(card.illustration)
 		
-		var desc_label = visual.get_description_label()
-		desc_label.text = ""
-		card.set_description(desc_label)
+		visual.get_description_label().text = card.get_description()
 
 var enabled := true
 

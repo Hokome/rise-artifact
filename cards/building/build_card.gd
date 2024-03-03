@@ -21,11 +21,9 @@ func play(game: Game) -> bool:
 	discard(game)
 	return true
 
-func set_description(rtl: RichTextLabel):
-	rtl.append_text("Place 1 ")
-	rtl.push_color(Color.CYAN)
-	rtl.append_text(building_wrapper.display_name)
-	rtl.pop()
+func get_formatter() -> Dictionary: return {"building": building_wrapper.display_name}
+
+func get_default_description() -> String: return "Place 1 [color=cyan]{building}[/color]"
 
 static func validate_placement(grid: GameGrid, pos: Vector2i) -> bool:
 	if !grid.in_bounds(pos):

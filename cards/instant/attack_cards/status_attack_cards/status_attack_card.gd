@@ -16,3 +16,7 @@ func use_attack(game: Game, position: Vector2):
 	attack.position = position
 	
 	attack.execute()
+
+func get_formatter() -> Dictionary: return {"damage":damage, "intensity":intensity, "effect":status_effect.display_name}
+
+func get_default_description() -> String: return "Deal {damage} damage and apply {intensity} [color=[cyan]]{effect}[/color]"

@@ -14,6 +14,8 @@ Upgrade logic should be in its own class.
 
 Playstyle system: some cards are restricted to a playstyle. Playstyle is selected at the beginning of the run but others can be acquired with expertise. 
 
+Cards redraw cooldown.
+
 ## Building ideas
 
 - Barrel sentry (very high fire rate, low damage and intensity, fires faster the longer it attacks)

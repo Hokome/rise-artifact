@@ -27,9 +27,4 @@ func use_attack(game: Game, position: Vector2):
 	
 	attack.execute()
 
-func set_description(rtl: RichTextLabel):
-	rtl.append_text("Deal ")
-	rtl.append_text(str(damage))
-	rtl.append_text(" damage in a ")
-	rtl.append_text(str(radius))
-	rtl.append_text("cm radius")
+func get_formatter() -> Dictionary: return {"damage": damage}

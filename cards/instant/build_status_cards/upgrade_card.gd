@@ -16,10 +16,9 @@ func play(game: Game) -> bool:
 	
 	return true
 
-func set_description(rtl: RichTextLabel):
-	rtl.append_text("Upgrade a building ")
-	rtl.append_text(str(upgrade_count))
-	rtl.append_text(" time")
+func get_formatter() -> Dictionary: return {"count":upgrade_count}
+
+func get_default_description() -> String: return "Apply {count} [color=[cyan]]Upgrade[/color]"
 
 static func validate_selection(grid: GameGrid, pos: Vector2i) -> bool:
 	if !grid.in_bounds(pos):

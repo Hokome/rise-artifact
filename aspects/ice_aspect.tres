@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusAspect" load_steps=3 format=3 uid="uid://cxfeq7af50bg7"]
+
+[ext_resource type="Script" path="res://aspects/status_aspect.gd" id="1_8pu3u"]
+[ext_resource type="Resource" uid="uid://ccuggko1a3pg4" path="res://statuses/freeze_wrapper.tres" id="2_liagh"]
+
+[resource]
+script = ExtResource("1_8pu3u")
+status_effect = ExtResource("2_liagh")
+display_name = "Ice aspect"
+color = Color(0.196078, 0.717647, 0.811765, 1)

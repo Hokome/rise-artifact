@@ -16,6 +16,10 @@ func play(game: Game) -> bool:
 	
 	return true
 
+func get_formatter() -> Dictionary: return {"aspect": aspect.display_name}
+
+func get_default_description() -> String: return "Set sentry aspect to [color=[cyan]]{aspect}[/color]"
+
 static func validate_selection(grid: GameGrid, pos: Vector2i) -> bool:
 	if !grid.in_bounds(pos):
 		return false
