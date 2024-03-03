@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://tx7ggn7nfaec"]
+[gd_scene load_steps=4 format=3 uid="uid://tx7ggn7nfaec"]
 
 [ext_resource type="Script" path="res://cards/building/build_card.gd" id="1_bvbxh"]
 [ext_resource type="Resource" uid="uid://d02pt7gpfyvgi" path="res://buildings/sentry/simple_sentry/simple_sentry.tres" id="2_8p8qs"]
+[ext_resource type="Texture2D" uid="uid://bslk54fc1ipyt" path="res://cards/building/deploy_sentry/deploysentry.png" id="3_xy3l1"]
 
 [node name="deploy_sentry_card" type="Node"]
 script = ExtResource("1_bvbxh")
 building_wrapper = ExtResource("2_8p8qs")
 title = "Deploy sentry"
+illustration = ExtResource("3_xy3l1")
 base_cost = 8
