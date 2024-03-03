@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://db35wk4xymyna"]
+[gd_scene load_steps=5 format=3 uid="uid://db35wk4xymyna"]
 
 [ext_resource type="Script" path="res://cards/instant/attack_cards/status_attack_cards/status_attack_card.gd" id="1_nk8rq"]
 [ext_resource type="Resource" uid="uid://ccuggko1a3pg4" path="res://statuses/freeze_wrapper.tres" id="2_0whn0"]
 [ext_resource type="PackedScene" uid="uid://b05kfwlu8fr4p" path="res://attacks/status_area_attack.tscn" id="3_0vxnw"]
+[ext_resource type="Texture2D" uid="uid://b0ya7n080gm3f" path="res://cards/instant/attack_cards/status_attack_cards/blizzard/blizzard.png" id="4_lpe5d"]
 
 [node name="blizzard_card" type="Node"]
 script = ExtResource("1_nk8rq")
@@ -12,4 +13,5 @@ attack_scene = ExtResource("3_0vxnw")
 damage = 50
 radius = 600.0
 title = "Blizzard"
+illustration = ExtResource("4_lpe5d")
 base_cost = 4
