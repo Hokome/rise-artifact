@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8321hydj8qfj"]
 
-[ext_resource type="Script" path="res://cards/card_controller.gd" id="1_yxp3n"]
+[ext_resource type="Script" path="res://cards/control/card_controller.gd" id="1_yxp3n"]
 [ext_resource type="PackedScene" uid="uid://cgmnlmjerd2vu" path="res://cards/control/card_visual.tscn" id="2_w6qi3"]
 
 [node name="card_controller" type="Control" groups=["cards"]]

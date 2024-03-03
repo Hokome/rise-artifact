@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://e30cmslngf1y"]
+
+[ext_resource type="Script" path="res://cards/instant/aspect_cards/aspect_card.gd" id="1_kkl2g"]
+[ext_resource type="Resource" uid="uid://cxfeq7af50bg7" path="res://aspects/cold_aspect.tres" id="2_si08w"]
+
+[node name="passive_cooling_card" type="Node"]
+script = ExtResource("1_kkl2g")
+aspect = ExtResource("2_si08w")
+title = "Passive Cooling"
+base_cost = 8

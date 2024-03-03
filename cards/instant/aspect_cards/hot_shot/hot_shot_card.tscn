@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dym7ew8xjmqq6"]
+
+[ext_resource type="Script" path="res://cards/instant/aspect_cards/aspect_card.gd" id="1_tnh31"]
+[ext_resource type="Resource" uid="uid://bcvqnwu40o6st" path="res://aspects/fire_aspect.tres" id="2_627om"]
+
+[node name="hot_shot_card" type="Node"]
+script = ExtResource("1_tnh31")
+aspect = ExtResource("2_627om")
+title = "Hot Shot"
+base_cost = 10

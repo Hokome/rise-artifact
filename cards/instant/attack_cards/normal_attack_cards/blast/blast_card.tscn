@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b266mdja80lsh"]
+
+[ext_resource type="Script" path="res://cards/instant/attack_cards/attack_card.gd" id="1_u0l7q"]
+[ext_resource type="PackedScene" uid="uid://cqju0f3ypi81p" path="res://attacks/area_attack.tscn" id="2_xlmk6"]
+
+[node name="blast_card" type="Node"]
+script = ExtResource("1_u0l7q")
+attack_scene = ExtResource("2_xlmk6")
+damage = 200
+radius = 500.0
+title = "Blast"
+base_cost = 6

@@ -2,7 +2,7 @@ class_name Game extends Node2D
 
 @export var maps: Array[PackedScene]
 @export var generator: RoundGenerator
-const DEFAULT_DRAW_COUNT := 4
+const DEFAULT_DRAW_COUNT := 5
 
 static var is_paused := false
 var paused := false:

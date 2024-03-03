@@ -103,7 +103,7 @@ Cards marked ephemeral do not stay in your deck.
 
 ### Build cards
 
-- Build tower and delete
+- Build tower and consume
 - Build tower and decrease cost of this card
 - Build tower and upgrade it
 - Build tower and set aspect
@@ -127,6 +127,18 @@ Cards marked ephemeral do not stay in your deck.
 - Upgrade this building every round, delete
 - Give x stat boost to building every
 - When it kills an enemy, apply 1 critical to it
+
+### Junk cards
+
+- Memory leak: Unplayable
+- Lag spike: Unplayable, Unstable
+- Junk data: Costs x, Delete
+- Virus: When drawn, add a copy in draw pile.
+
+### Corrupt cards
+
+- Technical debt: Unplayable
+- Ransomware: Costs x power, Delete
 
 ## Achievement ideas
 
