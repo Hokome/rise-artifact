@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://r2n37fyl7il0"]
+[gd_scene load_steps=3 format=3 uid="uid://r2n37fyl7il0"]
 
 [ext_resource type="Script" path="res://cards/instant/build_status_cards/upgrade_card.gd" id="1_s4ef7"]
+[ext_resource type="Texture2D" uid="uid://bkidcp4gbnhbg" path="res://cards/instant/build_status_cards/upgrade/upgrade.png" id="2_scd5u"]
 
 [node name="upgrade_card" type="Node"]
 script = ExtResource("1_s4ef7")
 title = "Upgrade"
+illustration = ExtResource("2_scd5u")
 base_cost = 6
