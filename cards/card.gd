@@ -8,6 +8,8 @@ class_name Card extends Node
 var current_pile: CardPile = null
 var controller: CardController
 
+signal on_discard(card: Card)
+
 func get_cost() -> int:
 	return base_cost
 

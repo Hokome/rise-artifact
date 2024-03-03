@@ -47,4 +47,6 @@ func try_play(game: Game, controller: CardController):
 	
 	@warning_ignore("redundant_await")
 	if !await controller.card.play(game):
+		if controller == null:
+			return
 		controller.is_selected = false

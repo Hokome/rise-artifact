@@ -17,6 +17,7 @@ func draw_card(game: Game):
 	game.hand().add_card(game, card)
 
 func discard(game: Game, card: Card):
+	card.on_discard.emit(card)
 	remove_card(card)
 	game.discard_pile().add_card(game, card)
 
