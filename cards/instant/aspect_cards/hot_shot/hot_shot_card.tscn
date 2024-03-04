@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dym7ew8xjmqq6"]
+[gd_scene load_steps=4 format=3 uid="uid://dym7ew8xjmqq6"]
 
 [ext_resource type="Script" path="res://cards/instant/aspect_cards/aspect_card.gd" id="1_tnh31"]
 [ext_resource type="Resource" uid="uid://bcvqnwu40o6st" path="res://aspects/fire_aspect.tres" id="2_627om"]
+[ext_resource type="Texture2D" uid="uid://bxn2vbl6xgtbr" path="res://cards/instant/aspect_cards/hot_shot/hotshot.png" id="3_5ttvs"]
 
 [node name="hot_shot_card" type="Node"]
 script = ExtResource("1_tnh31")
 aspect = ExtResource("2_627om")
 title = "Hot Shot"
+illustration = ExtResource("3_5ttvs")
 base_cost = 10
