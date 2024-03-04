@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=31 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="16_1pcps"]
 [ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_sentry/deploy_sentry_card.tscn" id="19_7vnyd"]
 [ext_resource type="Script" path="res://player/player_arsenal.gd" id="19_csm32"]
+[ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry/long_range_sentry_card.tscn" id="20_a1x3j"]
 [ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/attack_cards/normal_attack_cards/blast/blast_card.tscn" id="20_vmxqw"]
 [ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/attack_cards/normal_attack_cards/strike/strike_card.tscn" id="21_eygyh"]
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
@@ -106,6 +107,8 @@ script = ExtResource("19_csm32")
 [node name="strike_card2" parent="player_arsenal" instance=ExtResource("21_eygyh")]
 
 [node name="upgrade_card" parent="player_arsenal" instance=ExtResource("22_w56xi")]
+
+[node name="long_range_sentry_card" parent="player_arsenal" instance=ExtResource("20_a1x3j")]
 
 [node name="upgrade_card2" parent="player_arsenal" instance=ExtResource("22_w56xi")]
 
