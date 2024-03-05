@@ -23,10 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/attack_cards/normal_attack_cards/strike/strike_card.tscn" id="21_eygyh"]
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
 [ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/build_status_cards/upgrade/upgrade_card.tscn" id="22_w56xi"]
-[ext_resource type="PackedScene" path="res://cards/control/card_controller.tscn" id="24_su8ev"]
+[ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/control/card_controller.tscn" id="24_su8ev"]
 [ext_resource type="PackedScene" uid="uid://cc0gf3swjyqk" path="res://cards/card_pool.tscn" id="27_20nv3"]
 [ext_resource type="Script" path="res://ui/reward_screen.gd" id="27_32plo"]
-[ext_resource type="PackedScene" path="res://cards/control/card_viewer.tscn" id="28_0hsjp"]
+[ext_resource type="PackedScene" uid="uid://c7df7adujc303" path="res://cards/control/card_viewer.tscn" id="28_0hsjp"]
 
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")

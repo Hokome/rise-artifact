@@ -100,7 +100,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_8v5c3")
 bbcode_enabled = true
-text = "Draw 4 cards per turn. If you have more than 6 cards, discard the card that was drawn the earliest.
+text = "Draw 5 cards every round and discard them at the end of the round.
 
 Click on a card to play it. The top left number on each card is the amount of [color=cyan]power[/color] needed to play it. You can see your [color=cyan]power[/color] under your HP.
 
