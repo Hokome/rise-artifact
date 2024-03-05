@@ -13,17 +13,25 @@ Early game they may be the only building available. They are also very cheap, ma
 
 Spam, some cards should be focused on making many simple sentries efficiently and giving buffs to them such as [[Cards#Mass production]]
 
+The simple sentry artwork should convey cheapness.
+
 ### Sniper sentry
 
 High single target, and great range but the lowest fire rate of all sentries.
+
+Art should convey the range with a long cannon but also the heaviness since it fires very powerful shots but slowly.
 
 ### Burst sentry
 
 Shoots AOE projectiles, works well in straight line but isn't limited to them.
 
+This should feel powerful and dangerous with a large canon.
+
 ### Pulse sentry
 
-Deals damage around id, weak single target but great grouped damage and can work especially well with aspects.
+Deals damage around it, weak single target but great grouped damage and can work especially well with aspects.
+
+Should convey the fast fire rate on top of the large area damage
 
 ### Spray sentry
 ### Barrel sentry
