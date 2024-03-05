@@ -1,1 +1,1 @@
-I AM THE ALL POWERFUL GODRICK
+A game about a rising artifact.
