@@ -35,7 +35,7 @@ func _process(delta):
 		damage_player()
 
 func set_ramping(ramping: int):
-	max_health += max_health * RAMPING_INCREASE * ramping
+	max_health += ceili(max_health * RAMPING_INCREASE * ramping)
 	$sprite/health_progress.max_value = max_health
 	health = max_health
 

@@ -14,5 +14,5 @@ func _enter_tree():
 	var size_tween := create_tween()
 	size_tween.tween_property(self, "width", 0.0, lifetime)
 
-func _process(delta):
+func _process(_delta):
 	points[0] = tail

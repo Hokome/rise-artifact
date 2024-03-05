@@ -32,7 +32,7 @@ func _ready():
 	
 	load_map()
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventKey:
 		if !event.is_pressed():
 			return
@@ -102,6 +102,11 @@ func end_round():
 	current_round += 1
 	spawner().ramping += 1
 	prepare_round()
+
+func skip_round():
+	spawner().stop()
+	spawner().kill_all()
+	end_round()
 
 func win():
 	if game_ended:

@@ -50,6 +50,24 @@ unique_name_in_owner = true
 [node name="debug" type="Node2D" parent="."]
 script = ExtResource("2_gy0tc")
 
+[node name="prompt" type="LineEdit" parent="debug"]
+visible = false
+custom_minimum_size = Vector2(2000, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -4.0
+offset_right = 250.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 56
+placeholder_text = "command..."
+deselect_on_focus_loss_enabled = false
+
 [node name="spawner" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_6ckml")
@@ -288,6 +306,7 @@ text = "Main Menu"
 
 [connection signal="battle_loaded" from="." to="player_arsenal" method="_on_game_battle_loaded"]
 [connection signal="round_started" from="." to="spawner" method="_on_game_round_started"]
+[connection signal="text_submitted" from="debug/prompt" to="debug" method="_on_prompt_text_submitted"]
 [connection signal="pressed" from="hud/main/pause_panel/pause_box/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="hud/main/pause_panel/pause_box/restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="hud/main/pause_panel/pause_box/exit_button" to="." method="_on_exit_button_pressed"]

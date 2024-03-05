@@ -12,7 +12,6 @@ func generate() -> Array[Round]:
 	return rounds
 
 func select_round(budget: float) -> Round:
-	var best_enemies: Array[EnemyWrapper] = []
 	var best_round: Round
 	var best_distance: float = INF
 	
