@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_u2yj7"]
 script = ExtResource("3_4rekp")
-flat_damage = 15
+flat_damage = 10
 attack_speed_increase = 0.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fluw0"]
@@ -28,7 +28,7 @@ projectile = ExtResource("2_pltrm")
 base_attack_cooldown = 0.7
 base_attack_damage = 50
 base_attack_range = 600.0
-base_aspect_intensity = 30
+base_aspect_intensity = 15
 base_projectile_lifetime = 0.2
 upgrade_behaviour = SubResource("Resource_u2yj7")
 

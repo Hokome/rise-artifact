@@ -125,6 +125,7 @@ mouse_filter = 2
 script = ExtResource("21_tvpxn")
 controller_scene = ExtResource("24_su8ev")
 max_size = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="hud" type="CanvasLayer" parent="."]
 
@@ -136,6 +137,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="building_ui" parent="hud/main" instance=ExtResource("15_gqs0b")]
 unique_name_in_owner = true

@@ -4,6 +4,7 @@ var preview_node: PathFollow2D
 
 func _ready():
 	preview_node = PathFollow2D.new()
+	preview_node.loop = false
 	add_child(preview_node)
 
 func get_prediction(progress: float) -> Vector2:
