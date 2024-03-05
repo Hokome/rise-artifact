@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
-[ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
+[ext_resource type="Script" path="res://debug/debug.gd" id="2_gy0tc"]
 [ext_resource type="PackedScene" uid="uid://cba0pwoqdm6ec" path="res://environment/map_02.tscn" id="3_4kayp"]
 [ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]

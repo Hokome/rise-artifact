@@ -15,3 +15,4 @@ radius = 600.0
 title = "Blizzard"
 illustration = ExtResource("4_lpe5d")
 base_cost = 4
+unique_name = &"blizzard"

@@ -16,7 +16,10 @@ func add_card(game: Game, card: Card):
 	
 	card_controller.clicked.connect(on_card_click)
 	cards.append(card)
-	card.reparent(self)
+	if card.get_parent() != null:
+		card.reparent(self)
+	else:
+		add_child(card)
 	card.current_pile = self
 
 func remove_card(card: Card):

@@ -8,4 +8,5 @@ script = ExtResource("1_s4ef7")
 title = "Upgrade"
 illustration = ExtResource("2_scd5u")
 base_cost = 6
+unique_name = &"upgrade"
 is_starter = true

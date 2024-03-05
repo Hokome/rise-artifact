@@ -10,4 +10,5 @@ building_wrapper = ExtResource("2_gcv55")
 title = "Explosive sentry"
 illustration = ExtResource("3_n2yk6")
 base_cost = 14
+unique_name = &"explosive_sentry"
 is_build_card = true

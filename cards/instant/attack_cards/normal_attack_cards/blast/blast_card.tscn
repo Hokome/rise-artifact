@@ -13,4 +13,5 @@ title = "Blast"
 illustration = ExtResource("3_ynue7")
 base_cost = 6
 description = "Deal {damage} damage in a large area"
+unique_name = &"blast"
 is_starter = true

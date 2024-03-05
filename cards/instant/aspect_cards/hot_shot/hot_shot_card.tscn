@@ -10,3 +10,4 @@ aspect = ExtResource("2_627om")
 title = "Hot Shot"
 illustration = ExtResource("3_5ttvs")
 base_cost = 10
+unique_name = &"hot_shot"

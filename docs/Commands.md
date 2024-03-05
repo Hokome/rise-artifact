@@ -36,3 +36,21 @@ skip ?how_much
 ```
 
 If the command is used without arguments, it will skip a round, if the argument is "battle", it will end the battle as if you won it.
+
+## Card command
+
+This command (very useful) allows you to add a card to your hand by typing its unique name as the first argument.
+
+```
+card !unique_name
+```
+
+The unique name of a card can be found by looking at the card object in the inspector, either by selecting the packed scene in the files or by going to the card registry scene and finding the card you want.
+
+![[card_unique_name_location.png]]
+
+To add this card to your hand you would thus type:
+
+```
+card hot_shot
+```

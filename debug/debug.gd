@@ -8,6 +8,7 @@ func _ready():
 	add_to_dictionary(PowerCommand.new(), "power")
 	add_to_dictionary(SkipCommand.new(), "skip")
 	add_to_dictionary(HPCommand.new(), "hp")
+	add_to_dictionary(CardCommand.new(), "card")
 
 func add_to_dictionary(command: Command, key: StringName):
 	command_dictionary[key] = command

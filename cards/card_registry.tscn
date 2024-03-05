@@ -16,6 +16,14 @@
 [node name="card_registry" type="Node"]
 script = ExtResource("1_8fytj")
 
+[node name="deploy_sentry_card" parent="." instance=ExtResource("12_uwqtu")]
+
+[node name="upgrade_card" parent="." instance=ExtResource("11_qtikl")]
+
+[node name="blast_card" parent="." instance=ExtResource("9_2lfwm")]
+
+[node name="strike_card" parent="." instance=ExtResource("10_t0e27")]
+
 [node name="explosive_sentry_card" parent="." instance=ExtResource("3_2nqne")]
 
 [node name="long_range_sentry_card" parent="." instance=ExtResource("4_fy3al")]
@@ -23,17 +31,10 @@ script = ExtResource("1_8fytj")
 [node name="pulsing_sentry_card" parent="." instance=ExtResource("5_lj13i")]
 
 [node name="passive_cooling_card" parent="." instance=ExtResource("9_x6vq3")]
+unique_name = &"passive_cooling"
 
 [node name="hot_shot_card" parent="." instance=ExtResource("9_hh4uk")]
 
 [node name="blizzard_card" parent="." instance=ExtResource("10_r5is4")]
 
 [node name="blaze_card" parent="." instance=ExtResource("12_qh413")]
-
-[node name="blast_card" parent="." instance=ExtResource("9_2lfwm")]
-
-[node name="strike_card" parent="." instance=ExtResource("10_t0e27")]
-
-[node name="upgrade_card" parent="." instance=ExtResource("11_qtikl")]
-
-[node name="deploy_sentry_card" parent="." instance=ExtResource("12_uwqtu")]

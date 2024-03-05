@@ -9,6 +9,7 @@ class_name Card extends Node
 @export_multiline var description: String 
 
 @export_category("Card metadata")
+@export var unique_name: StringName
 @export var is_starter := false
 @export var is_build_card := false
 
@@ -50,3 +51,10 @@ func consume_power(game: Game):
 
 func discard(game: Game):
 	current_pile.discard(game, self)
+
+static func filter_all(_card: Card) -> bool: return true
+static func filter_no_starter(card: Card) -> bool: return !card.is_starter
+static func filter_building_no_starter(card: Card) -> bool: return card.is_build_card and !card.is_starter
+
+static func weight_neutral(_card: Card) -> float: return 1.0
+static func weight_lower_building(card: Card) -> float: return 0.2 if card.is_build_card else 1.0

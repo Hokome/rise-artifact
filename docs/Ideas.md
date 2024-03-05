@@ -71,6 +71,7 @@ Cards redraw cooldown.
 - Expertise with very strong effect but limits health to 1
 - Regenerate x HP at the end of each round/battle
 - Choose a card, its cost is decreased but it exhausts
+- Reboot has no cooldown, but you exhaust cards instead of discarding them when rebooting
 
 ## Hazard ideas
 
