@@ -29,7 +29,7 @@
 
 [sub_resource type="Resource" id="Resource_j7ep6"]
 script = ExtResource("4_8dpr5")
-budgets = Array[float]([8.0, 20.0, 40.0, 80.0, 100.0])
+budgets = Array[float]([8.0, 20.0, 40.0, 80.0])
 max_budget_noise = 2.0
 max_cost_noise = 2.0
 
