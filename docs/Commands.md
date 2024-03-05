@@ -47,7 +47,7 @@ card !unique_name
 
 The unique name of a card can be found by looking at the card object in the inspector, either by selecting the packed scene in the files or by going to the card registry scene and finding the card you want.
 
-![[card_unique_name_location.png]]
+![Card inspector unique name example](Screenshots/card_unique_name_location.png)
 
 To add this card to your hand you would thus type:
 
