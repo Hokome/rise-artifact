@@ -108,6 +108,11 @@ func skip_round():
 	spawner().kill_all()
 	end_round()
 
+func skip_battle():
+	spawner().stop()
+	spawner().kill_all()
+	win()
+
 func win():
 	if game_ended:
 		return
@@ -116,7 +121,7 @@ func win():
 	for i in generator.budgets.size():
 		generator.budgets[i] *= 1.4
 	%reward_screen.visible = true
-	%reward_screen.display_card_rewards(self, $card_pool)
+	%reward_screen.display_card_rewards(self)
 func lose():
 	if game_ended:
 		return

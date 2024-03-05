@@ -10,3 +10,4 @@ building_wrapper = ExtResource("2_sybsy")
 title = "Pulsing sentry"
 illustration = ExtResource("3_a40gf")
 base_cost = 14
+is_build_card = true

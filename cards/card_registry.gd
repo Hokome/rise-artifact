@@ -1,4 +1,4 @@
-class_name CardPool extends Node
+class_name CardRegistry extends Node
 
 @export var cards: Array[Card]
 

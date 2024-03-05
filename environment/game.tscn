@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cpov2w102frwi"]
+[gd_scene load_steps=29 format=3 uid="uid://cpov2w102frwi"]
 
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug.gd" id="2_gy0tc"]
@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://player/hand_pile.gd" id="21_tvpxn"]
 [ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/build_status_cards/upgrade/upgrade_card.tscn" id="22_w56xi"]
 [ext_resource type="PackedScene" uid="uid://8321hydj8qfj" path="res://cards/control/card_controller.tscn" id="24_su8ev"]
-[ext_resource type="PackedScene" uid="uid://cc0gf3swjyqk" path="res://cards/card_pool.tscn" id="27_20nv3"]
 [ext_resource type="Script" path="res://ui/reward_screen.gd" id="27_32plo"]
 [ext_resource type="PackedScene" uid="uid://c7df7adujc303" path="res://cards/control/card_viewer.tscn" id="28_0hsjp"]
 
@@ -301,8 +300,6 @@ custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 theme = ExtResource("13_5gicx")
 text = "Main Menu"
-
-[node name="card_pool" parent="." instance=ExtResource("27_20nv3")]
 
 [connection signal="battle_loaded" from="." to="player_arsenal" method="_on_game_battle_loaded"]
 [connection signal="round_started" from="." to="spawner" method="_on_game_round_started"]

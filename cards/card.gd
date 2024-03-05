@@ -1,9 +1,16 @@
 class_name Card extends Node
 
+
+
+@export_category("Card info")
 @export var title: String
 @export var illustration: Texture2D
 @export var base_cost: int
 @export_multiline var description: String 
+
+@export_category("Card metadata")
+@export var is_starter := false
+@export var is_build_card := false
 
 var current_pile: CardPile = null
 var controller: CardController

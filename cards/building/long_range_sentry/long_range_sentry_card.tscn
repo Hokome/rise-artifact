@@ -10,3 +10,4 @@ building_wrapper = ExtResource("2_nw1rw")
 title = "Long range sentry"
 illustration = ExtResource("3_q68wq")
 base_cost = 14
+is_build_card = true

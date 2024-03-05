@@ -1,16 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc0gf3swjyqk"]
+[gd_scene load_steps=13 format=3 uid="uid://cc0gf3swjyqk"]
 
-[ext_resource type="Script" path="res://cards/card_pool.gd" id="1_ohdh4"]
+[ext_resource type="Script" path="res://cards/card_registry.gd" id="1_8fytj"]
 [ext_resource type="PackedScene" uid="uid://cocwcyl0dikt1" path="res://cards/building/explosive_sentry/explosive_sentry_card.tscn" id="3_2nqne"]
 [ext_resource type="PackedScene" uid="uid://c2yxk243y5y7c" path="res://cards/building/long_range_sentry/long_range_sentry_card.tscn" id="4_fy3al"]
 [ext_resource type="PackedScene" uid="uid://b2x21hwcwtc11" path="res://cards/building/pulsing_sentry/pulsing_sentry_card.tscn" id="5_lj13i"]
+[ext_resource type="PackedScene" uid="uid://b266mdja80lsh" path="res://cards/instant/attack_cards/normal_attack_cards/blast/blast_card.tscn" id="9_2lfwm"]
 [ext_resource type="PackedScene" uid="uid://dym7ew8xjmqq6" path="res://cards/instant/aspect_cards/hot_shot/hot_shot_card.tscn" id="9_hh4uk"]
 [ext_resource type="PackedScene" uid="uid://e30cmslngf1y" path="res://cards/instant/aspect_cards/passive_cooling/passive_cooling_card.tscn" id="9_x6vq3"]
 [ext_resource type="PackedScene" uid="uid://db35wk4xymyna" path="res://cards/instant/attack_cards/status_attack_cards/blizzard/blizzard_card.tscn" id="10_r5is4"]
+[ext_resource type="PackedScene" uid="uid://3vlyhgrvkvgj" path="res://cards/instant/attack_cards/normal_attack_cards/strike/strike_card.tscn" id="10_t0e27"]
+[ext_resource type="PackedScene" uid="uid://r2n37fyl7il0" path="res://cards/instant/build_status_cards/upgrade/upgrade_card.tscn" id="11_qtikl"]
 [ext_resource type="PackedScene" uid="uid://ckp51crh8q5cc" path="res://cards/instant/attack_cards/status_attack_cards/blaze/blaze_card.tscn" id="12_qh413"]
+[ext_resource type="PackedScene" uid="uid://tx7ggn7nfaec" path="res://cards/building/deploy_sentry/deploy_sentry_card.tscn" id="12_uwqtu"]
 
-[node name="card_pool" type="Node"]
-script = ExtResource("1_ohdh4")
+[node name="card_registry" type="Node"]
+script = ExtResource("1_8fytj")
 
 [node name="explosive_sentry_card" parent="." instance=ExtResource("3_2nqne")]
 
@@ -25,3 +29,11 @@ script = ExtResource("1_ohdh4")
 [node name="blizzard_card" parent="." instance=ExtResource("10_r5is4")]
 
 [node name="blaze_card" parent="." instance=ExtResource("12_qh413")]
+
+[node name="blast_card" parent="." instance=ExtResource("9_2lfwm")]
+
+[node name="strike_card" parent="." instance=ExtResource("10_t0e27")]
+
+[node name="upgrade_card" parent="." instance=ExtResource("11_qtikl")]
+
+[node name="deploy_sentry_card" parent="." instance=ExtResource("12_uwqtu")]

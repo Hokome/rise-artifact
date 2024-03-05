@@ -2,8 +2,8 @@ class_name RewardScreen extends MarginContainer
 
 @export var controller_scene: PackedScene
 
-func display_card_rewards(game: Game, card_pool: CardPool):
-	var rewards = card_pool.get_random_cards(3)
+func display_card_rewards(game: Game):
+	var rewards = card_registry.get_random_cards(3)
 	for c in rewards:
 		var controller: CardController = controller_scene.instantiate()
 		controller.card = c

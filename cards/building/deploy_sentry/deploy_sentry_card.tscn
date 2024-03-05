@@ -10,3 +10,5 @@ building_wrapper = ExtResource("2_8p8qs")
 title = "Deploy sentry"
 illustration = ExtResource("3_xy3l1")
 base_cost = 8
+is_starter = true
+is_build_card = true
