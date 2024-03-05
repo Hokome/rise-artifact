@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://buildings/upgrade_behaviour.gd" id="3_l274c"]
 [ext_resource type="Texture2D" uid="uid://dyhvtx2hnwwmt" path="res://circle.svg" id="4_bmmgq"]
 [ext_resource type="Texture2D" uid="uid://btl48dt8018pl" path="res://buildings/building_base.svg" id="5_dhcxw"]
-[ext_resource type="Texture2D" uid="uid://dajwj4cjaxq2p" path="res://buildings/sentry/sniper_sentry/sniper_sentry_cannon.svg" id="6_athdi"]
+[ext_resource type="Texture2D" uid="uid://dajwj4cjaxq2p" path="res://buildings/sentry/sniper_sentry/sniper_sentry_cannon.svg" id="6_ylhal"]
 
 [sub_resource type="Resource" id="Resource_wxd5s"]
 script = ExtResource("3_l274c")
@@ -27,7 +27,7 @@ base_attack_cooldown = 1.0
 base_attack_damage = 200
 base_attack_range = 800.0
 base_aspect_intensity = 50
-base_projectile_lifetime = 0.5
+base_projectile_lifetime = 2.5
 upgrade_behaviour = SubResource("Resource_wxd5s")
 
 [node name="range_circle" type="Sprite2D" parent="."]
@@ -39,7 +39,7 @@ texture = ExtResource("4_bmmgq")
 texture = ExtResource("5_dhcxw")
 
 [node name="gun" type="Sprite2D" parent="."]
-texture = ExtResource("6_athdi")
+texture = ExtResource("6_ylhal")
 
 [node name="offset" type="Node2D" parent="gun"]
 unique_name_in_owner = true
