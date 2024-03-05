@@ -12,4 +12,3 @@ radius = 180.0
 title = "Strike"
 illustration = ExtResource("3_6ig5x")
 base_cost = 2
-description = "Deal {damage} damage in a small area"
