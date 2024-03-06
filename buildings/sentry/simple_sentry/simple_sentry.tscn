@@ -45,9 +45,6 @@ texture = ExtResource("6_p4ma7")
 unique_name_in_owner = true
 position = Vector2(60, 0)
 
-[node name="attack_cooldown" type="Timer" parent="."]
-one_shot = true
-
 [node name="range" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4

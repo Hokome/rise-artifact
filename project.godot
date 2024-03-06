@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 card_registry="*res://cards/card_registry.tscn"
+time_manager="*res://environment/time_manager.gd"
 
 [display]
 

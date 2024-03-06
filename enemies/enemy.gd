@@ -29,7 +29,7 @@ var health: int:
 var speed_penalty := 1.0
 
 func _process(delta):
-	progress += get_speed() * delta
+	progress += get_speed() * delta * time_manager.battle_time_scale
 	
 	if progress_ratio == 1:
 		damage_player()

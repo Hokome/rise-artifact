@@ -8,6 +8,7 @@ func can_execute(_args) -> bool: return true
 func min_args(args, count: int) -> bool: return args.size() >= count
 
 func execute(args):
-	print(args)
+	var rest: PackedStringArray = args
+	print(" ".join(rest))
 
 func game() -> Game: return context.get_parent()

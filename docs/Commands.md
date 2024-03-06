@@ -27,15 +27,23 @@ hp !value
 
 Note that you can still not go beyond max HP and if you set it to zero or below, the player will die.
 
+### Set Max HP
+
+```
+mhp !value
+```
+
+Sets the max HP, allowing to ignore most enemies.
+
 ## Skip command
 
-The skip command allows you to travel through the game without having to wait or play the game. This can be used to skip rounds for example.
+The skip command allows you to travel through the game without having to wait or play the game. This can be used to skip a battle for example
 
 ```
 skip ?how_much
 ```
 
-If the command is used without arguments, it will skip a round, if the argument is "battle", it will end the battle as if you won it.
+Arguments are not supported for this command yet. Using the command without arguments will skip the battle.
 
 ## Card command
 

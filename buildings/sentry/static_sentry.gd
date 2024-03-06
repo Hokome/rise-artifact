@@ -4,7 +4,7 @@ func fire():
 	pass
 
 func _process(_delta):
-	if Game.is_paused or preview:
+	if time_manager.get_battle_paused() or preview:
 		return
 	
 	if !enemies_in_range.is_empty():

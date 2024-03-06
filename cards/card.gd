@@ -52,6 +52,16 @@ func consume_power(game: Game):
 func discard(game: Game):
 	current_pile.discard(game, self)
 
+static func filter_and(filters: Array[Callable]) -> Callable:
+	return func(card: Card):
+		for f in filters:
+			if !f.call(card):
+				return false
+		return true
+
+static func filter_blacklist(blacklisted_cards: Array[Card]) -> Callable:
+	return func(card: Card): return !blacklisted_cards.has(card)
+
 static func filter_all(_card: Card) -> bool: return true
 static func filter_no_starter(card: Card) -> bool: return !card.is_starter
 static func filter_building_no_starter(card: Card) -> bool: return card.is_build_card and !card.is_starter

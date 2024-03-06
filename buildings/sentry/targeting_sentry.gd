@@ -1,7 +1,7 @@
 class_name TargetingSentry extends Sentry
 
 func _process(_delta):
-	if Game.is_paused or preview:
+	if time_manager.get_battle_paused() or preview:
 		return
 	
 	var target = get_target()

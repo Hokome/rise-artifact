@@ -18,8 +18,9 @@ func _ready():
 	var range_circle = $range_circle as Sprite2D
 	range_circle.scale = Vector2.ONE * base_attack_range / 200.0
 	
-	var timer = $attack_cooldown
-	timer.wait_time = get_attack_cooldown()
+	var timer := time_manager.create_battle_timer(get_attack_cooldown(), false, true)
+	add_child(timer)
+	timer.name = "attack_cooldown"
 	timer.timeout.connect(cooldown_ended)
 	
 	var range_area = $range as Area2D

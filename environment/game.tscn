@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://environment/game.gd" id="1_o5uc8"]
 [ext_resource type="Script" path="res://debug/debug.gd" id="2_gy0tc"]
 [ext_resource type="PackedScene" uid="uid://cba0pwoqdm6ec" path="res://environment/map_02.tscn" id="3_4kayp"]
-[ext_resource type="Script" path="res://environment/spawner.gd" id="3_6ckml"]
+[ext_resource type="Script" path="res://waves/spawner.gd" id="3_6ckml"]
 [ext_resource type="Script" path="res://player/player_controller.gd" id="3_kf0iy"]
 [ext_resource type="PackedScene" uid="uid://cm6yhcpxpi5hb" path="res://environment/map_03.tscn" id="4_3akru"]
 [ext_resource type="Script" path="res://waves/round_generator.gd" id="4_8dpr5"]
@@ -90,7 +90,6 @@ texture = ExtResource("16_1pcps")
 [node name="player_stats" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_i2tho")
-max_health = 50
 
 [node name="draw_pile" type="Node2D" parent="."]
 unique_name_in_owner = true

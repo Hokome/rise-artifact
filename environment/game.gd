@@ -4,17 +4,8 @@ class_name Game extends Node2D
 @export var generator: RoundGenerator
 const DEFAULT_DRAW_COUNT := 5
 
-static var is_paused := false
-var paused := false:
-	set(value):
-		paused = value
-		is_paused = value
-		$hud/main/pause_panel.visible = value
-		Engine.time_scale = 0 if paused else 1
-
-var can_pause := true
-
 var in_round := false
+var is_round_prepared := false
 var game_ended := false
 var current_round := 0
 var map: Node2D
@@ -26,22 +17,13 @@ signal round_started(game: Game)
 signal round_ended(game: Game)
 
 func _ready():
-	paused = false
+	time_manager.game_paused = false
+	time_manager.can_pause_game = true
+	
 	Round.initialize_rounds()
 	player_arsenal().leftover_health = player_stats().max_health
 	
 	load_map()
-
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if !event.is_pressed():
-			return
-		
-		if event.keycode == KEY_ESCAPE and can_pause:
-			paused = !paused
-		
-		if event.keycode == KEY_SPACE and !in_round:
-			start_round()
 
 func load_map():
 	map = maps.pick_random().instantiate()
@@ -71,26 +53,51 @@ func cleanup_map():
 
 func start_battle():
 	spawner().ramping = 0
+	is_round_prepared = false
+	
+	time_manager.battle_paused = true
+	time_manager.can_pause_battle = true
+	
 	battle_started.emit(self)
 	draw_pile().shuffle()
 	prepare_round()
 	current_round = 0
+	
+	spawner().aborted = false
+	
+	time_manager.on_battle_resumed.connect(start_round)
 
 func prepare_round():
+	if is_round_prepared: return
+	is_round_prepared = true
 	round_prepared.emit(self)
 	for i in DEFAULT_DRAW_COUNT:
 		draw_pile().draw_card(self)
 
 func start_round():
+	if time_manager.on_battle_resumed.is_connected(start_round):
+		time_manager.on_battle_resumed.disconnect(start_round)
+	
+	is_round_prepared = false
 	if game_ended:
 		return
 	in_round = true
 	round_started.emit(self)
 
-func _exit_tree():
-	paused = false
+func timeout_round():
+	if current_round < spawner().rounds.size() - 1:
+		end_round()
+		prepare_round()
+		start_round()
+
+func finish_round():
+	if current_round == spawner().rounds.size() - 1:
+		end_round()
+		return
+	prepare_round()
 
 func end_round():
+	
 	in_round = false
 	round_ended.emit(self)
 	
@@ -101,14 +108,15 @@ func end_round():
 	
 	current_round += 1
 	spawner().ramping += 1
-	prepare_round()
 
-func skip_round():
-	spawner().stop()
-	spawner().kill_all()
-	end_round()
+#func skip_round():
+	#spawner().stop()
+	#spawner().kill_all()
+	#end_round()
 
 func skip_battle():
+	if time_manager.on_battle_resumed.is_connected(start_round):
+		time_manager.on_battle_resumed.disconnect(start_round)
 	spawner().stop()
 	spawner().kill_all()
 	win()
@@ -116,6 +124,7 @@ func skip_battle():
 func win():
 	if game_ended:
 		return
+	
 	player_arsenal().leftover_health = player_resources().health
 	end_battle()
 	for i in generator.budgets.size():
@@ -130,7 +139,8 @@ func lose():
 
 func end_battle():
 	game_ended = true
-	can_pause = false
+	time_manager.battle_paused = true
+	time_manager.can_pause_battle = false
 	$hud/main/end_panel.visible = true
 
 func hand() -> CardPile:
@@ -158,6 +168,9 @@ func spawner() -> Spawner:
 func building_ui() -> BuildingUI:
 	return %building_ui
 
+func _exit_tree():
+	time_manager.game_paused = false
+
 func on_select_card_reward(controller: CardController):
 	player_arsenal().add_card_to_deck(controller.card)
 	
@@ -168,11 +181,11 @@ func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_resume_button_pressed():
-	if can_pause:
-		paused = false
+	if time_manager.can_pause_battle:
+		time_manager.game_paused = false
 
 func _on_exit_button_pressed():
-	paused = false
+	time_manager.game_paused = false
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 
 func _on_next_pressed():
